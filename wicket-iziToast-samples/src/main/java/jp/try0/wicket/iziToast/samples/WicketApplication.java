@@ -4,6 +4,7 @@ import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.protocol.http.WebApplication;
 
 import jp.try0.wicket.iziToast.core.ToastOption;
+import jp.try0.wicket.iziToast.core.behavior.IziToastBehavior.ToastMessageCombiner;
 import jp.try0.wicket.iziToast.core.config.IziToastSetting;
 
 /**
@@ -34,14 +35,20 @@ public class WicketApplication extends WebApplication
 		ToastOption option = new ToastOption();
 		option.setStyleClass("izi-toast-custom");
 		option.setPosition("topCenter");
-		option.setClose("true");
-		option.setCloseOnClick("true");
+		option.setClose(true);
+		option.setCloseOnClick(true);
 		option.setIconColor("#138989");
-		option.setTimeout("false");
+		option.setTimeout(false);
+		option.setLayout(2);
+		option.setTransitionIn("fadeIn");
+
+		ToastMessageCombiner combiner = new ToastMessageCombiner();
+		combiner.setPrefix("・");
 
 		IziToastSetting.createInitializer(this)
 		.setAutoAppendBehavior(true)
 		.setGlobalOption(option)
+		.setToastMessageCombiner(combiner)
 		.initialize();
 	}
 }
