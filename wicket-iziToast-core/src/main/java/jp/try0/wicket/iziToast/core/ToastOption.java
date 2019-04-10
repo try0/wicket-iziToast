@@ -96,51 +96,51 @@ public class ToastOption implements IToastOption {
 	@ToastOptionValue(value = "image")
 	String image;
 	@ToastOptionValue(value = "imageWidth")
-	String imageWidth;
+	Integer imageWidth;
 	@ToastOptionValue(value = "maxWidth")
 	String maxWidth;
 	@ToastOptionValue(value = "zindex")
 	String zindex;
 	@ToastOptionValue(value = "layout")
-	String layout;
+	Integer layout;
 	@ToastOptionValue(value = "balloon")
-	String balloon;
+	Boolean balloon;
 	@ToastOptionValue(value = "close", squeezeWithDoubleQuotes = false)
-	String close;
+	Boolean close;
 	@ToastOptionValue(value = "closeOnEscape")
-	String closeOnEscape;
+	Boolean closeOnEscape;
 	@ToastOptionValue(value = "closeOnClick", squeezeWithDoubleQuotes = false)
-	String closeOnClick;
+	Boolean closeOnClick;
 	@ToastOptionValue(value = "displayMode")
-	String displayMode;
+	Integer displayMode;
 	@ToastOptionValue(value = "position")
 	String position;
 	@ToastOptionValue(value = "target")
 	String target;
 	@ToastOptionValue(value = "targetFirst")
-	String targetFirst;
+	Boolean targetFirst;
 	@ToastOptionValue(value = "timeout", squeezeWithDoubleQuotes = false)
 	String timeout;
 	@ToastOptionValue(value = "rtl")
-	String rtl;
+	Boolean rtl;
 	@ToastOptionValue(value = "animateInside")
-	String animateInside;
+	Boolean animateInside;
 	@ToastOptionValue(value = "drag")
-	String drag;
+	Boolean drag;
 	@ToastOptionValue(value = "pauseOnHover")
-	String pauseOnHover;
+	Boolean pauseOnHover;
 	@ToastOptionValue(value = "resetOnHover")
-	String resetOnHover;
+	Boolean resetOnHover;
 	@ToastOptionValue(value = "progressBar")
-	String progressBar;
+	Boolean progressBar;
 	@ToastOptionValue(value = "progressBarColor")
 	String progressBarColor;
 	@ToastOptionValue(value = "progressBarEasing")
 	String progressBarEasing;
 	@ToastOptionValue(value = "overlay")
-	String overlay;
+	Boolean overlay;
 	@ToastOptionValue(value = "overlayClose")
-	String overlayClose;
+	Boolean overlayClose;
 	@ToastOptionValue(value = "overlayColor")
 	String overlayColor;
 	@ToastOptionValue(value = "transitionIn")
@@ -308,11 +308,11 @@ public class ToastOption implements IToastOption {
 		this.image = image;
 	}
 
-	public String getImageWidth() {
+	public Integer getImageWidth() {
 		return imageWidth;
 	}
 
-	public void setImageWidth(String imageWidth) {
+	public void setImageWidth(Integer imageWidth) {
 		this.imageWidth = imageWidth;
 	}
 
@@ -332,51 +332,51 @@ public class ToastOption implements IToastOption {
 		this.zindex = zindex;
 	}
 
-	public String getLayout() {
+	public Integer getLayout() {
 		return layout;
 	}
 
-	public void setLayout(String layout) {
+	public void setLayout(Integer layout) {
 		this.layout = layout;
 	}
 
-	public String getBalloon() {
+	public Boolean getBalloon() {
 		return balloon;
 	}
 
-	public void setBalloon(String balloon) {
+	public void setBalloon(Boolean balloon) {
 		this.balloon = balloon;
 	}
 
-	public String getClose() {
+	public Boolean getClose() {
 		return close;
 	}
 
-	public void setClose(String close) {
+	public void setClose(Boolean close) {
 		this.close = close;
 	}
 
-	public String getCloseOnEscape() {
+	public Boolean getCloseOnEscape() {
 		return closeOnEscape;
 	}
 
-	public void setCloseOnEscape(String closeOnEscape) {
+	public void setCloseOnEscape(Boolean closeOnEscape) {
 		this.closeOnEscape = closeOnEscape;
 	}
 
-	public String getCloseOnClick() {
+	public Boolean getCloseOnClick() {
 		return closeOnClick;
 	}
 
-	public void setCloseOnClick(String closeOnClick) {
+	public void setCloseOnClick(Boolean closeOnClick) {
 		this.closeOnClick = closeOnClick;
 	}
 
-	public String getDisplayMode() {
+	public Integer getDisplayMode() {
 		return displayMode;
 	}
 
-	public void setDisplayMode(String displayMode) {
+	public void setDisplayMode(Integer displayMode) {
 		this.displayMode = displayMode;
 	}
 
@@ -396,11 +396,11 @@ public class ToastOption implements IToastOption {
 		this.target = target;
 	}
 
-	public String getTargetFirst() {
+	public Boolean getTargetFirst() {
 		return targetFirst;
 	}
 
-	public void setTargetFirst(String targetFirst) {
+	public void setTargetFirst(Boolean targetFirst) {
 		this.targetFirst = targetFirst;
 	}
 
@@ -409,54 +409,62 @@ public class ToastOption implements IToastOption {
 	}
 
 	public void setTimeout(String timeout) {
-		this.timeout = timeout;
+		this.timeout = String.valueOf(timeout);
 	}
 
-	public String getRtl() {
+	public void setTimeout(Integer timeout) {
+		this.timeout = String.valueOf(timeout);
+	}
+
+	public void setTimeout(Boolean timeout) {
+		this.timeout = String.valueOf(timeout);
+	}
+
+	public Boolean getRtl() {
 		return rtl;
 	}
 
-	public void setRtl(String rtl) {
+	public void setRtl(Boolean rtl) {
 		this.rtl = rtl;
 	}
 
-	public String getAnimateInside() {
+	public Boolean getAnimateInside() {
 		return animateInside;
 	}
 
-	public void setAnimateInside(String animateInside) {
+	public void setAnimateInside(Boolean animateInside) {
 		this.animateInside = animateInside;
 	}
 
-	public String getDrag() {
+	public Boolean getDrag() {
 		return drag;
 	}
 
-	public void setDrag(String drag) {
+	public void setDrag(Boolean drag) {
 		this.drag = drag;
 	}
 
-	public String getPauseOnHover() {
+	public Boolean getPauseOnHover() {
 		return pauseOnHover;
 	}
 
-	public void setPauseOnHover(String pauseOnHover) {
+	public void setPauseOnHover(Boolean pauseOnHover) {
 		this.pauseOnHover = pauseOnHover;
 	}
 
-	public String getResetOnHover() {
+	public Boolean getResetOnHover() {
 		return resetOnHover;
 	}
 
-	public void setResetOnHover(String resetOnHover) {
+	public void setResetOnHover(Boolean resetOnHover) {
 		this.resetOnHover = resetOnHover;
 	}
 
-	public String getProgressBar() {
+	public Boolean getProgressBar() {
 		return progressBar;
 	}
 
-	public void setProgressBar(String progressBar) {
+	public void setProgressBar(Boolean progressBar) {
 		this.progressBar = progressBar;
 	}
 
@@ -476,19 +484,19 @@ public class ToastOption implements IToastOption {
 		this.progressBarEasing = progressBarEasing;
 	}
 
-	public String getOverlay() {
+	public Boolean getOverlay() {
 		return overlay;
 	}
 
-	public void setOverlay(String overlay) {
+	public void setOverlay(Boolean overlay) {
 		this.overlay = overlay;
 	}
 
-	public String getOverlayClose() {
+	public Boolean getOverlayClose() {
 		return overlayClose;
 	}
 
-	public void setOverlayClose(String overlayClose) {
+	public void setOverlayClose(Boolean overlayClose) {
 		this.overlayClose = overlayClose;
 	}
 
@@ -623,7 +631,115 @@ public class ToastOption implements IToastOption {
 	 */
 	@Override
 	public ToastOption overwrite(IToastOption option) {
-		return null;
+		ToastOption newOption = new ToastOption();
+
+		newOption.setId(option.getId() == null ? this.id : option.getId());
+
+		newOption.setStyleClass(option.getStyleClass() == null ? this.styleClass : option.getStyleClass());
+
+		newOption.setTitle(option.getTitle() == null ? this.title : option.getTitle());
+
+		newOption.setTitleColor(option.getTitleColor() == null ? this.titleColor : option.getTitleColor());
+
+		newOption.setTitleSize(option.getTitleSize() == null ? this.titleSize : option.getTitleSize());
+
+		newOption.setTitleLineHeight(
+				option.getTitleLineHeight() == null ? this.titleLineHeight : option.getTitleLineHeight());
+
+		newOption.setMessage(option.getMessage() == null ? this.message : option.getMessage());
+
+		newOption.setMessageColor(option.getMessageColor() == null ? this.messageColor : option.getMessageColor());
+
+		newOption.setMessageSize(option.getMessageSize() == null ? this.messageSize : option.getMessageSize());
+
+		newOption.setMessageLineHeight(
+				option.getMessageLineHeight() == null ? this.messageLineHeight : option.getMessageLineHeight());
+
+		newOption.setBackgroundColor(option.getBackgroundColor() == null ? this.backgroundColor : option.getBackgroundColor());
+
+		newOption.setTheme(option.getTheme() == null ? this.theme : option.getTheme());
+
+		newOption.setColor(option.getColor() == null ? this.color : option.getColor());
+
+		newOption.setIcon(option.getIcon() == null ? this.icon : option.getIcon());
+
+		newOption.setIconText(option.getIconText() == null ? this.iconText : option.getIconText());
+
+		newOption.setIconColor(option.getIconColor() == null ? this.iconColor : option.getIconColor());
+
+		newOption.setIconUrl(option.getIconUrl() == null ? this.iconUrl : option.getIconUrl());
+
+		newOption.setImage(option.getImage() == null ? this.image : option.getImage());
+
+		newOption.setImageWidth(option.getImageWidth() == null ? this.imageWidth : option.getImageWidth());
+
+		newOption.setMaxWidth(option.getMaxWidth() == null ? this.maxWidth : option.getMaxWidth());
+
+		newOption.setZindex(option.getZindex() == null ? this.zindex : option.getZindex());
+
+		newOption.setLayout(option.getLayout() == null ? this.layout : option.getLayout());
+
+		newOption.setBalloon(option.getBalloon() == null ? this.balloon : option.getBalloon());
+
+		newOption.setClose(option.getClose() == null ? this.close : option.getClose());
+
+		newOption.setCloseOnEscape(option.getCloseOnEscape() == null ? this.closeOnEscape : option.getCloseOnEscape());
+
+		newOption.setCloseOnClick(option.getCloseOnClick() == null ? this.closeOnClick : option.getCloseOnClick());
+
+		newOption.setDisplayMode(option.getDisplayMode() == null ? this.displayMode : option.getDisplayMode());
+
+		newOption.setPosition(option.getPosition() == null ? this.position : option.getPosition());
+
+		newOption.setTarget(option.getTarget() == null ? this.target : option.getTarget());
+
+		newOption.setTargetFirst(option.getTargetFirst() == null ? this.targetFirst : option.getTargetFirst());
+
+		newOption.setTimeout(option.getTimeout() == null ? this.timeout : option.getTimeout());
+
+		newOption.setRtl(option.getRtl() == null ? this.rtl : option.getRtl());
+
+		newOption.setAnimateInside(option.getAnimateInside() == null ? this.animateInside : option.getAnimateInside());
+
+		newOption.setDrag(option.getDrag() == null ? this.drag : option.getDrag());
+
+		newOption.setPauseOnHover(option.getPauseOnHover() == null ? this.pauseOnHover : option.getPauseOnHover());
+
+		newOption.setResetOnHover(option.getResetOnHover() == null ? this.resetOnHover : option.getResetOnHover());
+
+		newOption.setProgressBar(option.getProgressBar() == null ? this.progressBar : option.getProgressBar());
+
+		newOption.setProgressBarColor(option.getProgressBarColor() == null ? this.progressBarColor : option.getProgressBarColor());
+
+		newOption.setProgressBarEasing(option.getProgressBarEasing() == null ? this.progressBarEasing : option.getProgressBarEasing());
+
+		newOption.setOverlay(option.getOverlay() == null ? this.overlay : option.getOverlay());
+
+		newOption.setOverlayClose(option.getOverlayClose() == null ? this.overlayClose : option.getOverlayClose());
+
+		newOption.setOverlayColor(option.getOverlayColor() == null ? this.overlayColor : option.getOverlayColor());
+
+		newOption.setTransitionIn(option.getTransitionIn() == null ? this.transitionIn : option.getTransitionIn());
+
+		newOption.setTransitionOut(option.getTransitionOut() == null ? this.transitionOut : option.getTransitionOut());
+
+		newOption.setTransitionInMobile(option.getTransitionInMobile() == null ? this.transitionInMobile : option.getTransitionInMobile());
+
+		newOption.setTransitionOutMobile(option.getTransitionOutMobile() == null ? this.transitionOutMobile : option.getTransitionOutMobile());
+
+		newOption.setButtons(option.getButtons() == null ? this.buttons : option.getButtons());
+
+		newOption.setInputs(option.getInputs() == null ? this.inputs : option.getInputs());
+
+		newOption.setOnOpening(option.getOnOpening() == null ? this.onOpening : option.getOnOpening());
+
+		newOption.setOnOpened(option.getOnOpened() == null ? this.onOpened : option.getOnOpened());
+
+		newOption.setOnClosing(option.getOnClosing() == null ? this.onClosing : option.getOnClosing());
+
+		newOption.setOnClosed(option.getOnClosed() == null ? this.onClosed : option.getOnClosed());
+
+		return newOption;
 	}
 
 }
