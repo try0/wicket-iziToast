@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -25,6 +24,7 @@ import jp.try0.wicket.iziToast.core.IToast;
 import jp.try0.wicket.iziToast.core.IToastOption;
 import jp.try0.wicket.iziToast.core.Toast;
 import jp.try0.wicket.iziToast.core.Toast.ToastLevel;
+import jp.try0.wicket.iziToast.core.ToastOption;
 import jp.try0.wicket.iziToast.core.config.IziToastSetting;
 
 /**
@@ -160,20 +160,25 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 		 */
 		public IToast combine(IToast combined, IToast target) {
 
-//			// combine messages
-//			String decoratedMessage = decorateMessage(target.getMessage(), getPrefix(), getSuffix());
-//			String concatenatedMessage = combined.getMessage() + decoratedMessage;
-//			final Toast newToast = Toast.create(target.getToastLevel(), concatenatedMessage);
-//
-//			// select toast title
-//			Optional<String> title = decideTitle(combined, target);
-//			title.ifPresent(val -> newToast.withTitle(val));
-//
-//			// combine toast options
-//			Optional<ToastOption> option = decideToastOption(combined, target);
-//			option.ifPresent(val -> newToast.withToastOption(val));
 
-			return target;
+			// select toast title
+			String title = decideTitle(combined, target);
+
+			// combine messages
+			String decoratedMessage = decorateMessage(target.getMessage(), getPrefix(), getSuffix());
+			String concatenatedMessage = combined.getMessage() + decoratedMessage;
+
+			// combine toast options
+			IToastOption option = decideToastOption(combined, target);
+
+			ToastOption tmpOption = new ToastOption();
+			tmpOption.setTitle(title);
+			tmpOption.setMessage(concatenatedMessage);
+
+			final Toast newToast = Toast.create(target.getToastLevel(), option.overwrite(tmpOption));
+
+
+			return newToast;
 		}
 
 		/**
@@ -200,9 +205,8 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 		 * @param target the uncombined toast
 		 * @return the title to display
 		 */
-		protected Optional<String> decideTitle(IToast combined, IToast target) {
-//			return target.getTitle();
-			return Optional.of("");
+		protected String decideTitle(IToast combined, IToast target) {
+			return target.getTitle();
 		}
 
 		/**
