@@ -64,12 +64,12 @@ public class IziToastSetting {
 		/**
 		 * Need append behavior to new pages
 		 */
-		private boolean needAutoAppendToastrBehavior = false;
+		private boolean needAutoAppendToastBehavior = false;
 
 		/**
 		 * {@link IziToastBehavior} factory
 		 */
-		private Supplier<IziToastBehavior> toastrBehaviorFactory = DEFAULT_TOASTR_BEHAVIOR_FACTORY;
+		private Supplier<IziToastBehavior> iziToastBehaviorFactory = DEFAULT_IZITOAST_BEHAVIOR_FACTORY;
 
 		/**
 		 * Message combiner
@@ -87,7 +87,7 @@ public class IziToastSetting {
 		}
 
 		/**
-		 * Sets toastr global option.
+		 * Sets toast global option.
 		 *
 		 * @param globalOption global option
 		 * @return this
@@ -98,7 +98,7 @@ public class IziToastSetting {
 		}
 
 		/**
-		 * Sets toastr global options for each levels.
+		 * Sets toast global options for each levels.
 		 *
 		 * @param globalOption global options
 		 * @return this
@@ -122,23 +122,23 @@ public class IziToastSetting {
 		/**
 		 * Sets need auto append {@link IziToastBehavior} to new {@link Page}.
 		 *
-		 * @param needAutoAppendToastrBehavior whether or not to append {@link IziToastBehavior} to new page
+		 * @param needAutoAppendToastBehavior whether or not to append {@link IziToastBehavior} to new page
 		 * @return this
 		 */
-		public IziToastSettingInitializer setAutoAppendBehavior(boolean needAutoAppendToastrBehavior) {
-			this.needAutoAppendToastrBehavior = needAutoAppendToastrBehavior;
+		public IziToastSettingInitializer setAutoAppendBehavior(boolean needAutoAppendToastBehavior) {
+			this.needAutoAppendToastBehavior = needAutoAppendToastBehavior;
 			return this;
 		}
 
 		/**
 		 * Sets {@link IziToastBehavior} factory.
 		 *
-		 * @param toastrBehaviorFactory factory of {@link IziToastBehavior}
+		 * @param iziToastBehaviorFactory factory of {@link IziToastBehavior}
 		 * @return this
 		 */
-		public IziToastSettingInitializer setToastrBehaviorFactory(
-				Supplier<IziToastBehavior> toastrBehaviorFactory) {
-			this.toastrBehaviorFactory = toastrBehaviorFactory;
+		public IziToastSettingInitializer setIziToastBehaviorFactory(
+				Supplier<IziToastBehavior> iziToastBehaviorFactory) {
+			this.iziToastBehaviorFactory = iziToastBehaviorFactory;
 			return this;
 		}
 
@@ -153,16 +153,16 @@ public class IziToastSetting {
 		}
 
 		/**
-		 * Initialize toastr settings.
+		 * Initialize iziToast settings.
 		 */
 		public IziToastSetting initialize() {
 
 			if (application.getMetaData(META_DATA_KEY) != null) {
 				throw new UnsupportedOperationException(
-						"The setting has already been initialized. ToastrSettings#initialize can only be called once.");
+						"The setting has already been initialized. IziToastSettings#initialize can only be called once.");
 			}
 
-			if (needAutoAppendToastrBehavior) {
+			if (needAutoAppendToastBehavior) {
 				application.getComponentInstantiationListeners().add(new IziToastBehaviorAutoAppender());
 			}
 
@@ -184,7 +184,7 @@ public class IziToastSetting {
 	/**
 	 * Default {@link IziToastBehavior} factory.
 	 */
-	private static final Supplier<IziToastBehavior> DEFAULT_TOASTR_BEHAVIOR_FACTORY = () -> new IziToastBehavior();
+	private static final Supplier<IziToastBehavior> DEFAULT_IZITOAST_BEHAVIOR_FACTORY = () -> new IziToastBehavior();
 
 	/**
 	 * Creates settings builder.
@@ -199,7 +199,7 @@ public class IziToastSetting {
 	/**
 	 * Sets up default values.
 	 *
-	 * @return toastr settings
+	 * @return iziToast settings
 	 */
 	private static IziToastSetting initialize() {
 
@@ -208,18 +208,18 @@ public class IziToastSetting {
 		}
 
 		final Application application = Application.get();
-		boolean needAutoAppendToastrBehavior = false;
+		boolean needAutoAppendToastBehavior = false;
 
 		return IziToastSetting.createInitializer(application)
-				.setAutoAppendBehavior(needAutoAppendToastrBehavior)
+				.setAutoAppendBehavior(needAutoAppendToastBehavior)
 				.initialize();
 	}
 
 	/**
-	 * Gets instance of toastr settings.<br>
+	 * Gets instance of iziToast settings.<br>
 	 * If settings has already been initialized, returns it, otherwise first initialize setting and returns it.
 	 *
-	 * @return toastr settings
+	 * @return iziToast settings
 	 */
 	public static IziToastSetting get() {
 		if (!Application.exists()) {
@@ -254,7 +254,7 @@ public class IziToastSetting {
 	/**
 	 * {@link IziToastBehavior} factory
 	 */
-	private final Supplier<IziToastBehavior> toastrBehaviorFactory;
+	private final Supplier<IziToastBehavior> iziToastBehaviorFactory;
 
 	/**
 	 * Message combiner
@@ -268,7 +268,7 @@ public class IziToastSetting {
 		this.globalOption = Optional.empty();
 		this.globalEachLevelOptions = new EachLevelToastOptions();
 		this.filter = Optional.empty();
-		this.toastrBehaviorFactory = DEFAULT_TOASTR_BEHAVIOR_FACTORY;
+		this.iziToastBehaviorFactory = DEFAULT_IZITOAST_BEHAVIOR_FACTORY;
 		this.toastMessageCombiner = ToastMessageCombiner.VOID_COMBINER;
 	}
 
@@ -280,23 +280,23 @@ public class IziToastSetting {
 		this.globalOption = Optional.ofNullable(initializer.globalOption);
 		this.globalEachLevelOptions = Args.notNull(initializer.globalEachLevelOptions, "globalEachLevelOptions");
 		this.filter = Optional.ofNullable(initializer.filter);
-		this.toastrBehaviorFactory = Args.notNull(initializer.toastrBehaviorFactory, "toastrBehaviorFactory");
+		this.iziToastBehaviorFactory = Args.notNull(initializer.iziToastBehaviorFactory, "iziToastBehaviorFactory");
 		this.toastMessageCombiner = Args.notNull(initializer.toastMessageCombiner, "toastMessageCombiner");
 	}
 
 	/**
-	 * Gets default toastr option.
+	 * Gets default toast option.
 	 *
-	 * @return toastr option
+	 * @return toast option
 	 */
 	public Optional<IToastOption> getGlobalOption() {
 		return globalOption;
 	}
 
 	/**
-	 * Gets default toastr options for each levels.
+	 * Gets default toast options for each levels.
 	 *
-	 * @return toastr options
+	 * @return toast options
 	 */
 	public EachLevelToastOptions getGlobalEachLevelOptions() {
 		return globalEachLevelOptions;
@@ -334,9 +334,9 @@ public class IziToastSetting {
 	 *
 	 * @return the {@link IziToastBehavior} factory
 	 */
-	public Supplier<IziToastBehavior> getToastrBehaviorFactory() {
+	public Supplier<IziToastBehavior> getIziToastBehaviorFactory() {
 		return () -> {
-			IziToastBehavior behavior = toastrBehaviorFactory.get();
+			IziToastBehavior behavior = iziToastBehaviorFactory.get();
 			behavior.setMessageCombiner(toastMessageCombiner);
 			getMessageFilter().ifPresent(filter -> behavior.setMessageFilter(filter));
 			return behavior;

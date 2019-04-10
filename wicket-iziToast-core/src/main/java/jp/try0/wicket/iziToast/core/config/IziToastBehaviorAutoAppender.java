@@ -22,7 +22,7 @@ public class IziToastBehaviorAutoAppender implements IComponentInstantiationList
 	@Override
 	public void onInstantiation(Component component) {
 		if (component instanceof Page) {
-			Supplier<IziToastBehavior> factory = IziToastSetting.get().getToastrBehaviorFactory();
+			Supplier<IziToastBehavior> factory = IziToastSetting.get().getIziToastBehaviorFactory();
 			IziToastBehavior behavior = factory.get();
 			component.add(behavior);
 		}

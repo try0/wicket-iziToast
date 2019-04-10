@@ -56,7 +56,7 @@ public class Toast implements IToast {
 		int feedbackMessageLevel;
 
 		/**
-		 * Level string. Except for {@link ToastLevel#UNDEFINED}, it's same as toastr's method name that display messages.
+		 * Level string. Except for {@link ToastLevel#UNDEFINED}, it's same as iziToast's method name that display messages.
 		 */
 		String level;
 
@@ -69,7 +69,7 @@ public class Toast implements IToast {
 		 * Constractor
 		 *
 		 * @param level level string
-		 * @param isSupported Whether it is toastr's method name to display the message
+		 * @param isSupported Whether it is iziToast's method name to display the message
 		 */
 		ToastLevel(String level, int feedbackMessageLevel, boolean isSupported) {
 			this.feedbackMessageLevel = feedbackMessageLevel;
@@ -78,7 +78,7 @@ public class Toast implements IToast {
 		}
 
 		/**
-		 * Gets level as string. Except for {@link ToastLevel#UNDEFINED}, it's same as toastr's method name that display messages.
+		 * Gets level as string. Except for {@link ToastLevel#UNDEFINED}, it's same as iziToast's method name that display messages.
 		 *
 		 * @return a level string
 		 */
@@ -329,6 +329,7 @@ public class Toast implements IToast {
 	 * @param response the response object
 	 */
 	public static void remove(final IHeaderResponse response) {
+		// TODO
 		response.render(JavaScriptHeaderItem.forScript("toastr.remove();", null));
 	}
 
@@ -338,6 +339,7 @@ public class Toast implements IToast {
 	 * @param target the request target
 	 */
 	public static void remove(final IPartialPageRequestHandler target) {
+		// TODO
 		target.appendJavaScript("toastr.remove();");
 	}
 
@@ -347,6 +349,7 @@ public class Toast implements IToast {
 	 * @param response the response object
 	 */
 	public static void clear(final IHeaderResponse response) {
+		// TODO
 		response.render(JavaScriptHeaderItem.forScript("toastr.clear();", null));
 	}
 
@@ -356,6 +359,7 @@ public class Toast implements IToast {
 	 * @param target the request target
 	 */
 	public static void clear(final IPartialPageRequestHandler target) {
+		// TODO
 		target.appendJavaScript("toastr.clear();");
 	}
 
