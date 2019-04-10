@@ -261,6 +261,29 @@ public class Toast implements IToast {
 	}
 
 	/**
+	 * Creates a toast.
+	 *
+	 * @param level
+	 * @param option
+	 * @return
+	 */
+	public static Toast create(ToastLevel level, IToastOption option) {
+		return new Toast(level, option);
+	}
+
+	/**
+	 * Creates a toast.
+	 *
+	 * @param level
+	 * @param message
+	 * @param title
+	 * @return
+	 */
+	public static Toast create(ToastLevel level,  String message, String title) {
+		return new Toast(level, message, title);
+	}
+
+	/**
 	 * Creates a success toast.
 	 *
 	 * @param message the string displayed on toast
@@ -388,7 +411,7 @@ public class Toast implements IToast {
 	 * @param title the string displayed on toast
 	 * @param option option for override global option
 	 */
-	public Toast(ToastLevel level, ToastOption option) {
+	public Toast(ToastLevel level, IToastOption option) {
 		if (!level.isSupported()) {
 			throw new IllegalArgumentException("This level is unsupported.");
 		}
