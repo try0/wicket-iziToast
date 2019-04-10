@@ -20,6 +20,24 @@ public interface IToast extends Serializable {
 	public ToastLevel getToastLevel();
 
 	/**
+	 * Gets toast title.
+	 *
+	 * @return title
+	 */
+	public default String getTitle() {
+		return getToastOption().getTitle();
+	}
+
+	/**
+	 * Gets toast message.
+	 *
+	 * @return message
+	 */
+	public default String getMessage() {
+		return getToastOption().getMessage();
+	}
+
+	/**
 	 * Gets toast options that override global options.
 	 *
 	 * @return toast option
