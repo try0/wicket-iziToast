@@ -6,7 +6,7 @@
 	<parent>
 		<artifactId>wicket-iziToast-parent</artifactId>
 		<groupId>jp.try0.wicket</groupId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.1.0</version>
 	</parent>
 
 	<artifactId>wicket-iziToast-samples</artifactId>
@@ -25,7 +25,7 @@
 	<properties>
 		<jetty9.version>9.4.7.v20170914</jetty9.version>
 		<slf4j.version>1.7.25</slf4j.version>
-		<wicket-iziToast.version>0.0.1-SNAPSHOT</wicket-iziToast.version>
+		<wicket-iziToast.version>0.1.0</wicket-iziToast.version>
 		<wtp.version>none</wtp.version>
 	</properties>
 	<dependencies>
