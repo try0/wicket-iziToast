@@ -1,5 +1,7 @@
 package jp.try0.wicket.iziToast.samples;
 
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
@@ -26,6 +28,45 @@ public class HomePage extends WebPage {
 		success(Toast.create(ToastLevel.SUCCESS, "success message", "Success"));
 		warn(Toast.create(ToastLevel.WARNING, "warning message", "Warning"));
 		error(Toast.create(ToastLevel.ERROR, "error message", "Error"));
+	}
+
+	@Override
+	protected void onInitialize() {
+		super.onInitialize();
+
+
+
+		add(new AjaxLink<Void>("btnInformation") {
+
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+				info("Information feedback message");
+			}
+		});
+
+		add(new AjaxLink<Void>("btnSuccess") {
+
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+				success("Success feedback message");
+			}
+		});
+
+		add(new AjaxLink<Void>("btnWarning") {
+
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+				warn("Warning feedback message");
+			}
+		});
+
+		add(new AjaxLink<Void>("btnError") {
+
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+				error("Error feedback message");
+			}
+		});
 
 	}
 }

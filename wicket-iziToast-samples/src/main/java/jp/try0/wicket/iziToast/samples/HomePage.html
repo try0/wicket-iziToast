@@ -15,8 +15,28 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.0/semantic.min.js"></script>
 
 <style>
+.iziToast-wrapper {
+	line-height: initial;
+}
+
 .izi-toast-custom {
 	min-width: 450px;
+}
+
+.main {
+	padding-top: 4rem;
+}
+
+.fixed-bottom {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1030;
+}
+
+.buttons {
+	padding: 10px;
 }
 </style>
 </head>
@@ -26,8 +46,25 @@
 			<div class="header item">Wicket iziToast</div>
 
 			<div class="right menu">
-				<a class="item" target="blank" href="https://github.com/try0/wicket-iziToast"><i
+				<a class="item" target="blank"
+					href="https://github.com/try0/wicket-iziToast"><i
 					class="github large icon"></i></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui container main">
+
+
+		<div class="fixed-bottom">
+			<div class="buttons">
+				<button wicket:id="btnInformation" class="ui button teal"
+					type="button"><i class="info circle icon"></i>Information</button>
+				<button wicket:id="btnSuccess" class="ui button blue" type="button"><i class="check circle icon"></i> Success</button>
+				<button wicket:id="btnWarning" class="ui button orange"
+					type="button"><i class="exclamation triangle icon"></i>Warning</button>
+				<button wicket:id="btnError" class="ui button red" type="button"><i class="ban icon"></i> Error</button>
+
 			</div>
 		</div>
 	</div>

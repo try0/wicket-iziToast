@@ -34,11 +34,11 @@ public class WicketApplication extends WebApplication
 
 		ToastOption option = new ToastOption();
 		option.setStyleClass("izi-toast-custom");
-		option.setPosition("topCenter");
+		option.setPosition("topRight");
 		option.setClose(true);
 		option.setCloseOnClick(true);
-		option.setIconColor("#138989");
-		option.setTimeout(false);
+		option.setTimeout(4000);
+		option.setProgressBar(true);
 		option.setLayout(2);
 		option.setTransitionIn("fadeIn");
 
