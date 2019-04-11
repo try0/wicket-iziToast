@@ -95,51 +95,51 @@ public class ToastOption implements IToastOption {
 	String iconUrl;
 	@ToastOptionValue(value = "image")
 	String image;
-	@ToastOptionValue(value = "imageWidth")
+	@ToastOptionValue(value = "imageWidth", squeezeWithDoubleQuotes = false)
 	Integer imageWidth;
 	@ToastOptionValue(value = "maxWidth")
 	String maxWidth;
 	@ToastOptionValue(value = "zindex")
 	String zindex;
-	@ToastOptionValue(value = "layout")
+	@ToastOptionValue(value = "layout", squeezeWithDoubleQuotes = false)
 	Integer layout;
-	@ToastOptionValue(value = "balloon")
+	@ToastOptionValue(value = "balloon", squeezeWithDoubleQuotes = false)
 	Boolean balloon;
 	@ToastOptionValue(value = "close", squeezeWithDoubleQuotes = false)
 	Boolean close;
-	@ToastOptionValue(value = "closeOnEscape")
+	@ToastOptionValue(value = "closeOnEscape", squeezeWithDoubleQuotes = false)
 	Boolean closeOnEscape;
 	@ToastOptionValue(value = "closeOnClick", squeezeWithDoubleQuotes = false)
 	Boolean closeOnClick;
-	@ToastOptionValue(value = "displayMode")
+	@ToastOptionValue(value = "displayMode", squeezeWithDoubleQuotes = false)
 	Integer displayMode;
 	@ToastOptionValue(value = "position")
 	String position;
 	@ToastOptionValue(value = "target")
 	String target;
-	@ToastOptionValue(value = "targetFirst")
+	@ToastOptionValue(value = "targetFirst", squeezeWithDoubleQuotes = false)
 	Boolean targetFirst;
 	@ToastOptionValue(value = "timeout", squeezeWithDoubleQuotes = false)
 	String timeout;
-	@ToastOptionValue(value = "rtl")
+	@ToastOptionValue(value = "rtl", squeezeWithDoubleQuotes = false)
 	Boolean rtl;
-	@ToastOptionValue(value = "animateInside")
+	@ToastOptionValue(value = "animateInside", squeezeWithDoubleQuotes = false)
 	Boolean animateInside;
-	@ToastOptionValue(value = "drag")
+	@ToastOptionValue(value = "drag", squeezeWithDoubleQuotes = false)
 	Boolean drag;
-	@ToastOptionValue(value = "pauseOnHover")
+	@ToastOptionValue(value = "pauseOnHover", squeezeWithDoubleQuotes = false)
 	Boolean pauseOnHover;
-	@ToastOptionValue(value = "resetOnHover")
+	@ToastOptionValue(value = "resetOnHover", squeezeWithDoubleQuotes = false)
 	Boolean resetOnHover;
-	@ToastOptionValue(value = "progressBar")
+	@ToastOptionValue(value = "progressBar", squeezeWithDoubleQuotes = false)
 	Boolean progressBar;
 	@ToastOptionValue(value = "progressBarColor")
 	String progressBarColor;
 	@ToastOptionValue(value = "progressBarEasing")
 	String progressBarEasing;
-	@ToastOptionValue(value = "overlay")
+	@ToastOptionValue(value = "overlay", squeezeWithDoubleQuotes = false)
 	Boolean overlay;
-	@ToastOptionValue(value = "overlayClose")
+	@ToastOptionValue(value = "overlayClose", squeezeWithDoubleQuotes = false)
 	Boolean overlayClose;
 	@ToastOptionValue(value = "overlayColor")
 	String overlayColor;
@@ -409,14 +409,20 @@ public class ToastOption implements IToastOption {
 	}
 
 	public void setTimeout(String timeout) {
-		this.timeout = String.valueOf(timeout);
+		this.timeout = timeout;
 	}
 
 	public void setTimeout(Integer timeout) {
+		if (timeout == null) {
+			return;
+		}
 		this.timeout = String.valueOf(timeout);
 	}
 
 	public void setTimeout(Boolean timeout) {
+		if (timeout == null) {
+			return;
+		}
 		this.timeout = String.valueOf(timeout);
 	}
 
