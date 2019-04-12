@@ -68,5 +68,21 @@ public class HomePage extends WebPage {
 			}
 		});
 
+		add(new AjaxLink<Void>("btnHide") {
+
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+				Toast.hide(target);
+			}
+		});
+
+		add(new AjaxLink<Void>("btnDestroy") {
+
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+				Toast.destroy(target);
+			}
+		});
+
 	}
 }
