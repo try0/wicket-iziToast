@@ -279,7 +279,7 @@ public class Toast implements IToast {
 	 * @param title
 	 * @return
 	 */
-	public static Toast create(ToastLevel level,  String message, String title) {
+	public static Toast create(ToastLevel level, String message, String title) {
 		return new Toast(level, message, title);
 	}
 
@@ -328,9 +328,8 @@ public class Toast implements IToast {
 	 *
 	 * @param response the response object
 	 */
-	public static void remove(final IHeaderResponse response) {
-		// TODO
-		response.render(JavaScriptHeaderItem.forScript("toastr.remove();", null));
+	public static void destroy(final IHeaderResponse response) {
+		response.render(JavaScriptHeaderItem.forScript("iziToast.destroy();", null));
 	}
 
 	/**
@@ -338,9 +337,8 @@ public class Toast implements IToast {
 	 *
 	 * @param target the request target
 	 */
-	public static void remove(final IPartialPageRequestHandler target) {
-		// TODO
-		target.appendJavaScript("toastr.remove();");
+	public static void destroy(final IPartialPageRequestHandler target) {
+		target.appendJavaScript("iziToast.destroy();");
 	}
 
 	/**
@@ -348,9 +346,10 @@ public class Toast implements IToast {
 	 *
 	 * @param response the response object
 	 */
-	public static void clear(final IHeaderResponse response) {
-		// TODO
-		response.render(JavaScriptHeaderItem.forScript("toastr.clear();", null));
+	public static void hide(final IHeaderResponse response) {
+		String hideScript = "var toasts = document.querySelectorAll('.iziToast');"
+				+"toasts.forEach(toast => iziToast.hide({}, toast));";
+		response.render(JavaScriptHeaderItem.forScript(hideScript, null));
 	}
 
 	/**
@@ -358,9 +357,10 @@ public class Toast implements IToast {
 	 *
 	 * @param target the request target
 	 */
-	public static void clear(final IPartialPageRequestHandler target) {
-		// TODO
-		target.appendJavaScript("toastr.clear();");
+	public static void hide(final IPartialPageRequestHandler target) {
+		String hideScript = "var toasts = document.querySelectorAll('.iziToast');"
+				+"toasts.forEach(toast => iziToast.hide({}, toast));";
+		target.appendJavaScript(hideScript);
 	}
 
 	/**
