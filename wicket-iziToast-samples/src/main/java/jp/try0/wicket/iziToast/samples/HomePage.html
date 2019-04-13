@@ -25,6 +25,7 @@
 
 .main {
 	padding-top: 4rem;
+	max-width: 650px;
 }
 
 .fixed-bottom {
@@ -34,11 +35,28 @@
 	left: 0;
 	z-index: 1030;
 }
+
 .buttons {
 	padding-bottom: 10px;
 }
+
 .buttons .button {
 	margin: 3px !important;
+}
+
+.iziToast-message {
+	word-break: break-all !important;
+}
+
+.text {
+	max-width: 650px;
+}
+
+.text .iziToast-message {
+	user-select: text;
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
 }
 </style>
 </head>
@@ -55,33 +73,66 @@
 		</div>
 	</div>
 
-	<div class="ui container main">
+	<div class="ui container main" style="max-width: 800px !important">
 
+
+		<div class="ui message">
+			<div class="header">wicket-iziToast</div>
+			<p>Apache <a href="https://wicket.apache.org/">Wicket</a> utilities for using <a href="http://izitoast.marcelodolza.com//">iziToast</a>.</p>
+		</div>
+
+		<div class="ui divider"></div>
+
+		<div class="ui header">Level toasts</div>
+		<div class="buttons">
+			<button wicket:id="btnInformation" class="ui button teal"
+				type="button">
+				<i class="info circle icon"></i>Information
+			</button>
+			<button wicket:id="btnSuccess" class="ui button blue" type="button">
+				<i class="check circle icon"></i> Success
+			</button>
+			<button wicket:id="btnWarning" class="ui button orange" type="button">
+				<i class="exclamation triangle icon"></i>Warning
+			</button>
+			<button wicket:id="btnError" class="ui button red" type="button">
+				<i class="ban icon"></i> Error
+			</button>
+		</div>
+		<div>Code (Java)</div>
+		<div class="ui center aligned grid"
+			style="max-height: 150px; overflow-y: auto; margin: 10px 0px;">
+			<div id="level-toasts" class="text column"></div>
+		</div>
+
+		<div class="ui divider"></div>
+
+		<div class="ui header">Random example</div>
+		<div class="buttons">
+			<button wicket:id="btnRandomeOption" class="ui pink button"
+				type="button">
+				<i class="question icon"></i> Random
+			</button>
+			<button wicket:id="btnRandomeOptionX5" class="ui pink button"
+				type="button">
+				<i class="question icon"></i> Random X 5
+			</button>
+			<div wicket:id="dummy"></div>
+		</div>
+		<div>Code (JS)</div>
+		<div class="ui center aligned grid"
+			style="max-height: 1000px; overflow-y: auto; margin: 10px 0px;">
+			<div id="text" class="text column"></div>
+		</div>
 
 		<div class="fixed-bottom ui container">
-			<div class="buttons">
-				<button wicket:id="btnInformation" class="ui button teal"
-					type="button">
-					<i class="info circle icon"></i>Information
-				</button>
-				<button wicket:id="btnSuccess" class="ui button blue" type="button">
-					<i class="check circle icon"></i> Success
-				</button>
-				<button wicket:id="btnWarning" class="ui button orange"
-					type="button">
-					<i class="exclamation triangle icon"></i>Warning
-				</button>
-				<button wicket:id="btnError" class="ui button red" type="button">
-					<i class="ban icon"></i> Error
-				</button>
 
-			</div>
 			<div class="buttons">
 				<button wicket:id="btnHide" class="ui button">
-					<i class="trash alternate icon"></i>Hide
+					<i class="trash alternate icon"></i>Hide All
 				</button>
 				<button wicket:id="btnDestroy" class="ui button">
-					<i class="trash alternate icon"></i>Destroy
+					<i class="trash alternate icon"></i>Destroy All
 				</button>
 			</div>
 		</div>

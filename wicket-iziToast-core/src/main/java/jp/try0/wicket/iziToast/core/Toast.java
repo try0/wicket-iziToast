@@ -48,7 +48,13 @@ public class Toast implements IToast {
 		/**
 		 * Error level
 		 */
-		ERROR("error", FeedbackMessage.ERROR, true),;
+		ERROR("error", FeedbackMessage.ERROR, true),
+
+		/**
+		 * None level
+		 */
+		PLAIN("show", FeedbackMessage.UNDEFINED, true),
+		;
 
 		/**
 		 * Feedback message level

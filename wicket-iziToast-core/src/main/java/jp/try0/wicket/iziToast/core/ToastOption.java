@@ -151,9 +151,9 @@ public class ToastOption implements IToastOption {
 	String transitionInMobile;
 	@ToastOptionValue(value = "transitionOutMobile")
 	String transitionOutMobile;
-	@ToastOptionValue(value = "buttons")
+	@ToastOptionValue(value = "buttons", squeezeWithDoubleQuotes = false)
 	String buttons;
-	@ToastOptionValue(value = "inputs")
+	@ToastOptionValue(value = "inputs", squeezeWithDoubleQuotes = false)
 	String inputs;
 	@ToastOptionValue(value = "onOpening", squeezeWithDoubleQuotes = false)
 	String onOpening;
