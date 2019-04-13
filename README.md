@@ -10,7 +10,7 @@ wicket:8.x iziToast:1.4.0
 
 
 # Demo
-Deployed [wicket-iziToast-samples](https://try0.jp/app/wicket-iziToast-samples) module.
+Deployed [wicket-iziToast-samples](https://try0.jp/app/wicket-iziToast-samples/) module.
 
 
 
