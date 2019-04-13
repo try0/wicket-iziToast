@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Apache Wicket Quickstart</title>
+<title>Wicket iziToast samples</title>
 
 
 <!-- semantic.css  -->
@@ -14,7 +14,7 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.0/semantic.min.js"></script>
 
-<style>
+<style type="text/css">
 .iziToast-wrapper {
 	line-height: initial;
 }
@@ -34,9 +34,11 @@
 	left: 0;
 	z-index: 1030;
 }
-
 .buttons {
-	padding: 10px;
+	padding-bottom: 10px;
+}
+.buttons .button {
+	margin: 3px !important;
 }
 </style>
 </head>
@@ -56,7 +58,7 @@
 	<div class="ui container main">
 
 
-		<div class="fixed-bottom">
+		<div class="fixed-bottom ui container">
 			<div class="buttons">
 				<button wicket:id="btnInformation" class="ui button teal"
 					type="button">
@@ -75,8 +77,12 @@
 
 			</div>
 			<div class="buttons">
-				<button wicket:id="btnHide" class="ui button"><i class="trash alternate icon"></i>Hide</button>
-				<button wicket:id="btnDestroy" class="ui button"><i class="trash alternate icon"></i>Destroy</button>
+				<button wicket:id="btnHide" class="ui button">
+					<i class="trash alternate icon"></i>Hide
+				</button>
+				<button wicket:id="btnDestroy" class="ui button">
+					<i class="trash alternate icon"></i>Destroy
+				</button>
 			</div>
 		</div>
 	</div>

@@ -2,6 +2,7 @@ package jp.try0.wicket.iziToast.samples;
 
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.protocol.http.WebApplication;
+import org.apache.wicket.settings.RequestCycleSettings.RenderStrategy;
 
 import jp.try0.wicket.iziToast.core.ToastOption;
 import jp.try0.wicket.iziToast.core.behavior.IziToastBehavior.ToastMessageCombiner;
@@ -31,6 +32,9 @@ public class WicketApplication extends WebApplication
 	public void init()
 	{
 		super.init();
+
+		getMarkupSettings().setStripWicketTags(true);
+		getRequestCycleSettings().setRenderStrategy(RenderStrategy.ONE_PASS_RENDER);
 
 		ToastOption option = new ToastOption();
 		option.setStyleClass("izi-toast-custom");
