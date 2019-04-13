@@ -6,7 +6,7 @@
 		<parent>
 		<groupId>jp.try0.wicket</groupId>
 		<artifactId>wicket-iziToast-parent</artifactId>
-		<version>0.1.0</version>
+		<version>0.2.0</version>
 	</parent>
 	<artifactId>wicket-iziToast-core</artifactId>
 	<name>wicket-iziToast-core</name>

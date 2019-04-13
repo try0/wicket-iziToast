@@ -6,7 +6,7 @@
 	<parent>
 		<artifactId>wicket-iziToast-parent</artifactId>
 		<groupId>jp.try0.wicket</groupId>
-		<version>0.1.0</version>
+		<version>0.2.0</version>
 	</parent>
 
 	<artifactId>wicket-iziToast-samples</artifactId>
@@ -25,7 +25,9 @@
 	<properties>
 		<jetty9.version>9.4.7.v20170914</jetty9.version>
 		<slf4j.version>1.7.25</slf4j.version>
-		<wicket-iziToast.version>0.1.0</wicket-iziToast.version>
+		<jackson.version>2.9.8</jackson.version>
+		<commons-text.version>1.6</commons-text.version>
+		<wicket-iziToast.version>0.2.0</wicket-iziToast.version>
 		<wtp.version>none</wtp.version>
 	</properties>
 	<dependencies>
@@ -45,17 +47,17 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-text</artifactId>
-			<version>1.6</version>
+			<version>${commons-text.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.7.4</version>
+			<version>${jackson.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
-			<version>2.7.4</version>
+			<version>${jackson.version}</version>
 		</dependency>
 		<!-- LOGGING DEPENDENCIES - SLF4J-SIMPLE -->
 		<dependency>
