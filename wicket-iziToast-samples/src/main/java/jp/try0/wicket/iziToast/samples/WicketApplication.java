@@ -1,5 +1,6 @@
 package jp.try0.wicket.iziToast.samples;
 
+import org.apache.wicket.RuntimeConfigurationType;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.settings.RequestCycleSettings.RenderStrategy;
@@ -55,4 +56,11 @@ public class WicketApplication extends WebApplication
 		.setToastMessageCombiner(combiner)
 		.initialize();
 	}
+
+	@Override
+	public RuntimeConfigurationType getConfigurationType() {
+		return RuntimeConfigurationType.DEPLOYMENT;
+	}
+
+
 }
