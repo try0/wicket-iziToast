@@ -2,6 +2,9 @@
 Apache Wicket utilities for using iziToast.  
 
 
+[![Build Status](https://travis-ci.org/try0/wicket-iziToast.svg?branch=master)](https://travis-ci.org/try0/wicket-iziToast)
+[![codecov](https://codecov.io/gh/try0/wicket-iziToast/branch/master/graph/badge.svg)](https://codecov.io/gh/try0/wicket-iziToast)
+
 
 # Version
 0.2.0  
