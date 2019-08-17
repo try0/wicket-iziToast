@@ -59,109 +59,109 @@ public class ToastOption implements IToastOption {
 
 	}
 
-	@ToastOptionValue(value = "id")
+	@ToastOptionValue(value = OptionKeys.ID)
 	String id;
-	@ToastOptionValue(value = "class")
+	@ToastOptionValue(value = OptionKeys.CLASS)
 	String styleClass;
-	@ToastOptionValue(value = "title")
+	@ToastOptionValue(value = OptionKeys.TITLE)
 	String title;
-	@ToastOptionValue(value = "titleColor")
+	@ToastOptionValue(value = OptionKeys.TITLE_COLOR)
 	String titleColor;
-	@ToastOptionValue(value = "titleSize")
+	@ToastOptionValue(value = OptionKeys.TITLE_SIZE)
 	String titleSize;
-	@ToastOptionValue(value = "titleLineHeight")
+	@ToastOptionValue(value = OptionKeys.TITLE_LINE_HEIGHT)
 	String titleLineHeight;
-	@ToastOptionValue(value = "message")
+	@ToastOptionValue(value = OptionKeys.MESSAGE)
 	String message;
-	@ToastOptionValue(value = "messageColor")
+	@ToastOptionValue(value = OptionKeys.MESSAGE_COLOR)
 	String messageColor;
-	@ToastOptionValue(value = "messageSize")
+	@ToastOptionValue(value = OptionKeys.MESSAGE_SIZE)
 	String messageSize;
-	@ToastOptionValue(value = "messageLineHeight")
+	@ToastOptionValue(value = OptionKeys.MESSAGE_LINE_HEIGHT)
 	String messageLineHeight;
-	@ToastOptionValue(value = "backgroundColor")
+	@ToastOptionValue(value = OptionKeys.BACKGROUND_COLOR)
 	String backgroundColor;
-	@ToastOptionValue(value = "theme")
+	@ToastOptionValue(value = OptionKeys.THEME)
 	String theme;
-	@ToastOptionValue(value = "color")
+	@ToastOptionValue(value = OptionKeys.COLOR)
 	String color;
-	@ToastOptionValue(value = "icon")
+	@ToastOptionValue(value = OptionKeys.ICON)
 	String icon;
-	@ToastOptionValue(value = "iconText")
+	@ToastOptionValue(value = OptionKeys.ICON_TEXT)
 	String iconText;
-	@ToastOptionValue(value = "iconColor")
+	@ToastOptionValue(value = OptionKeys.ICON_COLOR)
 	String iconColor;
-	@ToastOptionValue(value = "iconUrl")
+	@ToastOptionValue(value = OptionKeys.ICON_URL)
 	String iconUrl;
-	@ToastOptionValue(value = "image")
+	@ToastOptionValue(value = OptionKeys.IMAGE)
 	String image;
-	@ToastOptionValue(value = "imageWidth", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.IMAGE_WIDTH, squeezeWithDoubleQuotes = false)
 	Integer imageWidth;
-	@ToastOptionValue(value = "maxWidth")
+	@ToastOptionValue(value = OptionKeys.MAX_WIDTH)
 	String maxWidth;
-	@ToastOptionValue(value = "zindex")
+	@ToastOptionValue(value = OptionKeys.ZINDEX)
 	String zindex;
-	@ToastOptionValue(value = "layout", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.LAYOUT, squeezeWithDoubleQuotes = false)
 	Integer layout;
-	@ToastOptionValue(value = "balloon", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.BALLOON, squeezeWithDoubleQuotes = false)
 	Boolean balloon;
-	@ToastOptionValue(value = "close", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.CLOSE, squeezeWithDoubleQuotes = false)
 	Boolean close;
-	@ToastOptionValue(value = "closeOnEscape", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.CLOSE_ON_ESCAPE, squeezeWithDoubleQuotes = false)
 	Boolean closeOnEscape;
-	@ToastOptionValue(value = "closeOnClick", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.CLOSE_ON_CLICK, squeezeWithDoubleQuotes = false)
 	Boolean closeOnClick;
-	@ToastOptionValue(value = "displayMode", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.DISPLAY_MODE, squeezeWithDoubleQuotes = false)
 	Integer displayMode;
-	@ToastOptionValue(value = "position")
+	@ToastOptionValue(value = OptionKeys.POSITION)
 	String position;
-	@ToastOptionValue(value = "target")
+	@ToastOptionValue(value = OptionKeys.TARGET)
 	String target;
-	@ToastOptionValue(value = "targetFirst", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.TARGET_FIRST, squeezeWithDoubleQuotes = false)
 	Boolean targetFirst;
-	@ToastOptionValue(value = "timeout", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.TIMEOUT, squeezeWithDoubleQuotes = false)
 	String timeout;
-	@ToastOptionValue(value = "rtl", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.RTL, squeezeWithDoubleQuotes = false)
 	Boolean rtl;
-	@ToastOptionValue(value = "animateInside", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.ANIMATE_INSIDE, squeezeWithDoubleQuotes = false)
 	Boolean animateInside;
-	@ToastOptionValue(value = "drag", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.DRAG, squeezeWithDoubleQuotes = false)
 	Boolean drag;
-	@ToastOptionValue(value = "pauseOnHover", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.PAUSE_ON_HOVER, squeezeWithDoubleQuotes = false)
 	Boolean pauseOnHover;
-	@ToastOptionValue(value = "resetOnHover", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.RESET_ON_HOVER, squeezeWithDoubleQuotes = false)
 	Boolean resetOnHover;
-	@ToastOptionValue(value = "progressBar", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.PROGRESS_BAR, squeezeWithDoubleQuotes = false)
 	Boolean progressBar;
-	@ToastOptionValue(value = "progressBarColor")
+	@ToastOptionValue(value = OptionKeys.PROGRESS_BAR_COLOR)
 	String progressBarColor;
-	@ToastOptionValue(value = "progressBarEasing")
+	@ToastOptionValue(value = OptionKeys.PROGRESS_BAR_EASING)
 	String progressBarEasing;
-	@ToastOptionValue(value = "overlay", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.OVERLAY, squeezeWithDoubleQuotes = false)
 	Boolean overlay;
-	@ToastOptionValue(value = "overlayClose", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.OVERLAY_CLOSE, squeezeWithDoubleQuotes = false)
 	Boolean overlayClose;
-	@ToastOptionValue(value = "overlayColor")
+	@ToastOptionValue(value = OptionKeys.OVERLAY_COLOR)
 	String overlayColor;
-	@ToastOptionValue(value = "transitionIn")
+	@ToastOptionValue(value = OptionKeys.TRANSITION_IN)
 	String transitionIn;
-	@ToastOptionValue(value = "transitionOut")
+	@ToastOptionValue(value = OptionKeys.TRANSITION_OUT)
 	String transitionOut;
-	@ToastOptionValue(value = "transitionInMobile")
+	@ToastOptionValue(value = OptionKeys.TRANSITION_IN_MOBILE)
 	String transitionInMobile;
-	@ToastOptionValue(value = "transitionOutMobile")
+	@ToastOptionValue(value = OptionKeys.TRANSITION_OUT_MOBILE)
 	String transitionOutMobile;
-	@ToastOptionValue(value = "buttons", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.BUTTONS, squeezeWithDoubleQuotes = false)
 	String buttons;
-	@ToastOptionValue(value = "inputs", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.INPUTS, squeezeWithDoubleQuotes = false)
 	String inputs;
-	@ToastOptionValue(value = "onOpening", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.ON_OPENING, squeezeWithDoubleQuotes = false)
 	String onOpening;
-	@ToastOptionValue(value = "onOpened", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.ON_OPENED, squeezeWithDoubleQuotes = false)
 	String onOpened;
-	@ToastOptionValue(value = "onClosing", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.ON_CLOSING, squeezeWithDoubleQuotes = false)
 	String onClosing;
-	@ToastOptionValue(value = "onClosed", squeezeWithDoubleQuotes = false)
+	@ToastOptionValue(value = OptionKeys.ON_CLOSED, squeezeWithDoubleQuotes = false)
 	String onClosed;
 
 	public String getId() {
