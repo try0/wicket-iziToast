@@ -164,6 +164,7 @@ public class ToastOption implements IToastOption {
 	@ToastOptionValue(value = OptionKeys.ON_CLOSED, squeezeWithDoubleQuotes = false)
 	String onClosed;
 
+	@Override
 	public String getId() {
 		return id;
 	}
@@ -172,6 +173,7 @@ public class ToastOption implements IToastOption {
 		this.id = id;
 	}
 
+	@Override
 	public String getStyleClass() {
 		return styleClass;
 	}
@@ -180,6 +182,7 @@ public class ToastOption implements IToastOption {
 		this.styleClass = styleClass;
 	}
 
+	@Override
 	public String getTitle() {
 		return title;
 	}
@@ -188,6 +191,7 @@ public class ToastOption implements IToastOption {
 		this.title = title;
 	}
 
+	@Override
 	public String getTitleColor() {
 		return titleColor;
 	}
@@ -196,6 +200,7 @@ public class ToastOption implements IToastOption {
 		this.titleColor = titleColor;
 	}
 
+	@Override
 	public String getTitleSize() {
 		return titleSize;
 	}
@@ -204,6 +209,7 @@ public class ToastOption implements IToastOption {
 		this.titleSize = titleSize;
 	}
 
+	@Override
 	public String getTitleLineHeight() {
 		return titleLineHeight;
 	}
@@ -212,6 +218,7 @@ public class ToastOption implements IToastOption {
 		this.titleLineHeight = titleLineHeight;
 	}
 
+	@Override
 	public String getMessage() {
 		return message;
 	}
@@ -220,6 +227,7 @@ public class ToastOption implements IToastOption {
 		this.message = message;
 	}
 
+	@Override
 	public String getMessageColor() {
 		return messageColor;
 	}
@@ -228,6 +236,7 @@ public class ToastOption implements IToastOption {
 		this.messageColor = messageColor;
 	}
 
+	@Override
 	public String getMessageSize() {
 		return messageSize;
 	}
@@ -236,6 +245,7 @@ public class ToastOption implements IToastOption {
 		this.messageSize = messageSize;
 	}
 
+	@Override
 	public String getMessageLineHeight() {
 		return messageLineHeight;
 	}
@@ -244,6 +254,7 @@ public class ToastOption implements IToastOption {
 		this.messageLineHeight = messageLineHeight;
 	}
 
+	@Override
 	public String getBackgroundColor() {
 		return backgroundColor;
 	}
@@ -252,6 +263,7 @@ public class ToastOption implements IToastOption {
 		this.backgroundColor = backgroundColor;
 	}
 
+	@Override
 	public String getTheme() {
 		return theme;
 	}
@@ -260,6 +272,7 @@ public class ToastOption implements IToastOption {
 		this.theme = theme;
 	}
 
+	@Override
 	public String getColor() {
 		return color;
 	}
@@ -268,6 +281,7 @@ public class ToastOption implements IToastOption {
 		this.color = color;
 	}
 
+	@Override
 	public String getIcon() {
 		return icon;
 	}
@@ -276,6 +290,7 @@ public class ToastOption implements IToastOption {
 		this.icon = icon;
 	}
 
+	@Override
 	public String getIconText() {
 		return iconText;
 	}
@@ -284,6 +299,7 @@ public class ToastOption implements IToastOption {
 		this.iconText = iconText;
 	}
 
+	@Override
 	public String getIconColor() {
 		return iconColor;
 	}
@@ -292,6 +308,7 @@ public class ToastOption implements IToastOption {
 		this.iconColor = iconColor;
 	}
 
+	@Override
 	public String getIconUrl() {
 		return iconUrl;
 	}
@@ -300,6 +317,7 @@ public class ToastOption implements IToastOption {
 		this.iconUrl = iconUrl;
 	}
 
+	@Override
 	public String getImage() {
 		return image;
 	}
@@ -308,6 +326,7 @@ public class ToastOption implements IToastOption {
 		this.image = image;
 	}
 
+	@Override
 	public Integer getImageWidth() {
 		return imageWidth;
 	}
@@ -316,6 +335,7 @@ public class ToastOption implements IToastOption {
 		this.imageWidth = imageWidth;
 	}
 
+	@Override
 	public String getMaxWidth() {
 		return maxWidth;
 	}
@@ -324,6 +344,7 @@ public class ToastOption implements IToastOption {
 		this.maxWidth = maxWidth;
 	}
 
+	@Override
 	public String getZindex() {
 		return zindex;
 	}
@@ -332,6 +353,7 @@ public class ToastOption implements IToastOption {
 		this.zindex = zindex;
 	}
 
+	@Override
 	public Integer getLayout() {
 		return layout;
 	}
@@ -340,6 +362,7 @@ public class ToastOption implements IToastOption {
 		this.layout = layout;
 	}
 
+	@Override
 	public Boolean getBalloon() {
 		return balloon;
 	}
@@ -348,6 +371,7 @@ public class ToastOption implements IToastOption {
 		this.balloon = balloon;
 	}
 
+	@Override
 	public Boolean getClose() {
 		return close;
 	}
@@ -356,6 +380,7 @@ public class ToastOption implements IToastOption {
 		this.close = close;
 	}
 
+	@Override
 	public Boolean getCloseOnEscape() {
 		return closeOnEscape;
 	}
@@ -364,6 +389,7 @@ public class ToastOption implements IToastOption {
 		this.closeOnEscape = closeOnEscape;
 	}
 
+	@Override
 	public Boolean getCloseOnClick() {
 		return closeOnClick;
 	}
@@ -372,6 +398,7 @@ public class ToastOption implements IToastOption {
 		this.closeOnClick = closeOnClick;
 	}
 
+	@Override
 	public Integer getDisplayMode() {
 		return displayMode;
 	}
@@ -380,6 +407,7 @@ public class ToastOption implements IToastOption {
 		this.displayMode = displayMode;
 	}
 
+	@Override
 	public String getPosition() {
 		return position;
 	}
@@ -388,6 +416,7 @@ public class ToastOption implements IToastOption {
 		this.position = position;
 	}
 
+	@Override
 	public String getTarget() {
 		return target;
 	}
@@ -396,6 +425,7 @@ public class ToastOption implements IToastOption {
 		this.target = target;
 	}
 
+	@Override
 	public Boolean getTargetFirst() {
 		return targetFirst;
 	}
@@ -404,6 +434,7 @@ public class ToastOption implements IToastOption {
 		this.targetFirst = targetFirst;
 	}
 
+	@Override
 	public String getTimeout() {
 		return timeout;
 	}
@@ -426,6 +457,7 @@ public class ToastOption implements IToastOption {
 		this.timeout = String.valueOf(timeout);
 	}
 
+	@Override
 	public Boolean getRtl() {
 		return rtl;
 	}
@@ -434,6 +466,7 @@ public class ToastOption implements IToastOption {
 		this.rtl = rtl;
 	}
 
+	@Override
 	public Boolean getAnimateInside() {
 		return animateInside;
 	}
@@ -442,6 +475,7 @@ public class ToastOption implements IToastOption {
 		this.animateInside = animateInside;
 	}
 
+	@Override
 	public Boolean getDrag() {
 		return drag;
 	}
@@ -450,6 +484,7 @@ public class ToastOption implements IToastOption {
 		this.drag = drag;
 	}
 
+	@Override
 	public Boolean getPauseOnHover() {
 		return pauseOnHover;
 	}
@@ -458,6 +493,7 @@ public class ToastOption implements IToastOption {
 		this.pauseOnHover = pauseOnHover;
 	}
 
+	@Override
 	public Boolean getResetOnHover() {
 		return resetOnHover;
 	}
@@ -466,6 +502,7 @@ public class ToastOption implements IToastOption {
 		this.resetOnHover = resetOnHover;
 	}
 
+	@Override
 	public Boolean getProgressBar() {
 		return progressBar;
 	}
@@ -474,6 +511,7 @@ public class ToastOption implements IToastOption {
 		this.progressBar = progressBar;
 	}
 
+	@Override
 	public String getProgressBarColor() {
 		return progressBarColor;
 	}
@@ -482,6 +520,7 @@ public class ToastOption implements IToastOption {
 		this.progressBarColor = progressBarColor;
 	}
 
+	@Override
 	public String getProgressBarEasing() {
 		return progressBarEasing;
 	}
@@ -490,6 +529,7 @@ public class ToastOption implements IToastOption {
 		this.progressBarEasing = progressBarEasing;
 	}
 
+	@Override
 	public Boolean getOverlay() {
 		return overlay;
 	}
@@ -498,6 +538,7 @@ public class ToastOption implements IToastOption {
 		this.overlay = overlay;
 	}
 
+	@Override
 	public Boolean getOverlayClose() {
 		return overlayClose;
 	}
@@ -506,6 +547,7 @@ public class ToastOption implements IToastOption {
 		this.overlayClose = overlayClose;
 	}
 
+	@Override
 	public String getOverlayColor() {
 		return overlayColor;
 	}
@@ -514,6 +556,7 @@ public class ToastOption implements IToastOption {
 		this.overlayColor = overlayColor;
 	}
 
+	@Override
 	public String getTransitionIn() {
 		return transitionIn;
 	}
@@ -522,6 +565,7 @@ public class ToastOption implements IToastOption {
 		this.transitionIn = transitionIn;
 	}
 
+	@Override
 	public String getTransitionOut() {
 		return transitionOut;
 	}
@@ -530,6 +574,7 @@ public class ToastOption implements IToastOption {
 		this.transitionOut = transitionOut;
 	}
 
+	@Override
 	public String getTransitionInMobile() {
 		return transitionInMobile;
 	}
@@ -538,6 +583,7 @@ public class ToastOption implements IToastOption {
 		this.transitionInMobile = transitionInMobile;
 	}
 
+	@Override
 	public String getTransitionOutMobile() {
 		return transitionOutMobile;
 	}
@@ -546,6 +592,7 @@ public class ToastOption implements IToastOption {
 		this.transitionOutMobile = transitionOutMobile;
 	}
 
+	@Override
 	public String getButtons() {
 		return buttons;
 	}
@@ -554,6 +601,7 @@ public class ToastOption implements IToastOption {
 		this.buttons = buttons;
 	}
 
+	@Override
 	public String getInputs() {
 		return inputs;
 	}
@@ -562,6 +610,7 @@ public class ToastOption implements IToastOption {
 		this.inputs = inputs;
 	}
 
+	@Override
 	public String getOnOpening() {
 		return onOpening;
 	}
@@ -570,6 +619,7 @@ public class ToastOption implements IToastOption {
 		this.onOpening = onOpening;
 	}
 
+	@Override
 	public String getOnOpened() {
 		return onOpened;
 	}
@@ -578,6 +628,7 @@ public class ToastOption implements IToastOption {
 		this.onOpened = onOpened;
 	}
 
+	@Override
 	public String getOnClosing() {
 		return onClosing;
 	}
@@ -586,6 +637,7 @@ public class ToastOption implements IToastOption {
 		this.onClosing = onClosing;
 	}
 
+	@Override
 	public String getOnClosed() {
 		return onClosed;
 	}
@@ -661,7 +713,8 @@ public class ToastOption implements IToastOption {
 		newOption.setMessageLineHeight(
 				option.getMessageLineHeight() == null ? this.messageLineHeight : option.getMessageLineHeight());
 
-		newOption.setBackgroundColor(option.getBackgroundColor() == null ? this.backgroundColor : option.getBackgroundColor());
+		newOption.setBackgroundColor(
+				option.getBackgroundColor() == null ? this.backgroundColor : option.getBackgroundColor());
 
 		newOption.setTheme(option.getTheme() == null ? this.theme : option.getTheme());
 
@@ -715,9 +768,11 @@ public class ToastOption implements IToastOption {
 
 		newOption.setProgressBar(option.getProgressBar() == null ? this.progressBar : option.getProgressBar());
 
-		newOption.setProgressBarColor(option.getProgressBarColor() == null ? this.progressBarColor : option.getProgressBarColor());
+		newOption.setProgressBarColor(
+				option.getProgressBarColor() == null ? this.progressBarColor : option.getProgressBarColor());
 
-		newOption.setProgressBarEasing(option.getProgressBarEasing() == null ? this.progressBarEasing : option.getProgressBarEasing());
+		newOption.setProgressBarEasing(
+				option.getProgressBarEasing() == null ? this.progressBarEasing : option.getProgressBarEasing());
 
 		newOption.setOverlay(option.getOverlay() == null ? this.overlay : option.getOverlay());
 
@@ -729,9 +784,11 @@ public class ToastOption implements IToastOption {
 
 		newOption.setTransitionOut(option.getTransitionOut() == null ? this.transitionOut : option.getTransitionOut());
 
-		newOption.setTransitionInMobile(option.getTransitionInMobile() == null ? this.transitionInMobile : option.getTransitionInMobile());
+		newOption.setTransitionInMobile(
+				option.getTransitionInMobile() == null ? this.transitionInMobile : option.getTransitionInMobile());
 
-		newOption.setTransitionOutMobile(option.getTransitionOutMobile() == null ? this.transitionOutMobile : option.getTransitionOutMobile());
+		newOption.setTransitionOutMobile(
+				option.getTransitionOutMobile() == null ? this.transitionOutMobile : option.getTransitionOutMobile());
 
 		newOption.setButtons(option.getButtons() == null ? this.buttons : option.getButtons());
 
