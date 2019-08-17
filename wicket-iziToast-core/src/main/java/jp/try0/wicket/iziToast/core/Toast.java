@@ -19,42 +19,53 @@ public class Toast implements IToast {
 	private static final long serialVersionUID = 1L;
 
 	/**
+	 * Script that destroy all toasts.
+	 */
+	public static final String SCRIPT_DESTROY_TOAST = "iziToast.destroy();";
+
+	/**
+	 * Script that hide adll toasts.
+	 */
+	public static final String SCRIPT_HIDE_TOAST = "var toasts = document.querySelectorAll('.iziToast');"
+			+ "toasts.forEach(function(toast) { iziToast.hide({}, toast); });";
+
+	/**
 	 * Toast levels
 	 *
 	 * @author Ryo Tsunoda
 	 *
 	 */
 	public static enum ToastLevel {
-		/**
-		 * Undefined level
-		 */
-		UNDEFINED("undefined", FeedbackMessage.UNDEFINED, false),
+				/**
+				 * Undefined level
+				 */
+				UNDEFINED("undefined", FeedbackMessage.UNDEFINED, false),
 
-		/**
-		 * Success level
-		 */
-		SUCCESS("success", FeedbackMessage.SUCCESS, true),
+				/**
+				 * Success level
+				 */
+				SUCCESS("success", FeedbackMessage.SUCCESS, true),
 
-		/**
-		 * Information level
-		 */
-		INFO("info", FeedbackMessage.INFO, true),
+				/**
+				 * Information level
+				 */
+				INFO("info", FeedbackMessage.INFO, true),
 
-		/**
-		 * Warning level
-		 */
-		WARNING("warning", FeedbackMessage.WARNING, true),
+				/**
+				 * Warning level
+				 */
+				WARNING("warning", FeedbackMessage.WARNING, true),
 
-		/**
-		 * Error level
-		 */
-		ERROR("error", FeedbackMessage.ERROR, true),
+				/**
+				 * Error level
+				 */
+				ERROR("error", FeedbackMessage.ERROR, true),
 
-		/**
-		 * None level
-		 */
-		PLAIN("show", FeedbackMessage.UNDEFINED, true),
-		;
+				/**
+				 * None level
+				 */
+				PLAIN("show", FeedbackMessage.UNDEFINED, true),
+				;
 
 		/**
 		 * Feedback message level
@@ -335,7 +346,7 @@ public class Toast implements IToast {
 	 * @param response the response object
 	 */
 	public static void destroy(final IHeaderResponse response) {
-		response.render(JavaScriptHeaderItem.forScript("iziToast.destroy();", null));
+		response.render(JavaScriptHeaderItem.forScript(SCRIPT_DESTROY_TOAST, null));
 	}
 
 	/**
@@ -344,7 +355,7 @@ public class Toast implements IToast {
 	 * @param target the request target
 	 */
 	public static void destroy(final IPartialPageRequestHandler target) {
-		target.appendJavaScript("iziToast.destroy();");
+		target.appendJavaScript(SCRIPT_DESTROY_TOAST);
 	}
 
 	/**
@@ -353,9 +364,7 @@ public class Toast implements IToast {
 	 * @param response the response object
 	 */
 	public static void hide(final IHeaderResponse response) {
-		String hideScript = "var toasts = document.querySelectorAll('.iziToast');"
-				+"toasts.forEach(toast => iziToast.hide({}, toast));";
-		response.render(JavaScriptHeaderItem.forScript(hideScript, null));
+		response.render(JavaScriptHeaderItem.forScript(SCRIPT_HIDE_TOAST, null));
 	}
 
 	/**
@@ -364,9 +373,7 @@ public class Toast implements IToast {
 	 * @param target the request target
 	 */
 	public static void hide(final IPartialPageRequestHandler target) {
-		String hideScript = "var toasts = document.querySelectorAll('.iziToast');"
-				+"toasts.forEach(toast => iziToast.hide({}, toast));";
-		target.appendJavaScript(hideScript);
+		target.appendJavaScript(SCRIPT_HIDE_TOAST);
 	}
 
 	/**
@@ -440,9 +447,11 @@ public class Toast implements IToast {
 		return option;
 	}
 
-	public void setToastOption(IToastOption option) {
+	public Toast setToastOption(IToastOption option) {
 		this.option = Args.notNull(option, "option");
+		return this;
 	}
+
 
 	/**
 	 * Gets toast level.
