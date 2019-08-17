@@ -169,8 +169,9 @@ public class ToastOption implements IToastOption {
 		return id;
 	}
 
-	public void setId(String id) {
+	public ToastOption setId(String id) {
 		this.id = id;
+		return this;
 	}
 
 	@Override
@@ -178,8 +179,9 @@ public class ToastOption implements IToastOption {
 		return styleClass;
 	}
 
-	public void setStyleClass(String styleClass) {
+	public ToastOption setStyleClass(String styleClass) {
 		this.styleClass = styleClass;
+		return this;
 	}
 
 	@Override
@@ -187,8 +189,9 @@ public class ToastOption implements IToastOption {
 		return title;
 	}
 
-	public void setTitle(String title) {
+	public ToastOption setTitle(String title) {
 		this.title = title;
+		return this;
 	}
 
 	@Override
@@ -196,8 +199,9 @@ public class ToastOption implements IToastOption {
 		return titleColor;
 	}
 
-	public void setTitleColor(String titleColor) {
+	public ToastOption setTitleColor(String titleColor) {
 		this.titleColor = titleColor;
+		return this;
 	}
 
 	@Override
@@ -205,8 +209,9 @@ public class ToastOption implements IToastOption {
 		return titleSize;
 	}
 
-	public void setTitleSize(String titleSize) {
+	public ToastOption setTitleSize(String titleSize) {
 		this.titleSize = titleSize;
+		return this;
 	}
 
 	@Override
@@ -214,8 +219,9 @@ public class ToastOption implements IToastOption {
 		return titleLineHeight;
 	}
 
-	public void setTitleLineHeight(String titleLineHeight) {
+	public ToastOption setTitleLineHeight(String titleLineHeight) {
 		this.titleLineHeight = titleLineHeight;
+		return this;
 	}
 
 	@Override
@@ -223,8 +229,9 @@ public class ToastOption implements IToastOption {
 		return message;
 	}
 
-	public void setMessage(String message) {
+	public ToastOption setMessage(String message) {
 		this.message = message;
+		return this;
 	}
 
 	@Override
@@ -232,8 +239,9 @@ public class ToastOption implements IToastOption {
 		return messageColor;
 	}
 
-	public void setMessageColor(String messageColor) {
+	public ToastOption setMessageColor(String messageColor) {
 		this.messageColor = messageColor;
+		return this;
 	}
 
 	@Override
@@ -241,8 +249,9 @@ public class ToastOption implements IToastOption {
 		return messageSize;
 	}
 
-	public void setMessageSize(String messageSize) {
+	public ToastOption setMessageSize(String messageSize) {
 		this.messageSize = messageSize;
+		return this;
 	}
 
 	@Override
@@ -250,8 +259,9 @@ public class ToastOption implements IToastOption {
 		return messageLineHeight;
 	}
 
-	public void setMessageLineHeight(String messageLineHeight) {
+	public ToastOption setMessageLineHeight(String messageLineHeight) {
 		this.messageLineHeight = messageLineHeight;
+		return this;
 	}
 
 	@Override
@@ -259,8 +269,9 @@ public class ToastOption implements IToastOption {
 		return backgroundColor;
 	}
 
-	public void setBackgroundColor(String backgroundColor) {
+	public ToastOption setBackgroundColor(String backgroundColor) {
 		this.backgroundColor = backgroundColor;
+		return this;
 	}
 
 	@Override
@@ -268,8 +279,9 @@ public class ToastOption implements IToastOption {
 		return theme;
 	}
 
-	public void setTheme(String theme) {
+	public ToastOption setTheme(String theme) {
 		this.theme = theme;
+		return this;
 	}
 
 	@Override
@@ -277,8 +289,9 @@ public class ToastOption implements IToastOption {
 		return color;
 	}
 
-	public void setColor(String color) {
+	public ToastOption setColor(String color) {
 		this.color = color;
+		return this;
 	}
 
 	@Override
@@ -286,8 +299,9 @@ public class ToastOption implements IToastOption {
 		return icon;
 	}
 
-	public void setIcon(String icon) {
+	public ToastOption setIcon(String icon) {
 		this.icon = icon;
+		return this;
 	}
 
 	@Override
@@ -295,8 +309,9 @@ public class ToastOption implements IToastOption {
 		return iconText;
 	}
 
-	public void setIconText(String iconText) {
+	public ToastOption setIconText(String iconText) {
 		this.iconText = iconText;
+		return this;
 	}
 
 	@Override
@@ -304,8 +319,9 @@ public class ToastOption implements IToastOption {
 		return iconColor;
 	}
 
-	public void setIconColor(String iconColor) {
+	public ToastOption setIconColor(String iconColor) {
 		this.iconColor = iconColor;
+		return this;
 	}
 
 	@Override
@@ -313,8 +329,9 @@ public class ToastOption implements IToastOption {
 		return iconUrl;
 	}
 
-	public void setIconUrl(String iconUrl) {
+	public ToastOption setIconUrl(String iconUrl) {
 		this.iconUrl = iconUrl;
+		return this;
 	}
 
 	@Override
@@ -322,8 +339,9 @@ public class ToastOption implements IToastOption {
 		return image;
 	}
 
-	public void setImage(String image) {
+	public ToastOption setImage(String image) {
 		this.image = image;
+		return this;
 	}
 
 	@Override
@@ -331,8 +349,9 @@ public class ToastOption implements IToastOption {
 		return imageWidth;
 	}
 
-	public void setImageWidth(Integer imageWidth) {
+	public ToastOption setImageWidth(Integer imageWidth) {
 		this.imageWidth = imageWidth;
+		return this;
 	}
 
 	@Override
@@ -340,8 +359,9 @@ public class ToastOption implements IToastOption {
 		return maxWidth;
 	}
 
-	public void setMaxWidth(String maxWidth) {
+	public ToastOption setMaxWidth(String maxWidth) {
 		this.maxWidth = maxWidth;
+		return this;
 	}
 
 	@Override
@@ -349,8 +369,9 @@ public class ToastOption implements IToastOption {
 		return zindex;
 	}
 
-	public void setZindex(String zindex) {
+	public ToastOption setZindex(String zindex) {
 		this.zindex = zindex;
+		return this;
 	}
 
 	@Override
@@ -358,8 +379,9 @@ public class ToastOption implements IToastOption {
 		return layout;
 	}
 
-	public void setLayout(Integer layout) {
+	public ToastOption setLayout(Integer layout) {
 		this.layout = layout;
+		return this;
 	}
 
 	@Override
@@ -367,8 +389,9 @@ public class ToastOption implements IToastOption {
 		return balloon;
 	}
 
-	public void setBalloon(Boolean balloon) {
+	public ToastOption setBalloon(Boolean balloon) {
 		this.balloon = balloon;
+		return this;
 	}
 
 	@Override
@@ -376,8 +399,9 @@ public class ToastOption implements IToastOption {
 		return close;
 	}
 
-	public void setClose(Boolean close) {
+	public ToastOption setClose(Boolean close) {
 		this.close = close;
+		return this;
 	}
 
 	@Override
@@ -385,8 +409,9 @@ public class ToastOption implements IToastOption {
 		return closeOnEscape;
 	}
 
-	public void setCloseOnEscape(Boolean closeOnEscape) {
+	public ToastOption setCloseOnEscape(Boolean closeOnEscape) {
 		this.closeOnEscape = closeOnEscape;
+		return this;
 	}
 
 	@Override
@@ -394,8 +419,9 @@ public class ToastOption implements IToastOption {
 		return closeOnClick;
 	}
 
-	public void setCloseOnClick(Boolean closeOnClick) {
+	public ToastOption setCloseOnClick(Boolean closeOnClick) {
 		this.closeOnClick = closeOnClick;
+		return this;
 	}
 
 	@Override
@@ -403,8 +429,9 @@ public class ToastOption implements IToastOption {
 		return displayMode;
 	}
 
-	public void setDisplayMode(Integer displayMode) {
+	public ToastOption setDisplayMode(Integer displayMode) {
 		this.displayMode = displayMode;
+		return this;
 	}
 
 	@Override
@@ -412,8 +439,9 @@ public class ToastOption implements IToastOption {
 		return position;
 	}
 
-	public void setPosition(String position) {
+	public ToastOption setPosition(String position) {
 		this.position = position;
+		return this;
 	}
 
 	@Override
@@ -421,8 +449,9 @@ public class ToastOption implements IToastOption {
 		return target;
 	}
 
-	public void setTarget(String target) {
+	public ToastOption setTarget(String target) {
 		this.target = target;
+		return this;
 	}
 
 	@Override
@@ -430,8 +459,9 @@ public class ToastOption implements IToastOption {
 		return targetFirst;
 	}
 
-	public void setTargetFirst(Boolean targetFirst) {
+	public ToastOption setTargetFirst(Boolean targetFirst) {
 		this.targetFirst = targetFirst;
+		return this;
 	}
 
 	@Override
@@ -439,22 +469,27 @@ public class ToastOption implements IToastOption {
 		return timeout;
 	}
 
-	public void setTimeout(String timeout) {
+	public ToastOption setTimeout(String timeout) {
 		this.timeout = timeout;
+		return this;
 	}
 
-	public void setTimeout(Integer timeout) {
+	public ToastOption setTimeout(Integer timeout) {
 		if (timeout == null) {
-			return;
+			this.timeout = null;
+			return this;
 		}
 		this.timeout = String.valueOf(timeout);
+		return this;
 	}
 
-	public void setTimeout(Boolean timeout) {
+	public ToastOption setTimeout(Boolean timeout) {
 		if (timeout == null) {
-			return;
+			this.timeout = null;
+			return this;
 		}
 		this.timeout = String.valueOf(timeout);
+		return this;
 	}
 
 	@Override
@@ -462,8 +497,9 @@ public class ToastOption implements IToastOption {
 		return rtl;
 	}
 
-	public void setRtl(Boolean rtl) {
+	public ToastOption setRtl(Boolean rtl) {
 		this.rtl = rtl;
+		return this;
 	}
 
 	@Override
@@ -471,8 +507,9 @@ public class ToastOption implements IToastOption {
 		return animateInside;
 	}
 
-	public void setAnimateInside(Boolean animateInside) {
+	public ToastOption setAnimateInside(Boolean animateInside) {
 		this.animateInside = animateInside;
+		return this;
 	}
 
 	@Override
@@ -480,8 +517,9 @@ public class ToastOption implements IToastOption {
 		return drag;
 	}
 
-	public void setDrag(Boolean drag) {
+	public ToastOption setDrag(Boolean drag) {
 		this.drag = drag;
+		return this;
 	}
 
 	@Override
@@ -489,8 +527,9 @@ public class ToastOption implements IToastOption {
 		return pauseOnHover;
 	}
 
-	public void setPauseOnHover(Boolean pauseOnHover) {
+	public ToastOption setPauseOnHover(Boolean pauseOnHover) {
 		this.pauseOnHover = pauseOnHover;
+		return this;
 	}
 
 	@Override
@@ -498,8 +537,9 @@ public class ToastOption implements IToastOption {
 		return resetOnHover;
 	}
 
-	public void setResetOnHover(Boolean resetOnHover) {
+	public ToastOption setResetOnHover(Boolean resetOnHover) {
 		this.resetOnHover = resetOnHover;
+		return this;
 	}
 
 	@Override
@@ -507,8 +547,9 @@ public class ToastOption implements IToastOption {
 		return progressBar;
 	}
 
-	public void setProgressBar(Boolean progressBar) {
+	public ToastOption setProgressBar(Boolean progressBar) {
 		this.progressBar = progressBar;
+		return this;
 	}
 
 	@Override
@@ -516,8 +557,9 @@ public class ToastOption implements IToastOption {
 		return progressBarColor;
 	}
 
-	public void setProgressBarColor(String progressBarColor) {
+	public ToastOption setProgressBarColor(String progressBarColor) {
 		this.progressBarColor = progressBarColor;
+		return this;
 	}
 
 	@Override
@@ -525,8 +567,9 @@ public class ToastOption implements IToastOption {
 		return progressBarEasing;
 	}
 
-	public void setProgressBarEasing(String progressBarEasing) {
+	public ToastOption setProgressBarEasing(String progressBarEasing) {
 		this.progressBarEasing = progressBarEasing;
+		return this;
 	}
 
 	@Override
@@ -534,8 +577,9 @@ public class ToastOption implements IToastOption {
 		return overlay;
 	}
 
-	public void setOverlay(Boolean overlay) {
+	public ToastOption setOverlay(Boolean overlay) {
 		this.overlay = overlay;
+		return this;
 	}
 
 	@Override
@@ -543,8 +587,9 @@ public class ToastOption implements IToastOption {
 		return overlayClose;
 	}
 
-	public void setOverlayClose(Boolean overlayClose) {
+	public ToastOption setOverlayClose(Boolean overlayClose) {
 		this.overlayClose = overlayClose;
+		return this;
 	}
 
 	@Override
@@ -552,8 +597,9 @@ public class ToastOption implements IToastOption {
 		return overlayColor;
 	}
 
-	public void setOverlayColor(String overlayColor) {
+	public ToastOption setOverlayColor(String overlayColor) {
 		this.overlayColor = overlayColor;
+		return this;
 	}
 
 	@Override
@@ -561,8 +607,9 @@ public class ToastOption implements IToastOption {
 		return transitionIn;
 	}
 
-	public void setTransitionIn(String transitionIn) {
+	public ToastOption setTransitionIn(String transitionIn) {
 		this.transitionIn = transitionIn;
+		return this;
 	}
 
 	@Override
@@ -570,8 +617,9 @@ public class ToastOption implements IToastOption {
 		return transitionOut;
 	}
 
-	public void setTransitionOut(String transitionOut) {
+	public ToastOption setTransitionOut(String transitionOut) {
 		this.transitionOut = transitionOut;
+		return this;
 	}
 
 	@Override
@@ -579,8 +627,9 @@ public class ToastOption implements IToastOption {
 		return transitionInMobile;
 	}
 
-	public void setTransitionInMobile(String transitionInMobile) {
+	public ToastOption setTransitionInMobile(String transitionInMobile) {
 		this.transitionInMobile = transitionInMobile;
+		return this;
 	}
 
 	@Override
@@ -588,8 +637,9 @@ public class ToastOption implements IToastOption {
 		return transitionOutMobile;
 	}
 
-	public void setTransitionOutMobile(String transitionOutMobile) {
+	public ToastOption setTransitionOutMobile(String transitionOutMobile) {
 		this.transitionOutMobile = transitionOutMobile;
+		return this;
 	}
 
 	@Override
@@ -597,8 +647,9 @@ public class ToastOption implements IToastOption {
 		return buttons;
 	}
 
-	public void setButtons(String buttons) {
+	public ToastOption setButtons(String buttons) {
 		this.buttons = buttons;
+		return this;
 	}
 
 	@Override
@@ -606,8 +657,9 @@ public class ToastOption implements IToastOption {
 		return inputs;
 	}
 
-	public void setInputs(String inputs) {
+	public ToastOption setInputs(String inputs) {
 		this.inputs = inputs;
+		return this;
 	}
 
 	@Override
@@ -615,8 +667,9 @@ public class ToastOption implements IToastOption {
 		return onOpening;
 	}
 
-	public void setOnOpening(String onOpening) {
+	public ToastOption setOnOpening(String onOpening) {
 		this.onOpening = onOpening;
+		return this;
 	}
 
 	@Override
@@ -624,8 +677,9 @@ public class ToastOption implements IToastOption {
 		return onOpened;
 	}
 
-	public void setOnOpened(String onOpened) {
+	public ToastOption setOnOpened(String onOpened) {
 		this.onOpened = onOpened;
+		return this;
 	}
 
 	@Override
@@ -633,8 +687,9 @@ public class ToastOption implements IToastOption {
 		return onClosing;
 	}
 
-	public void setOnClosing(String onClosing) {
+	public ToastOption setOnClosing(String onClosing) {
 		this.onClosing = onClosing;
+		return this;
 	}
 
 	@Override
@@ -642,8 +697,9 @@ public class ToastOption implements IToastOption {
 		return onClosed;
 	}
 
-	public void setOnClosed(String onClosed) {
+	public ToastOption setOnClosed(String onClosed) {
 		this.onClosed = onClosed;
+		return this;
 	}
 
 	/**
