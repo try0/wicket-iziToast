@@ -6,7 +6,7 @@
 	<parent>
 		<artifactId>wicket-iziToast-parent</artifactId>
 		<groupId>jp.try0.wicket</groupId>
-		<version>0.2.0</version>
+		<version>0.3.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>wicket-iziToast-samples</artifactId>
@@ -28,7 +28,7 @@
 		<jackson-databind.version>2.9.9.2</jackson-databind.version>
 		<jackson-annotations.version>2.9.9</jackson-annotations.version>
 		<commons-text.version>1.7</commons-text.version>
-		<wicket-iziToast.version>0.2.0</wicket-iziToast.version>
+		<wicket-iziToast.version>0.3.0-SNAPSHOT</wicket-iziToast.version>
 		<wtp.version>none</wtp.version>
 	</properties>
 	<dependencies>
