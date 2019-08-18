@@ -1,5 +1,5 @@
 # wicket-iziToast
-Apache Wicket utilities for using iziToast.  
+[Apache Wicket](https://wicket.apache.org/) utilities for using [iziToast](http://izitoast.marcelodolza.com/).  
 
 
 [![Build Status](https://travis-ci.org/try0/wicket-iziToast.svg?branch=master)](https://travis-ci.org/try0/wicket-iziToast)
@@ -42,7 +42,7 @@ IziToastSetting
 ```
 
 
-### Display toast with Behavior
+### Display toast using Behavior
 
 add IziToastBehavior to any of components in page.  
 (If you set setAutoAppendBehavior to true when initializing settings, no need this code.)
