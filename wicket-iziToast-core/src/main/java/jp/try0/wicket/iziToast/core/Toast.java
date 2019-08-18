@@ -280,9 +280,9 @@ public class Toast implements IToast {
 	/**
 	 * Creates a toast.
 	 *
-	 * @param level
-	 * @param option
-	 * @return
+	 * @param level the toast level
+	 * @param option the toast option
+	 * @return a toast
 	 */
 	public static Toast create(ToastLevel level, IToastOption option) {
 		return new Toast(level, option);
@@ -291,10 +291,10 @@ public class Toast implements IToast {
 	/**
 	 * Creates a toast.
 	 *
-	 * @param level
-	 * @param message
-	 * @param title
-	 * @return
+	 * @param level the toast level
+	 * @param message the toast message
+	 * @param title the toast title
+	 * @return a toast
 	 */
 	public static Toast create(ToastLevel level, String message, String title) {
 		return new Toast(level, message, title);
@@ -424,8 +424,6 @@ public class Toast implements IToast {
 	 * Constractor
 	 *
 	 * @param level the toast level
-	 * @param message the string displayed on toast
-	 * @param title the string displayed on toast
 	 * @param option option for override global option
 	 */
 	public Toast(ToastLevel level, IToastOption option) {

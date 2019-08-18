@@ -100,7 +100,7 @@ public class IziToastSetting {
 		/**
 		 * Sets toast global options for each levels.
 		 *
-		 * @param globalOption global options
+		 * @param globalEachLevelOptions global options
 		 * @return this
 		 */
 		public IziToastSettingInitializer setGlobalEachLevelOptions(EachLevelToastOptions globalEachLevelOptions) {
@@ -146,6 +146,7 @@ public class IziToastSetting {
 		 * Sets {@link ToastMessageCombiner}.
 		 *
 		 * @param toastMessageCombiner combiner that combines messages for each toast level
+		 * @return this
 		 */
 		public IziToastSettingInitializer setToastMessageCombiner(ToastMessageCombiner toastMessageCombiner) {
 			this.toastMessageCombiner = toastMessageCombiner;
@@ -154,6 +155,8 @@ public class IziToastSetting {
 
 		/**
 		 * Initialize iziToast settings.
+		 *
+		 * @return setting
 		 */
 		public IziToastSetting initialize() {
 
