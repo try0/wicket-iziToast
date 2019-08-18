@@ -42,7 +42,7 @@ IziToastSetting
 ```
 
 
-### Display toast with Behavior
+### Display toast using Behavior
 
 add IziToastBehavior to any of components in page.  
 (If you set setAutoAppendBehavior to true when initializing settings, no need this code.)
