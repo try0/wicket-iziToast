@@ -5,12 +5,12 @@
 	<modelVersion>4.0.0</modelVersion>
 		<parent>
 		<groupId>jp.try0.wicket</groupId>
-		<artifactId>wicket-iziToast-parent</artifactId>
+		<artifactId>wicket-izitoast-parent</artifactId>
 		<version>0.3.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>wicket-iziToast-core</artifactId>
-	<name>wicket-iziToast-core</name>
-	<description>wicket-iziToast-core</description>
+	<artifactId>wicket-izitoast-core</artifactId>
+	<name>wicket-izitoast-core</name>
+	<description>wicket-izitoast-core</description>
 
 	<dependencies>
 
