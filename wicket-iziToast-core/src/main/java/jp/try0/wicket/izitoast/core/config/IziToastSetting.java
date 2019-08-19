@@ -1,4 +1,4 @@
-package jp.try0.wicket.iziToast.core.config;
+package jp.try0.wicket.izitoast.core.config;
 
 import java.util.Optional;
 import java.util.function.Supplier;
@@ -9,11 +9,11 @@ import org.apache.wicket.Page;
 import org.apache.wicket.feedback.IFeedbackMessageFilter;
 import org.apache.wicket.util.lang.Args;
 
-import jp.try0.wicket.iziToast.core.EachLevelToastOptions;
-import jp.try0.wicket.iziToast.core.IToastOption;
-import jp.try0.wicket.iziToast.core.ToastOption;
-import jp.try0.wicket.iziToast.core.behavior.IziToastBehavior;
-import jp.try0.wicket.iziToast.core.behavior.IziToastBehavior.ToastMessageCombiner;
+import jp.try0.wicket.izitoast.core.EachLevelToastOptions;
+import jp.try0.wicket.izitoast.core.IToastOption;
+import jp.try0.wicket.izitoast.core.ToastOption;
+import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior;
+import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior.ToastMessageCombiner;
 
 /**
  * iziToast settings. This class has configs for using iziToast.

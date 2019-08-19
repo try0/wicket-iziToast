@@ -4,9 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.jupiter.api.Test;
 
-import jp.try0.wicket.iziToast.core.EachLevelToastOptions;
-import jp.try0.wicket.iziToast.core.ToastOption;
-import jp.try0.wicket.iziToast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.EachLevelToastOptions;
+import jp.try0.wicket.izitoast.core.ToastOption;
+import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
 
 /**
  * {@link EachLevelToastOptions} tests.

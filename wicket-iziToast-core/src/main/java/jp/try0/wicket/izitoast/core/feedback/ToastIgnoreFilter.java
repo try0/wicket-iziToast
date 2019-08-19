@@ -1,11 +1,11 @@
-package jp.try0.wicket.iziToast.core.feedback;
+package jp.try0.wicket.izitoast.core.feedback;
 
 import java.io.Serializable;
 
 import org.apache.wicket.feedback.FeedbackMessage;
 import org.apache.wicket.feedback.IFeedbackMessageFilter;
 
-import jp.try0.wicket.iziToast.core.IToast;
+import jp.try0.wicket.izitoast.core.IToast;
 
 /**
  * A filter that ignores the instance implemented the {@link IToast} interface.

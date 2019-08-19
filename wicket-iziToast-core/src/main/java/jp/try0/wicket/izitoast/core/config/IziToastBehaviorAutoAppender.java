@@ -1,4 +1,4 @@
-package jp.try0.wicket.iziToast.core.config;
+package jp.try0.wicket.izitoast.core.config;
 
 import java.util.function.Supplier;
 
@@ -6,7 +6,7 @@ import org.apache.wicket.Component;
 import org.apache.wicket.Page;
 import org.apache.wicket.application.IComponentInstantiationListener;
 
-import jp.try0.wicket.iziToast.core.behavior.IziToastBehavior;
+import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior;
 
 /**
  * Appends a {@link IziToastBehavior} to new {@link Page}.

@@ -15,10 +15,11 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import com.google.common.collect.Sets;
 
-import jp.try0.wicket.iziToast.core.Toast;
-import jp.try0.wicket.iziToast.core.Toast.FeedbackMessageLevel;
-import jp.try0.wicket.iziToast.core.Toast.ToastLevel;
 import jp.try0.wicket.iziToast.core.test.AbstractIziToastTest;
+import jp.try0.wicket.izitoast.core.Toast;
+import jp.try0.wicket.izitoast.core.Toast.FeedbackMessageLevel;
+import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.feedback.ToastLevelFeedbackMessageFilter;
 
 /**
  * {@link ToastLevelFeedbackMessageFilter} Tests.

@@ -7,11 +7,12 @@ import org.apache.wicket.feedback.FeedbackMessage;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.junit.jupiter.api.Test;
 
-import jp.try0.wicket.iziToast.core.IToast;
-import jp.try0.wicket.iziToast.core.IToastOption;
-import jp.try0.wicket.iziToast.core.Toast;
-import jp.try0.wicket.iziToast.core.Toast.ToastLevel;
 import jp.try0.wicket.iziToast.core.test.AbstractIziToastTest;
+import jp.try0.wicket.izitoast.core.IToast;
+import jp.try0.wicket.izitoast.core.IToastOption;
+import jp.try0.wicket.izitoast.core.Toast;
+import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.feedback.ToastIgnoreFilter;
 
 /**
  * {@link ToastIgnoreFilter} Tests.

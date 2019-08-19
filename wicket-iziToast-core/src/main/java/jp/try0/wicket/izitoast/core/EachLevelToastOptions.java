@@ -1,11 +1,11 @@
-package jp.try0.wicket.iziToast.core;
+package jp.try0.wicket.izitoast.core;
 
 import java.io.Serializable;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Optional;
 
-import jp.try0.wicket.iziToast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
 
 /**
  * Toast options for each {@link ToastLevel}.

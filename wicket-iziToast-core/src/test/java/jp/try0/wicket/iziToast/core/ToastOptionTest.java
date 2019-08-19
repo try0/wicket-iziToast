@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import jp.try0.wicket.iziToast.core.IToastOption.OptionKeys;
+import jp.try0.wicket.izitoast.core.IToastOption;
+import jp.try0.wicket.izitoast.core.ToastOption;
+import jp.try0.wicket.izitoast.core.IToastOption.OptionKeys;
 
 /**
  * {@link ToastOption} tests.

@@ -1,4 +1,4 @@
-package jp.try0.wicket.iziToast.samples;
+package jp.try0.wicket.izitoast.samples;
 
 import java.lang.management.ManagementFactory;
 

@@ -1,4 +1,4 @@
-package jp.try0.wicket.iziToast.core.behavior;
+package jp.try0.wicket.izitoast.core.behavior;
 
 import java.io.Serializable;
 import java.util.Collections;
@@ -19,13 +19,13 @@ import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.util.lang.Args;
 
-import jp.try0.wicket.iziToast.core.EachLevelToastOptions;
-import jp.try0.wicket.iziToast.core.IToast;
-import jp.try0.wicket.iziToast.core.IToastOption;
-import jp.try0.wicket.iziToast.core.Toast;
-import jp.try0.wicket.iziToast.core.Toast.ToastLevel;
-import jp.try0.wicket.iziToast.core.ToastOption;
-import jp.try0.wicket.iziToast.core.config.IziToastSetting;
+import jp.try0.wicket.izitoast.core.EachLevelToastOptions;
+import jp.try0.wicket.izitoast.core.IToast;
+import jp.try0.wicket.izitoast.core.IToastOption;
+import jp.try0.wicket.izitoast.core.Toast;
+import jp.try0.wicket.izitoast.core.ToastOption;
+import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.config.IziToastSetting;
 
 /**
  * iziToast behavior.<br>

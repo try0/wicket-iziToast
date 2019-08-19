@@ -1,4 +1,4 @@
-package jp.try0.wicket.iziToast.core.resource.js;
+package jp.try0.wicket.izitoast.core.resource.js;
 
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 

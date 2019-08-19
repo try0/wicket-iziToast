@@ -1,8 +1,11 @@
-package jp.try0.wicket.iziToast.samples;
+package jp.try0.wicket.izitoast.samples;
 
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Before;
 import org.junit.Test;
+
+import jp.try0.wicket.izitoast.samples.HomePage;
+import jp.try0.wicket.izitoast.samples.WicketApplication;
 
 /**
  * Simple test using the WicketTester

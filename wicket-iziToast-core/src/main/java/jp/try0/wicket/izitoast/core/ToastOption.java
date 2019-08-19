@@ -1,4 +1,4 @@
-package jp.try0.wicket.iziToast.core;
+package jp.try0.wicket.izitoast.core;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,4 +1,4 @@
-package jp.try0.wicket.iziToast.core;
+package jp.try0.wicket.izitoast.core;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.core.request.handler.IPartialPageRequestHandler;
@@ -7,7 +7,7 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.util.lang.Args;
 
-import jp.try0.wicket.iziToast.core.behavior.IziToastBehavior;
+import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior;
 
 /**
  * Toast

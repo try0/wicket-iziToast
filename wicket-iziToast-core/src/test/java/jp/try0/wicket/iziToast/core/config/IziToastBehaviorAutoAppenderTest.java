@@ -9,8 +9,9 @@ import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.jupiter.api.Test;
 
-import jp.try0.wicket.iziToast.core.behavior.IziToastBehavior;
 import jp.try0.wicket.iziToast.core.test.AbstractIziToastTest;
+import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior;
+import jp.try0.wicket.izitoast.core.config.IziToastBehaviorAutoAppender;
 
 /**
  * {@link ToastrBehaviorAutoAppender} tests.

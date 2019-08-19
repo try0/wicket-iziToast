@@ -1,19 +1,19 @@
-package jp.try0.wicket.iziToast.samples;
+package jp.try0.wicket.izitoast.samples;
 
 import org.apache.wicket.RuntimeConfigurationType;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.settings.RequestCycleSettings.RenderStrategy;
 
-import jp.try0.wicket.iziToast.core.ToastOption;
-import jp.try0.wicket.iziToast.core.behavior.IziToastBehavior.ToastMessageCombiner;
-import jp.try0.wicket.iziToast.core.config.IziToastSetting;
+import jp.try0.wicket.izitoast.core.ToastOption;
+import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior.ToastMessageCombiner;
+import jp.try0.wicket.izitoast.core.config.IziToastSetting;
 
 /**
  * Application object for your web application.
  * If you want to run this application without deploying, run the Start class.
  *
- * @see jp.try0.wicket.iziToast.samples.Start#main(String[])
+ * @see jp.try0.wicket.izitoast.samples.Start#main(String[])
  */
 public class WicketApplication extends WebApplication
 {

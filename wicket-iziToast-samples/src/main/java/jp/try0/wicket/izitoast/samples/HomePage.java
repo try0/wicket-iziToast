@@ -1,4 +1,4 @@
-package jp.try0.wicket.iziToast.samples;
+package jp.try0.wicket.izitoast.samples;
 
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -17,10 +17,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-import jp.try0.wicket.iziToast.core.IToastOption;
-import jp.try0.wicket.iziToast.core.Toast;
-import jp.try0.wicket.iziToast.core.Toast.ToastLevel;
-import jp.try0.wicket.iziToast.core.ToastOption;
+import jp.try0.wicket.izitoast.core.IToastOption;
+import jp.try0.wicket.izitoast.core.Toast;
+import jp.try0.wicket.izitoast.core.ToastOption;
+import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
 
 public class HomePage extends WebPage {
 	private static final long serialVersionUID = 1L;

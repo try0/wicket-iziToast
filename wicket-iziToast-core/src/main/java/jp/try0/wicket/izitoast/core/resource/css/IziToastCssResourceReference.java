@@ -1,4 +1,4 @@
-package jp.try0.wicket.iziToast.core.resource.css;
+package jp.try0.wicket.izitoast.core.resource.css;
 
 import org.apache.wicket.request.resource.CssResourceReference;
 

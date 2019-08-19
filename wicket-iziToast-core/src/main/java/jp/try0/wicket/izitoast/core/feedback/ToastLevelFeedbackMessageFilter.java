@@ -1,4 +1,4 @@
-package jp.try0.wicket.iziToast.core.feedback;
+package jp.try0.wicket.izitoast.core.feedback;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -10,8 +10,8 @@ import java.util.stream.Collectors;
 import org.apache.wicket.feedback.FeedbackMessage;
 import org.apache.wicket.feedback.IFeedbackMessageFilter;
 
-import jp.try0.wicket.iziToast.core.IToast;
-import jp.try0.wicket.iziToast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.IToast;
+import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
 
 /**
  * Filter to accepts feedback messages with toast level.

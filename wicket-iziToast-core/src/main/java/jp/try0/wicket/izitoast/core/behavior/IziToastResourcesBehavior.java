@@ -1,4 +1,4 @@
-package jp.try0.wicket.iziToast.core.behavior;
+package jp.try0.wicket.izitoast.core.behavior;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.Behavior;
@@ -6,8 +6,8 @@ import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 
-import jp.try0.wicket.iziToast.core.resource.css.IziToastCssResourceReference;
-import jp.try0.wicket.iziToast.core.resource.js.IziToastJavaScriptResourceReference;
+import jp.try0.wicket.izitoast.core.resource.css.IziToastCssResourceReference;
+import jp.try0.wicket.izitoast.core.resource.js.IziToastJavaScriptResourceReference;
 
 /**
  * iziToast resource behavior.<br>
