@@ -8,25 +8,23 @@
 
 
 # Version
-0.2.0  
+0.3.0  
 wicket:8.x iziToast:1.4.0
 
 
 
 # Demo
-Deployed [wicket-iziToast-samples](https://try0.jp/app/wicket-iziToast-samples/) module.
+Deployed [wicket-izitoast-samples](https://try0.jp/app/wicket-izitoast-samples/) module.
 
 
 
 # Usage
-wicket-iziToast is under development.
-version 0.x.x is test release.
 
 ```
 <dependency>
     <groupId>jp.try0.wicket</groupId>
-    <artifactId>wicket-iziToast-core</artifactId>
-    <version>0.2.0</version>
+    <artifactId>wicket-izitoast-core</artifactId>
+    <version>0.3.0</version>
 </dependency>
 ```
 
@@ -53,17 +51,21 @@ add(new IziToastBehavior());
 
 IziToastBehavior converts feedback messages to JavaScript for displaying toast.
 
-Component#success(Serializable), Session#success(Serializable)  
+org.apache.wicket.Component#success(Serializable)   org.apache.wicket.Session#success(Serializable)  
 ⇒ success toast  
 
-Component#info(Serializable), Session#info(Serializable)  
+org.apache.wicket.Component#info(Serializable)  
+org.apache.wicket.Session#info(Serializable)  
 ⇒ info toast  
 
-Component#warn(Serializable), Session#warn(Serializable)  
+org.apache.wicket.Component#warn(Serializable)  
+org.apache.wicket.Session#warn(Serializable)  
 ⇒ warn toast  
 
-Component#error(Serializable), Session#error(SerializableSerializable)  
-Component#fatal(Serializable), Session#fatal(Serializable)  
+org.apache.wicket.Component#error(Serializable)  
+org.apache.wicket.Session#error(SerializableSerializable)    
+org.apache.wicket.Component#fatal(Serializable)  
+org.apache.wicket.Session#fatal(Serializable)  
 ⇒ error toast  
 
 
