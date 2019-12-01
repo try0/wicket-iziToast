@@ -1,4 +1,4 @@
-package jp.try0.wicket.iziToast.core.test;
+package jp.try0.wicket.izitoast.core.test;
 
 import java.io.Serializable;
 

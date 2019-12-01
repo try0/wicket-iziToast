@@ -1,4 +1,4 @@
-package jp.try0.wicket.iziToast.core.config;
+package jp.try0.wicket.izitoast.core.config;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,9 +9,9 @@ import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.jupiter.api.Test;
 
-import jp.try0.wicket.iziToast.core.test.AbstractIziToastTest;
 import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior;
 import jp.try0.wicket.izitoast.core.config.IziToastBehaviorAutoAppender;
+import jp.try0.wicket.izitoast.core.test.AbstractIziToastTest;
 
 /**
  * {@link ToastrBehaviorAutoAppender} tests.

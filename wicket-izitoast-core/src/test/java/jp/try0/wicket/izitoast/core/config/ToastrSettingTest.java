@@ -1,4 +1,4 @@
-package jp.try0.wicket.iziToast.core.config;
+package jp.try0.wicket.izitoast.core.config;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,14 +12,14 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.jupiter.api.Test;
 
-import jp.try0.wicket.iziToast.core.test.AbstractIziToastTest;
-import jp.try0.wicket.iziToast.core.test.IziToastTestPage;
 import jp.try0.wicket.izitoast.core.EachLevelToastOptions;
 import jp.try0.wicket.izitoast.core.ToastOption;
 import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
 import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior;
 import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior.ToastMessageCombiner;
 import jp.try0.wicket.izitoast.core.config.IziToastSetting;
+import jp.try0.wicket.izitoast.core.test.AbstractIziToastTest;
+import jp.try0.wicket.izitoast.core.test.IziToastTestPage;
 
 /**
  * {@link ToastrSetting} tests.

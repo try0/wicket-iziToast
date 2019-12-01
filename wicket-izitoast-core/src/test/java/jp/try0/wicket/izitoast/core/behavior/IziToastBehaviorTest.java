@@ -1,4 +1,4 @@
-package jp.try0.wicket.iziToast.core.behavior;
+package jp.try0.wicket.izitoast.core.behavior;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,8 +13,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.EnumSource.Mode;
 
-import jp.try0.wicket.iziToast.core.test.AbstractIziToastTest;
-import jp.try0.wicket.iziToast.core.test.IziToastTestPage;
 import jp.try0.wicket.izitoast.core.EachLevelToastOptions;
 import jp.try0.wicket.izitoast.core.Toast;
 import jp.try0.wicket.izitoast.core.ToastOption;
@@ -22,6 +20,8 @@ import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
 import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior;
 import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior.ToastMessageCombiner;
 import jp.try0.wicket.izitoast.core.config.IziToastSetting;
+import jp.try0.wicket.izitoast.core.test.AbstractIziToastTest;
+import jp.try0.wicket.izitoast.core.test.IziToastTestPage;
 
 /**
  * {@link IziToastBehavior} tests.

@@ -1,4 +1,4 @@
-package jp.try0.wicket.iziToast.core.feedback;
+package jp.try0.wicket.izitoast.core.feedback;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,11 +15,11 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import com.google.common.collect.Sets;
 
-import jp.try0.wicket.iziToast.core.test.AbstractIziToastTest;
 import jp.try0.wicket.izitoast.core.Toast;
 import jp.try0.wicket.izitoast.core.Toast.FeedbackMessageLevel;
 import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
 import jp.try0.wicket.izitoast.core.feedback.ToastLevelFeedbackMessageFilter;
+import jp.try0.wicket.izitoast.core.test.AbstractIziToastTest;
 
 /**
  * {@link ToastLevelFeedbackMessageFilter} Tests.
