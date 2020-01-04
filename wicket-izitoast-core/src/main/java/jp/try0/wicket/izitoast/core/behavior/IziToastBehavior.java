@@ -23,8 +23,8 @@ import jp.try0.wicket.izitoast.core.EachLevelToastOptions;
 import jp.try0.wicket.izitoast.core.IToast;
 import jp.try0.wicket.izitoast.core.IToastOption;
 import jp.try0.wicket.izitoast.core.Toast;
-import jp.try0.wicket.izitoast.core.ToastOption;
 import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.ToastOption;
 import jp.try0.wicket.izitoast.core.config.IziToastSetting;
 
 /**
@@ -469,7 +469,8 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 	private Toast applyDefaultOption(Toast toast) {
 		EachLevelToastOptions defaultOptions = IziToastSetting.get().getGlobalEachLevelOptions();
 		defaultOptions.get(toast.getToastLevel()).ifPresent(option -> {
-			toast.setToastOption(option);
+			ToastOption merged = option.overwrite(toast.getToastOption());
+			toast.setToastOption(merged);
 		});
 		return toast;
 	}
