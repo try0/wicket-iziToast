@@ -15,9 +15,8 @@ import org.junit.jupiter.params.provider.EnumSource.Mode;
 
 import jp.try0.wicket.izitoast.core.EachLevelToastOptions;
 import jp.try0.wicket.izitoast.core.Toast;
-import jp.try0.wicket.izitoast.core.ToastOption;
 import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
-import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior;
+import jp.try0.wicket.izitoast.core.ToastOption;
 import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior.ToastMessageCombiner;
 import jp.try0.wicket.izitoast.core.config.IziToastSetting;
 import jp.try0.wicket.izitoast.core.test.AbstractIziToastTest;
@@ -270,7 +269,76 @@ public class IziToastBehaviorTest extends AbstractIziToastTest {
 		tester.startPage(page);
 
 		final String lastResponseString = tester.getLastResponseAsString();
-		assertTrue(lastResponseString.contains("iziToast.success(" + options.toJsonString()));
+		assertTrue(lastResponseString
+				.contains("iziToast.success({\"message\":\"\",\"backgroundColor\":\"red\",\"animateInside\":true,})"));
 		assertTrue(lastResponseString.contains("iziToast.info({\"message\":\"\",})"));
 	}
+
+	/**
+	 * Test for merge global's option with toast's option.
+	 *
+	 * @see https://github.com/try0/wicket-iziToast/issues/1
+	 */
+	@Test
+	public void meargeEachLevelToastOptions_DoesNotHaveTitleAndMessage() {
+
+		// Option doesn't have a message and title
+		ToastOption info = new ToastOption();
+		info.setBalloon(true);
+
+		EachLevelToastOptions options = EachLevelToastOptions.builder()
+				.setInfoOption(info)
+				.get();
+
+		IziToastSetting.createInitializer(getWebApplication())
+				.setAutoAppendBehavior(true)
+				.setGlobalEachLevelOptions(options)
+				.initialize();
+
+		final WicketTester tester = getWicketTester();
+		IziToastTestPage page = new IziToastTestPage();
+		page.info("infoMessage");
+
+		tester.startPage(page);
+
+		final String lastResponseString = tester.getLastResponseAsString();
+		assertTrue(lastResponseString.contains("iziToast.info({\"message\":\"infoMessage\",\"balloon\":true,})"));
+
+	}
+
+	/**
+	 * Test for merge global's option with toast's option.
+	 *
+	 * @see https://github.com/try0/wicket-iziToast/issues/1
+	 */
+	@Test
+	public void meargeEachLevelToastOptions_HasTitleAndMessage() {
+
+		// Option has a message and title
+		ToastOption info = new ToastOption();
+		info.setTitle("globalTitle");
+		info.setMessage("globalMessage");
+		info.setBalloon(true);
+
+		EachLevelToastOptions options = EachLevelToastOptions.builder()
+				.setInfoOption(info)
+				.get();
+
+		IziToastSetting.createInitializer(getWebApplication())
+				.setAutoAppendBehavior(true)
+				.setGlobalEachLevelOptions(options)
+				.initialize();
+
+		final WicketTester tester = getWicketTester();
+		IziToastTestPage page = new IziToastTestPage();
+		page.info("infoMessage");
+
+		tester.startPage(page);
+
+		final String lastResponseString = tester.getLastResponseAsString();
+		assertTrue(lastResponseString
+				.contains("iziToast.info({\"title\":\"globalTitle\",\"message\":\"infoMessage\",\"balloon\":true,})"));
+
+	}
+
 }
