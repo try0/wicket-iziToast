@@ -52,7 +52,7 @@ if true add IziToastBehavior to page automatically.
 Default toast option. Execute iziToast.settings(option) in client-side and apply the default option.
 
 ##### GlobalEachLevelOptions
-Default toast option per levels. Merge Toast's option with default option in server-side before rendering script for display toast.
+Default toast option per levels.
 
 ```java
 ToastOption defaultInfoOption = new ToastOption();
