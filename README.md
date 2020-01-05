@@ -44,7 +44,7 @@ IziToastSetting
 .setToastMessageCombiner(combiner) // combiner that combine same level feedback messages.
 .initialize();
 ```
-#### Setting properties
+#### Properties
 ##### AutoAppendBehavior
 if true add IziToastBehavior to page automatically.
 
