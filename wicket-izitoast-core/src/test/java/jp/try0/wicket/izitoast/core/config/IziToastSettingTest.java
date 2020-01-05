@@ -27,7 +27,7 @@ import jp.try0.wicket.izitoast.core.test.IziToastTestPage;
  * @author Ryo Tsunoda
  *
  */
-public class ToastrSettingTest extends AbstractIziToastTest {
+public class IziToastSettingTest extends AbstractIziToastTest {
 
 	@Test
 	public void initializeSettings() {
