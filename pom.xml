@@ -46,8 +46,8 @@
 		<wicket.version>8.6.1</wicket.version>
 		<guava.version>26.0-jre</guava.version>
 		<collections4.version>4.2</collections4.version>
-		<junit.version>5.5.1</junit.version>
-		<junit-platform-launcher.version>1.5.1</junit-platform-launcher.version>
+		<junit.version>5.5.2</junit.version>
+		<junit-platform-launcher.version>1.5.2</junit-platform-launcher.version>
 
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
