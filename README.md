@@ -39,7 +39,8 @@ You can set default values, in the application initialize process(Application#in
 IziToastSetting
 .createInitializer(this)
 .setAutoAppendBehavior(true)
-.setGlobalOption(option) // default iziToast option
+.setGlobalOption(option) // default iziToast option. apply in client-side (execute iziToast.settings(option))
+.setGlobalEachLevelOptions(perLevelOptions) // default option per levels. apply in server-side. 
 .setToastMessageCombiner(combiner) // combiner that combine same level feedback messages.
 .initialize();
 ```
