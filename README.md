@@ -80,7 +80,7 @@ Warning toast
 
 Error toast
 * org.apache.wicket.Component#error(Serializable)  
-* org.apache.wicket.Session#error(SerializableSerializable)  
+* org.apache.wicket.Session#error(Serializable)  
 * org.apache.wicket.Component#fatal(Serializable)  
 * org.apache.wicket.Session#fatal(Serializable)  
 
