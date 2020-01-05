@@ -44,9 +44,53 @@ IziToastSetting
 .setToastMessageCombiner(combiner) // combiner that combine same level feedback messages.
 .initialize();
 ```
+#### Setting properties
+##### AutoAppendBehavior
+if true add IziToastBehavior to page automatically.
+
+##### GlobalOption
+Default toast option. Execute iziToast.settings(option) in client-side and apply the default option.
+
+##### GlobalEachLevelOptions
+Default toast option per levels. Merge Toast's option with default option in server-side before rendering script for display toast.
+
+```java
+ToastOption defaultInfoOption = new ToastOption();
+// TODO set option values
+
+EachLevelToastOptions options = EachLevelToastOptions.builder()
+        .setInfoOption(defaultInfoOption)
+        .get();
+
+// TODO setGlobalEachLevelOptions(options)
+```
 
 
-### Display toast using Behavior
+Option priority level  
+Default option per levels (GlobalEachLevelOptions) > Default option (GlobalOption)
+
+##### ToastMessageCombiner
+Combiner that combines messages for each toast level.
+
+```java
+ToastMessageCombiner combiner = new ToastMessageCombiner();
+combiner.setPrefix("・");
+
+// TODO setToastMessageCombiner(combiner)
+```
+
+If execute this Java code.
+```java
+error("message1");
+error("message2");
+```
+
+Messages are combined and displayed in one toast.
+
+![errors](https://user-images.githubusercontent.com/17096601/71779629-dd56bc80-2ffa-11ea-9f45-b75b1f86d5da.PNG)
+
+
+### Display toast
 
 add IziToastBehavior to page.
 (If you set setAutoAppendBehavior to true when initializing settings, no need this code.)
