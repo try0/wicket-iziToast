@@ -101,8 +101,6 @@ public class HomePage extends WebPage {
 	protected void onInitialize() {
 		super.onInitialize();
 
-		setStatelessHint(false);
-
 		add(new AjaxLink<Void>("btnInformation") {
 
 			@Override
