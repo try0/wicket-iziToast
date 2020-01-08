@@ -187,6 +187,6 @@ public interface IToastOption extends Serializable {
 	 * @param option overwrite options
 	 * @return overwritten option
 	 */
-	public IToastOption overwrite(IToastOption option);
+	public <T extends IToastOption> T overwrite(T option);
 
 }

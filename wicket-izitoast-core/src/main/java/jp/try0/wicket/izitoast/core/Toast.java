@@ -284,7 +284,7 @@ public class Toast implements IToast {
 	 * @param option the toast option
 	 * @return a toast
 	 */
-	public static Toast create(ToastLevel level, IToastOption option) {
+	public static Toast create(ToastLevel level, ToastOption option) {
 		return new Toast(level, option);
 	}
 
@@ -384,7 +384,7 @@ public class Toast implements IToast {
 	/**
 	 * Option for override global option
 	 */
-	private IToastOption option;
+	private ToastOption option;
 
 	private Toast(ToastLevel level) {
 		this.level = Args.notNull(level, "level");
@@ -426,7 +426,7 @@ public class Toast implements IToast {
 	 * @param level the toast level
 	 * @param option option for override global option
 	 */
-	public Toast(ToastLevel level, IToastOption option) {
+	public Toast(ToastLevel level, ToastOption option) {
 		if (!level.isSupported()) {
 			throw new IllegalArgumentException("This level is unsupported.");
 		}
@@ -441,11 +441,18 @@ public class Toast implements IToast {
 	 * @return an {@code Optional} with a toast option
 	 */
 	@Override
-	public IToastOption getToastOption() {
+	public ToastOption getToastOption() {
 		return option;
 	}
 
-	public Toast setToastOption(IToastOption option) {
+	/**
+	 * Sets option.<br>
+	 * Caution : option includes title and message.
+	 *
+	 * @param option
+	 * @return
+	 */
+	public Toast setToastOption(ToastOption option) {
 		this.option = Args.notNull(option, "option");
 		return this;
 	}
