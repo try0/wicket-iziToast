@@ -8,6 +8,7 @@ import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.AjaxSelfUpdatingTimerBehavior;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.behavior.AttributeAppender;
+import org.apache.wicket.event.IEvent;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
@@ -17,10 +18,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import jp.try0.wicket.izitoast.core.IToast;
 import jp.try0.wicket.izitoast.core.IToastOption;
 import jp.try0.wicket.izitoast.core.Toast;
-import jp.try0.wicket.izitoast.core.ToastOption;
 import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.ToastOption;
+import jp.try0.wicket.izitoast.core.ajax.ToastAjaxEventBehavior;
 
 public class HomePage extends WebPage {
 	private static final long serialVersionUID = 1L;
@@ -51,8 +54,6 @@ public class HomePage extends WebPage {
 	private static final RandomString transitionIns = new RandomString(TRANSITION_IN_ANIMATIONS);
 	private static final RandomString transitionOuts = new RandomString(TRANSITION_OUT_ANIMATIONS);
 
-
-
 	private WebMarkupContainer dummyContainer;
 
 	public HomePage(final PageParameters parameters) {
@@ -77,12 +78,30 @@ public class HomePage extends WebPage {
 	private void showLevelToastCode(String sourceCode, AjaxRequestTarget target) {
 		ToastOption option = newSourceToastOption();
 		option.setTarget("#level-toasts");
-		option.setMessage(StringEscapeUtils.escapeJava(sourceCode) );
+		option.setMessage(StringEscapeUtils.escapeJava(sourceCode));
 		Toast.create(ToastLevel.PLAIN, option).show(target);
 	}
+
+	@Override
+	public void onEvent(IEvent<?> event) {
+		super.onEvent(event);
+
+		if (event.getPayload() instanceof AjaxRequestTarget) {
+			AjaxRequestTarget t = ((AjaxRequestTarget) event.getPayload());
+
+			// Stop event bubbling.
+			// When both option.close and option.closeOnClick are true, OnClosing, OnClosed raised twice.
+			t.appendJavaScript("document.querySelectorAll('.iziToast-close')"
+					+ ".forEach(function(btnClose) { btnClose.addEventListener('click', function(e) {e.stopPropagation();}) })");
+
+		}
+	}
+
 	@Override
 	protected void onInitialize() {
 		super.onInitialize();
+
+		setStatelessHint(false);
 
 		add(new AjaxLink<Void>("btnInformation") {
 
@@ -134,13 +153,13 @@ public class HomePage extends WebPage {
 
 		AtomicInteger counter = new AtomicInteger(0);
 
-		add( new AjaxLink<Void>("btnRandomeOptionX5") {
+		add(new AjaxLink<Void>("btnRandomeOptionX5") {
 
 			private final AjaxLink<Void> self = this;
 			{
 				setOutputMarkupId(true);
 
-				add(new AttributeAppender("class", () ->  {
+				add(new AttributeAppender("class", () -> {
 					if (counter.intValue() != 0) {
 						return " disabled loading ";
 					} else {
@@ -176,10 +195,125 @@ public class HomePage extends WebPage {
 				target.add(self);
 			}
 		});
-		add(dummyContainer =new WebMarkupContainer("dummy") {
+		add(dummyContainer = new WebMarkupContainer("dummy") {
 			{
 				setOutputMarkupId(true);
 			}
+		});
+
+		AtomicInteger toastId = new AtomicInteger(0);
+		add(new AjaxLink<Void>("btnAjaxOnClosing") {
+
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+
+				ToastAjaxEventBehavior ajaxBehavior = new ToastAjaxEventBehavior() {
+
+					@Override
+					protected void respond(AjaxRequestTarget target, IToast eventTargetToast) {
+						Toast toast = Toast.create(ToastLevel.WARNING,
+								"Raised OnClosing event. Toast ID: "
+										+ eventTargetToast.getToastOption().getId());
+
+						toast.show(target);
+					}
+				};
+				getPage().add(ajaxBehavior);
+
+				String id = String.valueOf(toastId.incrementAndGet());
+				Toast toast = Toast.create(ToastLevel.ERROR, "ID:" + id);
+				toast.getToastOption().setId(id);
+				ToastAjaxEventBehavior.setOnClosing(toast, ajaxBehavior);
+
+				toast.show(target);
+			}
+
+		});
+
+		add(new AjaxLink<Void>("btnAjaxOnClosed") {
+
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+
+				ToastAjaxEventBehavior ajaxBehavior = new ToastAjaxEventBehavior() {
+
+					@Override
+					protected void respond(AjaxRequestTarget target, IToast eventTargetToast) {
+						Toast toast = Toast.create(ToastLevel.INFO,
+								"Raised OnClosed event. Toast ID: "
+										+ eventTargetToast.getToastOption().getId());
+
+						toast.show(target);
+					}
+				};
+				getPage().add(ajaxBehavior);
+
+				String id = String.valueOf(toastId.incrementAndGet());
+				Toast toast = Toast.create(ToastLevel.WARNING, "ID:" + id);
+				toast.getToastOption().setId(id);
+				ToastAjaxEventBehavior.setOnClosed(toast, ajaxBehavior);
+
+				toast.show(target);
+			}
+
+		});
+
+		add(new AjaxLink<Void>("btnAjaxOnOpening") {
+
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+
+				ToastAjaxEventBehavior ajaxBehavior = new ToastAjaxEventBehavior() {
+
+					@Override
+					protected void respond(AjaxRequestTarget target, IToast eventTargetToast) {
+						Toast toast = Toast.create(ToastLevel.SUCCESS,
+								"Raised OnOpening event. Toast ID: "
+										+ eventTargetToast.getToastOption().getId());
+
+						toast.show(target);
+					}
+				};
+				getPage().add(ajaxBehavior);
+
+				String id = String.valueOf(toastId.incrementAndGet());
+				Toast toast = Toast.create(ToastLevel.INFO, "ID:" + id);
+				toast.getToastOption().setId(id);
+				ToastAjaxEventBehavior.setOnOpening(toast, ajaxBehavior);
+
+				toast.show(target);
+			}
+
+		});
+
+		add(new AjaxLink<Void>("btnAjaxOnOpened") {
+
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+
+				ToastAjaxEventBehavior ajaxBehavior = new ToastAjaxEventBehavior() {
+
+					@Override
+					protected void respond(AjaxRequestTarget target, IToast eventTargetToast) {
+						Toast toast = Toast.create(ToastLevel.ERROR,
+								"Raised OnOpend event. Toast ID: "
+										+ eventTargetToast.getToastOption().getId());
+
+						toast.show(target);
+
+						getPage().remove(this);
+					}
+				};
+				getPage().add(ajaxBehavior);
+
+				String id = String.valueOf(toastId.incrementAndGet());
+				Toast toast = Toast.create(ToastLevel.SUCCESS, "ID:" + id);
+				toast.getToastOption().setId(id);
+				ToastAjaxEventBehavior.setOnOpened(toast, ajaxBehavior);
+
+				toast.show(target);
+			}
+
 		});
 
 		add(new AjaxLink<Void>("btnHide") {
@@ -220,7 +354,6 @@ public class HomePage extends WebPage {
 		option.setOverlayClose(new Random().nextBoolean());
 		option.setPauseOnHover(new Random().nextBoolean());
 		option.setProgressBar(new Random().nextBoolean());
-
 
 		ToastOption option2 = newSourceToastOption();
 		option2.setTarget("#text");

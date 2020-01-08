@@ -78,7 +78,10 @@
 
 		<div class="ui message">
 			<div class="header">wicket-iziToast</div>
-			<p>Apache <a href="https://wicket.apache.org/">Wicket</a> utilities for using <a href="http://izitoast.marcelodolza.com//">iziToast</a>.</p>
+			<p>
+				Apache <a href="https://wicket.apache.org/">Wicket</a> utilities for
+				using <a href="http://izitoast.marcelodolza.com//">iziToast</a>.
+			</p>
 		</div>
 
 		<div class="ui divider"></div>
@@ -123,6 +126,22 @@
 		<div class="ui center aligned grid"
 			style="max-height: 1000px; overflow-y: auto; margin: 10px 0px;">
 			<div id="text" class="text column"></div>
+		</div>
+
+		<div class="ui header">Ajax event toast</div>
+		<div class="buttons">
+
+			<a wicket:id="btnAjaxOnClosing" class="ui basic button" type="button">OnClosing
+				<span class="ui label red">Error</span>/<span class="ui label orange">Warning</span>
+			</a> <a wicket:id="btnAjaxOnClosed" class="ui basic button" type="button">OnClosed
+				<span class="ui label orange">Warning</span>/<span class="ui label teal">Info</span>
+			</a> <a wicket:id="btnAjaxOnOpening" class="ui basic button"
+				type="button">OnOpening <span class="ui label teal">Info</span>/<span
+				class="ui label blue">Success</span>
+			</a> <a wicket:id="btnAjaxOnOpened" class="ui basic button" type="button">OnOpened
+				<span class="ui label blue">Success</span>/<span class="ui label red">Error</span>
+			</a>
+
 		</div>
 
 		<div class="fixed-bottom ui container">
