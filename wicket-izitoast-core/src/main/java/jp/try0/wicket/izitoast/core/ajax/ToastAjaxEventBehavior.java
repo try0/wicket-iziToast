@@ -23,7 +23,7 @@ public abstract class ToastAjaxEventBehavior extends AbstractDefaultAjaxBehavior
 	 * @param ajaxBehavior OnClosed event callback
 	 */
 	public static void setOnClosed(Toast toast, ToastAjaxEventBehavior ajaxBehavior) {
-		toast.getToastOption().setOnClosed("function() { console.log('OnClosed');" + ajaxBehavior.getCallbackScript() + " }");
+		toast.getToastOption().setOnClosed("function() { " + ajaxBehavior.getCallbackScript() + " }");
 		ajaxBehavior.bindToast(toast);
 	}
 
@@ -34,7 +34,7 @@ public abstract class ToastAjaxEventBehavior extends AbstractDefaultAjaxBehavior
 	 * @param ajaxBehavior OnClosing event callback
 	 */
 	public static void setOnClosing(Toast toast, ToastAjaxEventBehavior ajaxBehavior) {
-		toast.getToastOption().setOnClosing("function() { console.log('OnClosing');" + ajaxBehavior.getCallbackScript() + " }");
+		toast.getToastOption().setOnClosing("function() { " + ajaxBehavior.getCallbackScript() + " }");
 		ajaxBehavior.bindToast(toast);
 	}
 
@@ -45,7 +45,7 @@ public abstract class ToastAjaxEventBehavior extends AbstractDefaultAjaxBehavior
 	 * @param ajaxBehavior OnOpened event callback
 	 */
 	public static void setOnOpened(Toast toast, ToastAjaxEventBehavior ajaxBehavior) {
-		toast.getToastOption().setOnOpened("function() { console.log('OnOpened');" + ajaxBehavior.getCallbackScript() + " }");
+		toast.getToastOption().setOnOpened("function() { " + ajaxBehavior.getCallbackScript() + " }");
 		ajaxBehavior.bindToast(toast);
 	}
 
@@ -56,7 +56,7 @@ public abstract class ToastAjaxEventBehavior extends AbstractDefaultAjaxBehavior
 	 * @param ajaxBehavior OnOpening event callback
 	 */
 	public static void setOnOpening(Toast toast, ToastAjaxEventBehavior ajaxBehavior) {
-		toast.getToastOption().setOnOpening("function() { console.log('OnOpening');" + ajaxBehavior.getCallbackScript() + " }");
+		toast.getToastOption().setOnOpening("function() { " + ajaxBehavior.getCallbackScript() + " }");
 		ajaxBehavior.bindToast(toast);
 	}
 
