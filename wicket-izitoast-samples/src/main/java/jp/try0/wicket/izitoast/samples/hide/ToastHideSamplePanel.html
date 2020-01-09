@@ -1,0 +1,22 @@
+<html xmlns:wicket="http://wicket.apache.org">
+
+<wicket:extend>
+
+	<div class="buttons">
+		<button wicket:id="btnShowHideTarget" class="ui button teal"
+			type="button">
+			<i class="info circle icon"></i> Show
+		</button>
+	</div>
+	<div wicket:id="hideButtonsContainer">
+		<div wicket:id="hideButtons" class="ui center aligned grid"
+			style="max-height: 150px; overflow-y: auto; margin: 10px 0px;">
+			<button class="fluid ui button" wicket:id="btnHide">
+				<i class="close icon"></i>
+				<wicket:container wicket:id="lblToastId"></wicket:container>
+			</button>
+		</div>
+	</div>
+</wicket:extend>
+
+</html>

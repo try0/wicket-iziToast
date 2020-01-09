@@ -1,0 +1,27 @@
+<html xmlns:wicket="http://wicket.apache.org">
+
+<wicket:extend>
+	<div class="buttons">
+		<button wicket:id="btnInformation" class="ui button teal"
+			type="button">
+			<i class="info circle icon"></i>Information
+		</button>
+		<button wicket:id="btnSuccess" class="ui button blue" type="button">
+			<i class="check circle icon"></i> Success
+		</button>
+		<button wicket:id="btnWarning" class="ui button orange" type="button">
+			<i class="exclamation triangle icon"></i>Warning
+		</button>
+		<button wicket:id="btnError" class="ui button red" type="button">
+			<i class="ban icon"></i> Error
+		</button>
+	</div>
+	<div>Code (Java)</div>
+	<div class="ui center aligned grid"
+		style="max-height: 150px; overflow-y: auto; margin: 10px 0px;">
+		<div id="level-toasts" class="text column"></div>
+	</div>
+
+</wicket:extend>
+
+</html>

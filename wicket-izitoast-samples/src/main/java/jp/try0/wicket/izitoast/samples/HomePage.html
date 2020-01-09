@@ -58,8 +58,9 @@
 	-moz-user-select: text;
 	-ms-user-select: text;
 }
+
 .bottom-space {
-	padding-bottom: 100px;
+	padding-bottom: 200px;
 }
 </style>
 </head>
@@ -85,83 +86,24 @@
 				Apache <a href="https://wicket.apache.org/">Wicket</a> utilities for
 				using <a href="http://izitoast.marcelodolza.com//">iziToast</a>.
 			</p>
+			<p>wicket-iziToast converts feedback messages to JavaScript for displaying toast.</p>
 		</div>
 
 		<div class="ui divider"></div>
+		<wicket:container wicket:id="LevelToastSamplePanel"></wicket:container>
 
-		<div class="ui header">Level toasts</div>
-		<div class="buttons">
-			<button wicket:id="btnInformation" class="ui button teal"
-				type="button">
-				<i class="info circle icon"></i>Information
-			</button>
-			<button wicket:id="btnSuccess" class="ui button blue" type="button">
-				<i class="check circle icon"></i> Success
-			</button>
-			<button wicket:id="btnWarning" class="ui button orange" type="button">
-				<i class="exclamation triangle icon"></i>Warning
-			</button>
-			<button wicket:id="btnError" class="ui button red" type="button">
-				<i class="ban icon"></i> Error
-			</button>
-		</div>
-		<div>Code (Java)</div>
-		<div class="ui center aligned grid"
-			style="max-height: 150px; overflow-y: auto; margin: 10px 0px;">
-			<div id="level-toasts" class="text column"></div>
-		</div>
 
 		<div class="ui divider"></div>
+		<wicket:container wicket:id="RandomToastSamplePanel"></wicket:container>
 
-		<div class="ui header">Random example</div>
-		<div class="buttons">
-			<button wicket:id="btnRandomeOption" class="ui pink button"
-				type="button">
-				<i class="question icon"></i> Random
-			</button>
-			<button wicket:id="btnRandomeOptionX5" class="ui pink button"
-				type="button">
-				<i class="question icon"></i> Random X 5
-			</button>
-			<div wicket:id="dummy"></div>
-		</div>
-		<div>Code (JS)</div>
-		<div class="ui center aligned grid"
-			style="max-height: 1000px; overflow-y: auto; margin: 10px 0px;">
-			<div id="text" class="text column"></div>
-		</div>
 
-		<div class="ui header">Ajax event toast</div>
-		<div class="buttons">
+		<div class="ui divider"></div>
+		<wicket:container wicket:id="ToastAjaxEventSamplePanel"></wicket:container>
 
-			<a wicket:id="btnAjaxOnClosing" class="ui basic button" type="button">OnClosing
-				<span class="ui label red">Error</span>/<span class="ui label orange">Warning</span>
-			</a> <a wicket:id="btnAjaxOnClosed" class="ui basic button" type="button">OnClosed
-				<span class="ui label orange">Warning</span>/<span class="ui label teal">Info</span>
-			</a> <a wicket:id="btnAjaxOnOpening" class="ui basic button"
-				type="button">OnOpening <span class="ui label teal">Info</span>/<span
-				class="ui label blue">Success</span>
-			</a> <a wicket:id="btnAjaxOnOpened" class="ui basic button" type="button">OnOpened
-				<span class="ui label blue">Success</span>/<span class="ui label red">Error</span>
-			</a>
+		<div class="ui divider"></div>
+		<wicket:container wicket:id="ToastHideSamplePanel"></wicket:container>
 
-		</div>
 
-		<div class="ui header">Hide target toast</div>
-		<div class="buttons">
-			<button wicket:id="btnShowHideTarget" class="ui button teal"
-				type="button">
-				<i class="info circle icon"></i> Show
-			</button>
-		</div>
-		<div wicket:id="hideButtonsContainer">
-			<div wicket:id="hideButtons" class="ui center aligned grid"
-				style="max-height: 150px; overflow-y: auto; margin: 10px 0px;">
-				<button class="fluid ui button" wicket:id="btnHide">
-					<i class="close icon"></i> <wicket:container wicket:id="lblToastId"></wicket:container>
-				</button>
-			</div>
-		</div>
 		<div class="bottom-space"></div>
 		<div class="fixed-bottom ui container">
 
