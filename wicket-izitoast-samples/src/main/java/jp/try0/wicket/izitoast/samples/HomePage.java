@@ -1,5 +1,7 @@
 package jp.try0.wicket.izitoast.samples;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -9,8 +11,13 @@ import org.apache.wicket.ajax.AjaxSelfUpdatingTimerBehavior;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.event.IEvent;
+import org.apache.wicket.markup.head.IHeaderResponse;
+import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.list.ListItem;
+import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.util.time.Duration;
 
@@ -314,11 +321,97 @@ public class HomePage extends WebPage {
 
 		});
 
+		WebMarkupContainer hideButtonsContainer = new WebMarkupContainer("hideButtonsContainer");
+		hideButtonsContainer.setOutputMarkupId(true);
+		add(hideButtonsContainer);
+
+		List<Toast> showToastList = new ArrayList<>();
+		add(new AjaxLink<Void>("btnShowHideTarget") {
+
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+
+				ToastAjaxEventBehavior ajaxBehavior = new ToastAjaxEventBehavior() {
+
+					@Override
+					protected void respond(AjaxRequestTarget target, IToast bindToast) {
+
+						showToastList.remove(bindToast);
+						target.add(hideButtonsContainer);
+					}
+
+				};
+
+				getPage().add(ajaxBehavior);
+
+				String id = String.valueOf(toastId.incrementAndGet());
+				Toast toast = Toast.info("ID:" + id);
+				ToastOption option = toast.getToastOption();
+				option.setId(id);
+				option.setTimeout(false);
+				option.setProgressBar(false);
+
+				ToastAjaxEventBehavior.setOnClosing(toast, ajaxBehavior);
+
+				toast.show(target);
+
+				showToastList.add(toast);
+
+				target.add(hideButtonsContainer);
+			}
+
+		});
+
+		hideButtonsContainer.add(new ListView<Toast>("hideButtons", showToastList) {
+
+			@Override
+			protected void populateItem(ListItem<Toast> item) {
+
+				Toast toast = item.getModelObject();
+				String toastId = toast.getToastOption().getId();
+
+				item.add(new AjaxLink<Void>("btnHide") {
+					{
+						setOutputMarkupId(true);
+
+						add(new Label("lblToastId", "Hide toast: " + toastId));
+
+					}
+
+					@Override
+					public void renderHead(IHeaderResponse response) {
+						super.renderHead(response);
+
+						response.render(OnDomReadyHeaderItem
+								.forScript("$('#" + getMarkupId() + "').on('mouseover', function(e) {"
+
+										+ "setTimeout(function() {"
+										+ "    if (!$(e.target).is(':hover')) return;"
+										+ "    var toast = $('#" + toastId + "');"
+						// remove conflict class. iziToast, Semantic UI"
+										+ "    toast.removeClass('fadeIn');"
+										+ "    toast.transition('jiggle');"
+										+ "}, 500);"
+
+										+ "});"));
+					}
+
+					@Override
+					public void onClick(AjaxRequestTarget target) {
+						Toast toast = item.getModelObject();
+						toast.hide(target);
+					}
+				});
+
+			}
+
+		});
+
 		add(new AjaxLink<Void>("btnHide") {
 
 			@Override
 			public void onClick(AjaxRequestTarget target) {
-				Toast.hide(target);
+				Toast.hideAll(target);
 			}
 		});
 
