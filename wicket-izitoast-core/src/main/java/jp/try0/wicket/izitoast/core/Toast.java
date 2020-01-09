@@ -24,9 +24,9 @@ public class Toast implements IToast {
 	public static final String SCRIPT_DESTROY_TOAST = "iziToast.destroy();";
 
 	/**
-	 * Script that hide adll toasts.
+	 * Script that hide all toasts.
 	 */
-	public static final String SCRIPT_HIDE_TOAST = "var toasts = document.querySelectorAll('.iziToast');"
+	public static final String SCRIPT_HIDE_ALL_TOAST = "var toasts = document.querySelectorAll('.iziToast');"
 			+ "toasts.forEach(function(toast) { iziToast.hide({}, toast); });";
 
 	/**
@@ -363,8 +363,8 @@ public class Toast implements IToast {
 	 *
 	 * @param response the response object
 	 */
-	public static void hide(final IHeaderResponse response) {
-		response.render(JavaScriptHeaderItem.forScript(SCRIPT_HIDE_TOAST, null));
+	public static void hideAll(final IHeaderResponse response) {
+		response.render(JavaScriptHeaderItem.forScript(SCRIPT_HIDE_ALL_TOAST, null));
 	}
 
 	/**
@@ -372,8 +372,18 @@ public class Toast implements IToast {
 	 *
 	 * @param target the request target
 	 */
-	public static void hide(final IPartialPageRequestHandler target) {
-		target.appendJavaScript(SCRIPT_HIDE_TOAST);
+	public static void hideAll(final IPartialPageRequestHandler target) {
+		target.appendJavaScript(SCRIPT_HIDE_ALL_TOAST);
+	}
+
+	/**
+	 * Gets hide toast script.
+	 *
+	 * @param toastId {@link ToastOption#id}
+	 * @return
+	 */
+	public static String getHideScript(String toastId) {
+		return "var hideToast = document.getElementById('" + toastId + "');iziToast.hide({}, hideToast);";
 	}
 
 	/**
@@ -457,7 +467,6 @@ public class Toast implements IToast {
 		return this;
 	}
 
-
 	/**
 	 * Gets toast level.
 	 *
@@ -540,5 +549,21 @@ public class Toast implements IToast {
 
 		}
 	}
+
+	/**
+	 * Hides this toast.
+	 *
+	 * @param target
+	 */
+	public void hide(final IPartialPageRequestHandler target) {
+		String id = getToastOption().getId();
+		if (id == null || id.isEmpty()) {
+			throw new IllegalStateException("Toast has no id (option.id).");
+		}
+
+		target.appendJavaScript(getHideScript(id));
+	}
+
+
 
 }

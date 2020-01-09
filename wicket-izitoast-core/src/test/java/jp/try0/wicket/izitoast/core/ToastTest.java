@@ -15,8 +15,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.EnumSource.Mode;
 
-import jp.try0.wicket.izitoast.core.IToast;
-import jp.try0.wicket.izitoast.core.Toast;
 import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
 import jp.try0.wicket.izitoast.core.test.AbstractIziToastTest;
 import jp.try0.wicket.izitoast.core.test.IziToastTestPage;
@@ -149,7 +147,7 @@ public class ToastTest extends AbstractIziToastTest {
 	}
 
 	/**
-	 * {@link Toast#hide(IHeaderResponse)}<br>
+	 * {@link Toast#hideAll(IHeaderResponse)}<br>
 	 * {@link Toast#hide(AjaxRequestTarget)}
 	 */
 	@Test
@@ -161,7 +159,7 @@ public class ToastTest extends AbstractIziToastTest {
 				@Override
 				public void renderHead(IHeaderResponse response) {
 					super.renderHead(response);
-					Toast.hide(response);
+					Toast.hideAll(response);
 				}
 			};
 
@@ -169,7 +167,7 @@ public class ToastTest extends AbstractIziToastTest {
 			tester.startPage(page);
 
 			final String lastResponseString = tester.getLastResponseAsString();
-			assertTrue(lastResponseString.contains(Toast.SCRIPT_HIDE_TOAST));
+			assertTrue(lastResponseString.contains(Toast.SCRIPT_HIDE_ALL_TOAST));
 		}
 
 		// AjaxRequestTarget
@@ -178,7 +176,7 @@ public class ToastTest extends AbstractIziToastTest {
 				@Override
 				protected void onClickAjaxLink(AjaxRequestTarget target) {
 					super.onClickAjaxLink(target);
-					Toast.hide(target);
+					Toast.hideAll(target);
 				}
 			};
 
@@ -189,7 +187,7 @@ public class ToastTest extends AbstractIziToastTest {
 			tester.clickLink(link);
 
 			final String lastResponseString = tester.getLastResponseAsString();
-			assertTrue(lastResponseString.contains(Toast.SCRIPT_HIDE_TOAST));
+			assertTrue(lastResponseString.contains(Toast.SCRIPT_HIDE_ALL_TOAST));
 		}
 
 	}
