@@ -16,6 +16,7 @@ import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.EnumSource.Mode;
 
 import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior;
 import jp.try0.wicket.izitoast.core.test.AbstractIziToastTest;
 import jp.try0.wicket.izitoast.core.test.IziToastTestPage;
 
@@ -147,11 +148,69 @@ public class ToastTest extends AbstractIziToastTest {
 	}
 
 	/**
-	 * {@link Toast#hideAll(IHeaderResponse)}<br>
-	 * {@link Toast#hide(AjaxRequestTarget)}
+	 * {@link Toast#hide(org.apache.wicket.core.request.handler.IPartialPageRequestHandler)}
+	 */
+	@Test
+	public void hideToast_NoId() {
+		IziToastTestPage page = new IziToastTestPage() {
+			@Override
+			protected void onClickAjaxLink(AjaxRequestTarget target) {
+				super.onClickAjaxLink(target);
+
+				assertThrows(IllegalStateException.class, () ->  {
+					Toast.info("test").hide(target);
+				});
+
+
+			}
+		};
+		page.add(new IziToastBehavior());
+
+		final WicketTester tester = getWicketTester();
+		tester.startPage(page);
+
+		AjaxLink<?> link = page.getAjaxLink();
+		tester.clickLink(link);
+
+		assertTrue(tester.isExposeExceptions());
+
+	}
+
+	/**
+	 * {@link Toast#hide(org.apache.wicket.core.request.handler.IPartialPageRequestHandler)}
 	 */
 	@Test
 	public void hideToast() {
+		IziToastTestPage page = new IziToastTestPage() {
+			@Override
+			protected void onClickAjaxLink(AjaxRequestTarget target) {
+				super.onClickAjaxLink(target);
+
+				Toast toast = Toast.info("test");
+				toast.getToastOption().setId("hide-target-toast");
+				toast.hide(target);
+			}
+		};
+		page.add(new IziToastBehavior());
+
+		final WicketTester tester = getWicketTester();
+		tester.startPage(page);
+
+		AjaxLink<?> link = page.getAjaxLink();
+		tester.clickLink(link);
+
+
+		final String lastResponseString = tester.getLastResponseAsString();
+		assertTrue(lastResponseString.contains(Toast.getHideScript("hide-target-toast")));
+
+	}
+
+	/**
+	 * {@link Toast#hideAll(IHeaderResponse)}<br>
+	 * {@link Toast#hideAll(AjaxRequestTarget)}
+	 */
+	@Test
+	public void hideAllToast() {
 		// IHeaderResponse
 		{
 			IziToastTestPage page = new IziToastTestPage() {
