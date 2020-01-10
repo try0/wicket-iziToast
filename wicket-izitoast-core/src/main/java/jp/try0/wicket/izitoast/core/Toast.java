@@ -341,6 +341,16 @@ public class Toast implements IToast {
 	}
 
 	/**
+	 * Creates a plain toast.
+	 *
+	 * @param message the string displayed on toast
+	 * @return a plain type toast
+	 */
+	public static Toast plain(String message) {
+		return new Toast(ToastLevel.PLAIN, message);
+	}
+
+	/**
 	 * Remove current toasts without using animation.
 	 *
 	 * @param response the response object
@@ -563,7 +573,5 @@ public class Toast implements IToast {
 
 		target.appendJavaScript(getHideScript(id));
 	}
-
-
 
 }
