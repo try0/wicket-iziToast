@@ -15,7 +15,7 @@ import org.junit.jupiter.params.provider.EnumSource.Mode;
 
 import jp.try0.wicket.izitoast.core.EachLevelToastOptions;
 import jp.try0.wicket.izitoast.core.Toast;
-import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.Toast.ToastType;
 import jp.try0.wicket.izitoast.core.ToastOption;
 import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior.ToastMessageCombiner;
 import jp.try0.wicket.izitoast.core.config.IziToastSetting;
@@ -124,25 +124,25 @@ public class IziToastBehaviorTest extends AbstractIziToastTest {
 	}
 
 	@ParameterizedTest
-	@EnumSource(value = ToastLevel.class, mode = Mode.EXCLUDE, names = { "UNDEFINED" })
-	public void useFilter(ToastLevel accept) {
+	@EnumSource(value = ToastType.class, mode = Mode.EXCLUDE, names = { "UNDEFINED" })
+	public void useFilter(ToastType accept) {
 		final WicketTester tester = getWicketTester();
 
 		Page page = new IziToastTestPage() {
 			{
-				add(new IziToastBehavior(msg -> ToastLevel.fromFeedbackMessageLevel(msg.getLevel()) == accept));
+				add(new IziToastBehavior(msg -> ToastType.fromFeedbackMessageLevel(msg.getLevel()) == accept));
 			}
 		};
-		page.info(ToastLevel.INFO.getLevelString());
-		page.success(ToastLevel.SUCCESS.getLevelString());
-		page.warn(ToastLevel.WARNING.getLevelString());
-		page.error(ToastLevel.ERROR.getLevelString());
+		page.info(ToastType.INFO.getLevelString());
+		page.success(ToastType.SUCCESS.getLevelString());
+		page.warn(ToastType.WARNING.getLevelString());
+		page.error(ToastType.ERROR.getLevelString());
 
 		tester.startPage(page);
 
 		final String lastResponseString = tester.getLastResponseAsString();
 
-		for (ToastLevel lv : Arrays.asList(ToastLevel.INFO, ToastLevel.SUCCESS, ToastLevel.WARNING, ToastLevel.ERROR)) {
+		for (ToastType lv : Arrays.asList(ToastType.INFO, ToastType.SUCCESS, ToastType.WARNING, ToastType.ERROR)) {
 			if (lv == accept) {
 				assertTrue(lastResponseString
 						.contains("iziToast." + lv.getLevelString() + "("));
@@ -203,10 +203,10 @@ public class IziToastBehaviorTest extends AbstractIziToastTest {
 		};
 
 		final ToastOption opt1 = ToastOption.create().setMessage("msg1").setColor("red");
-		Toast.create(ToastLevel.SUCCESS, opt1)
+		Toast.create(ToastType.SUCCESS, opt1)
 				.show(page);
 		final ToastOption opt2 = ToastOption.create().setMessage("msg2").setImageWidth(1000);
-		Toast.create(ToastLevel.SUCCESS, opt2)
+		Toast.create(ToastType.SUCCESS, opt2)
 				.show(page);
 
 		tester.startPage(page);
@@ -237,7 +237,7 @@ public class IziToastBehaviorTest extends AbstractIziToastTest {
 				.setAnimateInside(true)
 				.setBackgroundColor("red");
 
-		Toast.create(ToastLevel.SUCCESS, options)
+		Toast.create(ToastType.SUCCESS, options)
 				.show(page);
 
 		tester.startPage(page);

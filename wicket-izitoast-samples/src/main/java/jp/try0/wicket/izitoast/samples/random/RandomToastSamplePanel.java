@@ -18,7 +18,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 
 import jp.try0.wicket.izitoast.core.IToastOption;
 import jp.try0.wicket.izitoast.core.Toast;
-import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.Toast.ToastType;
 import jp.try0.wicket.izitoast.core.ToastOption;
 import jp.try0.wicket.izitoast.samples.AbstractSamplePanel;
 
@@ -151,32 +151,32 @@ public class RandomToastSamplePanel extends AbstractSamplePanel {
 		switch (number) {
 		case 0: {
 			option.setTitle("Information");
-			toast = Toast.create(ToastLevel.INFO, option);
+			toast = Toast.create(ToastType.INFO, option);
 
 			break;
 		}
 		case 1: {
 			option.setTitle("Success");
-			toast = Toast.create(ToastLevel.SUCCESS, option);
+			toast = Toast.create(ToastType.SUCCESS, option);
 
 			break;
 		}
 		case 2: {
 			option.setTitle("Warning");
-			toast = Toast.create(ToastLevel.WARNING, option);
+			toast = Toast.create(ToastType.WARNING, option);
 
 			break;
 		}
 		case 3: {
 			option.setTitle("Error");
-			toast = Toast.create(ToastLevel.ERROR, option);
+			toast = Toast.create(ToastType.ERROR, option);
 
 			break;
 		}
 
 		default:
 			option.setTitle("Simple");
-			toast = Toast.create(ToastLevel.PLAIN, option);
+			toast = Toast.create(ToastType.PLAIN, option);
 			break;
 		}
 
@@ -184,7 +184,7 @@ public class RandomToastSamplePanel extends AbstractSamplePanel {
 
 		String forDispPrettyScript = getScriptForDisplay(toast);
 		option2.setMessage("<pre id='dispScript'>" + forDispPrettyScript + "</pre>");
-		Toast.create(ToastLevel.PLAIN, option2).show(target);
+		Toast.create(ToastType.PLAIN, option2).show(target);
 
 	}
 

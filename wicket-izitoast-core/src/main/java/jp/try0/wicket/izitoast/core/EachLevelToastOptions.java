@@ -5,10 +5,10 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.Optional;
 
-import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.Toast.ToastType;
 
 /**
- * Toast options for each {@link ToastLevel}.
+ * Toast options for each {@link ToastType}.
  *
  * @author Ryo Tsunoda
  *
@@ -27,7 +27,7 @@ public class EachLevelToastOptions implements Serializable {
 		/**
 		 * options for each levels
 		 */
-		Map<ToastLevel, ToastOption> options = new EnumMap<>(ToastLevel.class);
+		Map<ToastType, ToastOption> options = new EnumMap<>(ToastType.class);
 
 		/**
 		 * Sets option of infomation toast.
@@ -36,7 +36,7 @@ public class EachLevelToastOptions implements Serializable {
 		 * @return builder
 		 */
 		public EachLevelToastOptionsBuilder setInfoOption(ToastOption option) {
-			options.put(ToastLevel.INFO, option);
+			options.put(ToastType.INFO, option);
 			return this;
 		}
 
@@ -47,7 +47,7 @@ public class EachLevelToastOptions implements Serializable {
 		 * @return builder
 		 */
 		public EachLevelToastOptionsBuilder setSuccessOption(ToastOption option) {
-			options.put(ToastLevel.SUCCESS, option);
+			options.put(ToastType.SUCCESS, option);
 			return this;
 		}
 
@@ -58,7 +58,7 @@ public class EachLevelToastOptions implements Serializable {
 		 * @return builder
 		 */
 		public EachLevelToastOptionsBuilder setWarnOption(ToastOption option) {
-			options.put(ToastLevel.WARNING, option);
+			options.put(ToastType.WARNING, option);
 			return this;
 		}
 
@@ -69,7 +69,7 @@ public class EachLevelToastOptions implements Serializable {
 		 * @return builder
 		 */
 		public EachLevelToastOptionsBuilder setErrorOption(ToastOption option) {
-			options.put(ToastLevel.ERROR, option);
+			options.put(ToastType.ERROR, option);
 			return this;
 		}
 
@@ -95,7 +95,7 @@ public class EachLevelToastOptions implements Serializable {
 	/**
 	 * options for each level
 	 */
-	private final Map<ToastLevel, ToastOption> options = new EnumMap<>(ToastLevel.class);
+	private final Map<ToastType, ToastOption> options = new EnumMap<>(ToastType.class);
 
 	/**
 	 * Constructor
@@ -108,7 +108,7 @@ public class EachLevelToastOptions implements Serializable {
 	 *
 	 * @param options the options for each levels
 	 */
-	public EachLevelToastOptions(Map<ToastLevel, ToastOption> options) {
+	public EachLevelToastOptions(Map<ToastType, ToastOption> options) {
 		options.forEach((key, val) -> {
 			if (val == null) {
 				return;
@@ -124,7 +124,7 @@ public class EachLevelToastOptions implements Serializable {
 	 * @param level the toast level
 	 * @return the toast option
 	 */
-	public Optional<ToastOption> get(ToastLevel level) {
+	public Optional<ToastOption> get(ToastType level) {
 		ToastOption option = options.get(level);
 		return Optional.ofNullable(option);
 	}

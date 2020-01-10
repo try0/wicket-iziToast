@@ -6,7 +6,7 @@ import org.apache.wicket.model.Model;
 
 import jp.try0.wicket.izitoast.core.IToast;
 import jp.try0.wicket.izitoast.core.Toast;
-import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.Toast.ToastType;
 import jp.try0.wicket.izitoast.core.ajax.ToastAjaxEventBehavior;
 import jp.try0.wicket.izitoast.samples.AbstractSamplePanel;
 import jp.try0.wicket.izitoast.samples.HomePage;
@@ -32,7 +32,7 @@ public class ToastAjaxEventSamplePanel extends AbstractSamplePanel {
 
 					@Override
 					protected void respond(AjaxRequestTarget target, IToast eventTargetToast) {
-						Toast toast = Toast.create(ToastLevel.WARNING,
+						Toast toast = Toast.create(ToastType.WARNING,
 								"Raised OnClosing event. Toast ID: "
 										+ eventTargetToast.getToastOption().getId());
 
@@ -44,7 +44,7 @@ public class ToastAjaxEventSamplePanel extends AbstractSamplePanel {
 				getPage().add(ajaxBehavior);
 
 				String id = String.valueOf(page.toastId.incrementAndGet());
-				Toast toast = Toast.create(ToastLevel.ERROR, "ID:" + id);
+				Toast toast = Toast.create(ToastType.ERROR, "ID:" + id);
 				toast.getToastOption().setId(id);
 				ToastAjaxEventBehavior.setOnClosing(toast, ajaxBehavior);
 
@@ -62,7 +62,7 @@ public class ToastAjaxEventSamplePanel extends AbstractSamplePanel {
 
 					@Override
 					protected void respond(AjaxRequestTarget target, IToast eventTargetToast) {
-						Toast toast = Toast.create(ToastLevel.INFO,
+						Toast toast = Toast.create(ToastType.INFO,
 								"Raised OnClosed event. Toast ID: "
 										+ eventTargetToast.getToastOption().getId());
 
@@ -74,7 +74,7 @@ public class ToastAjaxEventSamplePanel extends AbstractSamplePanel {
 				getPage().add(ajaxBehavior);
 
 				String id = String.valueOf(page.toastId.incrementAndGet());
-				Toast toast = Toast.create(ToastLevel.WARNING, "ID:" + id);
+				Toast toast = Toast.create(ToastType.WARNING, "ID:" + id);
 				toast.getToastOption().setId(id);
 				ToastAjaxEventBehavior.setOnClosed(toast, ajaxBehavior);
 
@@ -92,7 +92,7 @@ public class ToastAjaxEventSamplePanel extends AbstractSamplePanel {
 
 					@Override
 					protected void respond(AjaxRequestTarget target, IToast eventTargetToast) {
-						Toast toast = Toast.create(ToastLevel.SUCCESS,
+						Toast toast = Toast.create(ToastType.SUCCESS,
 								"Raised OnOpening event. Toast ID: "
 										+ eventTargetToast.getToastOption().getId());
 
@@ -104,7 +104,7 @@ public class ToastAjaxEventSamplePanel extends AbstractSamplePanel {
 				getPage().add(ajaxBehavior);
 
 				String id = String.valueOf(page.toastId.incrementAndGet());
-				Toast toast = Toast.create(ToastLevel.INFO, "ID:" + id);
+				Toast toast = Toast.create(ToastType.INFO, "ID:" + id);
 				toast.getToastOption().setId(id);
 				ToastAjaxEventBehavior.setOnOpening(toast, ajaxBehavior);
 
@@ -122,7 +122,7 @@ public class ToastAjaxEventSamplePanel extends AbstractSamplePanel {
 
 					@Override
 					protected void respond(AjaxRequestTarget target, IToast eventTargetToast) {
-						Toast toast = Toast.create(ToastLevel.ERROR,
+						Toast toast = Toast.create(ToastType.ERROR,
 								"Raised OnOpend event. Toast ID: "
 										+ eventTargetToast.getToastOption().getId());
 
@@ -134,7 +134,7 @@ public class ToastAjaxEventSamplePanel extends AbstractSamplePanel {
 				getPage().add(ajaxBehavior);
 
 				String id = String.valueOf(page.toastId.incrementAndGet());
-				Toast toast = Toast.create(ToastLevel.SUCCESS, "ID:" + id);
+				Toast toast = Toast.create(ToastType.SUCCESS, "ID:" + id);
 				toast.getToastOption().setId(id);
 				ToastAjaxEventBehavior.setOnOpened(toast, ajaxBehavior);
 

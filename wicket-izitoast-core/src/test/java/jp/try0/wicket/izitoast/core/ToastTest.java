@@ -15,7 +15,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.EnumSource.Mode;
 
-import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.Toast.ToastType;
 import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior;
 import jp.try0.wicket.izitoast.core.test.AbstractIziToastTest;
 import jp.try0.wicket.izitoast.core.test.IziToastTestPage;
@@ -29,7 +29,7 @@ import jp.try0.wicket.izitoast.core.test.IziToastTestPage;
 public class ToastTest extends AbstractIziToastTest {
 
 	/**
-	 * {@link Toast#create(ToastLevel, String)}<br>
+	 * {@link Toast#create(ToastType, String)}<br>
 	 * {@link Toast#info(String)}<br>
 	 * {@link Toast#success(String)}<br>
 	 * {@link Toast#warn(String)}<br>
@@ -40,30 +40,30 @@ public class ToastTest extends AbstractIziToastTest {
 
 		{
 			Toast toast = Toast.info("info");
-			assertEquals(toast.getToastLevel(), ToastLevel.INFO);
+			assertEquals(toast.getToastLevel(), ToastType.INFO);
 			assertEquals(toast.getMessage(), "info");
 		}
 		{
 			Toast toast = Toast.success("success");
-			assertEquals(toast.getToastLevel(), ToastLevel.SUCCESS);
+			assertEquals(toast.getToastLevel(), ToastType.SUCCESS);
 			assertEquals(toast.getMessage(), "success");
 		}
 		{
 			Toast toast = Toast.warn("warn");
-			assertEquals(toast.getToastLevel(), ToastLevel.WARNING);
+			assertEquals(toast.getToastLevel(), ToastType.WARNING);
 			assertEquals(toast.getMessage(), "warn");
 		}
 		{
 			Toast toast = Toast.error("error");
-			assertEquals(toast.getToastLevel(), ToastLevel.ERROR);
+			assertEquals(toast.getToastLevel(), ToastType.ERROR);
 			assertEquals(toast.getMessage(), "error");
 		}
 
 	}
 
 	@ParameterizedTest
-	@EnumSource(value = ToastLevel.class, mode = Mode.EXCLUDE, names = { "UNDEFINED" })
-	public void showToastWithAjaxRequest(ToastLevel level) {
+	@EnumSource(value = ToastType.class, mode = Mode.EXCLUDE, names = { "UNDEFINED" })
+	public void showToastWithAjaxRequest(ToastType level) {
 
 		AjaxLink<Void> link = new AjaxLink<Void>("showToast") {
 
@@ -90,8 +90,8 @@ public class ToastTest extends AbstractIziToastTest {
 	}
 
 	@ParameterizedTest
-	@EnumSource(value = ToastLevel.class, mode = Mode.EXCLUDE, names = { "UNDEFINED" })
-	public void showToastWithHeaderResponse(ToastLevel level) {
+	@EnumSource(value = ToastType.class, mode = Mode.EXCLUDE, names = { "UNDEFINED" })
+	public void showToastWithHeaderResponse(ToastType level) {
 
 		Page page = new IziToastTestPage() {
 
@@ -113,8 +113,8 @@ public class ToastTest extends AbstractIziToastTest {
 	}
 
 	@ParameterizedTest
-	@EnumSource(value = ToastLevel.class, mode = Mode.EXCLUDE, names = { "UNDEFINED", "PLAIN" })
-	public void showToastWithFeedbackMessage(ToastLevel level) {
+	@EnumSource(value = ToastType.class, mode = Mode.EXCLUDE, names = { "UNDEFINED", "PLAIN" })
+	public void showToastWithFeedbackMessage(ToastType level) {
 
 		Link<Void> link = new Link<Void>("showToast") {
 

@@ -6,7 +6,7 @@ import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.model.Model;
 
 import jp.try0.wicket.izitoast.core.Toast;
-import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.Toast.ToastType;
 import jp.try0.wicket.izitoast.core.ToastOption;
 import jp.try0.wicket.izitoast.samples.AbstractSamplePanel;
 
@@ -66,7 +66,7 @@ public class LevelToastSamplePanel extends AbstractSamplePanel {
 		ToastOption option = newSourceToastOption();
 		option.setTarget("#level-toasts");
 		option.setMessage(StringEscapeUtils.escapeJava(sourceCode));
-		Toast.create(ToastLevel.PLAIN, option).show(target);
+		Toast.create(ToastType.PLAIN, option).show(target);
 	}
 
 }

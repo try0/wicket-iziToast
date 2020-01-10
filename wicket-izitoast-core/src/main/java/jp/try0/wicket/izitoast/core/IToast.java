@@ -2,7 +2,7 @@ package jp.try0.wicket.izitoast.core;
 
 import java.io.Serializable;
 
-import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.Toast.ToastType;
 
 /**
  * Toast interface.
@@ -17,7 +17,7 @@ public interface IToast extends Serializable {
 	 *
 	 * @return the toast level
 	 */
-	public ToastLevel getToastLevel();
+	public ToastType getToastLevel();
 
 	/**
 	 * Gets toast title.

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import jp.try0.wicket.izitoast.core.IToast;
 import jp.try0.wicket.izitoast.core.Toast;
-import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.Toast.ToastType;
 import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior;
 import jp.try0.wicket.izitoast.core.test.AbstractIziToastTest;
 import jp.try0.wicket.izitoast.core.test.IziToastTestPage;
@@ -41,7 +41,7 @@ public class ToastAjaxEventBehaviorTest extends AbstractIziToastTest {
 		};
 		page.add(ajaxBehavior);
 
-		Toast toast = Toast.create(ToastLevel.INFO, "Test render callback functions.");
+		Toast toast = Toast.create(ToastType.INFO, "Test render callback functions.");
 		ToastAjaxEventBehavior.setOnClosed(toast, ajaxBehavior);
 		ToastAjaxEventBehavior.setOnClosing(toast, ajaxBehavior);
 		ToastAjaxEventBehavior.setOnOpened(toast, ajaxBehavior);

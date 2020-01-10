@@ -35,7 +35,7 @@ public class Toast implements IToast {
 	 * @author Ryo Tsunoda
 	 *
 	 */
-	public static enum ToastLevel {
+	public static enum ToastType {
 				/**
 				 * Undefined level
 				 */
@@ -73,7 +73,7 @@ public class Toast implements IToast {
 		int feedbackMessageLevel;
 
 		/**
-		 * Level string. Except for {@link ToastLevel#UNDEFINED}, it's same as iziToast's method name that display messages.
+		 * Level string. Except for {@link ToastType#UNDEFINED}, it's same as iziToast's method name that display messages.
 		 */
 		String level;
 
@@ -88,14 +88,14 @@ public class Toast implements IToast {
 		 * @param level level string
 		 * @param isSupported Whether it is iziToast's method name to display the message
 		 */
-		ToastLevel(String level, int feedbackMessageLevel, boolean isSupported) {
+		ToastType(String level, int feedbackMessageLevel, boolean isSupported) {
 			this.feedbackMessageLevel = feedbackMessageLevel;
 			this.level = level;
 			this.isSupported = isSupported;
 		}
 
 		/**
-		 * Gets level as string. Except for {@link ToastLevel#UNDEFINED}, it's same as iziToast's method name that display messages.
+		 * Gets level as string. Except for {@link ToastType#UNDEFINED}, it's same as iziToast's method name that display messages.
 		 *
 		 * @return a level string
 		 */
@@ -118,7 +118,7 @@ public class Toast implements IToast {
 		 * @param level the level to be compared to this level
 		 * @return true if this level is less than argument's level, otherwise false
 		 */
-		public boolean lessThan(ToastLevel level) {
+		public boolean lessThan(ToastType level) {
 			return this.feedbackMessageLevel < level.feedbackMessageLevel;
 		}
 
@@ -128,7 +128,7 @@ public class Toast implements IToast {
 		 * @param level the level to be compared to this level
 		 * @return true if this level is greater than argument's level, otherwise false
 		 */
-		public boolean greaterThan(ToastLevel level) {
+		public boolean greaterThan(ToastType level) {
 			return this.feedbackMessageLevel > level.feedbackMessageLevel;
 		}
 
@@ -139,7 +139,7 @@ public class Toast implements IToast {
 		 *            the feedback message's level
 		 * @return the toast level
 		 */
-		public static ToastLevel fromFeedbackMessageLevel(int levelOfFeedbackMessage) {
+		public static ToastType fromFeedbackMessageLevel(int levelOfFeedbackMessage) {
 
 			for (FeedbackMessageLevel messageLevel : FeedbackMessageLevel.values()) {
 				if (messageLevel.toInteger() == levelOfFeedbackMessage) {
@@ -147,7 +147,7 @@ public class Toast implements IToast {
 				}
 			}
 
-			return ToastLevel.UNDEFINED;
+			return ToastType.UNDEFINED;
 		}
 
 		/**
@@ -157,21 +157,21 @@ public class Toast implements IToast {
 		 *            the feedback message's level
 		 * @return the toast level
 		 */
-		public static ToastLevel fromFeedbackMessageLevel(FeedbackMessageLevel level) {
+		public static ToastType fromFeedbackMessageLevel(FeedbackMessageLevel level) {
 
 			switch (level) {
 			case DEBUG:
 			case ERROR:
 			case FATAL:
-				return ToastLevel.ERROR;
+				return ToastType.ERROR;
 			case INFO:
-				return ToastLevel.INFO;
+				return ToastType.INFO;
 			case SUCCESS:
-				return ToastLevel.SUCCESS;
+				return ToastType.SUCCESS;
 			case WARNING:
-				return ToastLevel.WARNING;
+				return ToastType.WARNING;
 			default:
-				return ToastLevel.UNDEFINED;
+				return ToastType.UNDEFINED;
 			}
 
 		}
@@ -248,7 +248,7 @@ public class Toast implements IToast {
 		 * @param toastLevel the toast level
 		 * @return the feedback message's level
 		 */
-		public static FeedbackMessageLevel fromToastLevel(ToastLevel toastLevel) {
+		public static FeedbackMessageLevel fromToastLevel(ToastType toastLevel) {
 
 			switch (toastLevel) {
 			case ERROR:
@@ -273,7 +273,7 @@ public class Toast implements IToast {
 	 * @param message the string displayed on toast
 	 * @return a toast
 	 */
-	public static Toast create(ToastLevel level, String message) {
+	public static Toast create(ToastType level, String message) {
 		return new Toast(level, message);
 	}
 
@@ -284,7 +284,7 @@ public class Toast implements IToast {
 	 * @param option the toast option
 	 * @return a toast
 	 */
-	public static Toast create(ToastLevel level, ToastOption option) {
+	public static Toast create(ToastType level, ToastOption option) {
 		return new Toast(level, option);
 	}
 
@@ -296,7 +296,7 @@ public class Toast implements IToast {
 	 * @param title the toast title
 	 * @return a toast
 	 */
-	public static Toast create(ToastLevel level, String message, String title) {
+	public static Toast create(ToastType level, String message, String title) {
 		return new Toast(level, message, title);
 	}
 
@@ -307,7 +307,7 @@ public class Toast implements IToast {
 	 * @return a success level toast
 	 */
 	public static Toast success(String message) {
-		return new Toast(ToastLevel.SUCCESS, message);
+		return new Toast(ToastType.SUCCESS, message);
 	}
 
 	/**
@@ -317,7 +317,7 @@ public class Toast implements IToast {
 	 * @return an information level toast
 	 */
 	public static Toast info(String message) {
-		return new Toast(ToastLevel.INFO, message);
+		return new Toast(ToastType.INFO, message);
 	}
 
 	/**
@@ -327,7 +327,7 @@ public class Toast implements IToast {
 	 * @return a warning level toast
 	 */
 	public static Toast warn(String message) {
-		return new Toast(ToastLevel.WARNING, message);
+		return new Toast(ToastType.WARNING, message);
 	}
 
 	/**
@@ -337,7 +337,7 @@ public class Toast implements IToast {
 	 * @return a error level toast
 	 */
 	public static Toast error(String message) {
-		return new Toast(ToastLevel.ERROR, message);
+		return new Toast(ToastType.ERROR, message);
 	}
 
 	/**
@@ -347,7 +347,7 @@ public class Toast implements IToast {
 	 * @return a plain type toast
 	 */
 	public static Toast plain(String message) {
-		return new Toast(ToastLevel.PLAIN, message);
+		return new Toast(ToastType.PLAIN, message);
 	}
 
 	/**
@@ -399,14 +399,14 @@ public class Toast implements IToast {
 	/**
 	 * Toast level
 	 */
-	private ToastLevel level;
+	private ToastType level;
 
 	/**
 	 * Option for override global option
 	 */
 	private ToastOption option;
 
-	private Toast(ToastLevel level) {
+	private Toast(ToastType level) {
 		this.level = Args.notNull(level, "level");
 	}
 
@@ -416,7 +416,7 @@ public class Toast implements IToast {
 	 * @param level the toast level
 	 * @param message the string displayed on toast
 	 */
-	public Toast(ToastLevel level, String message) {
+	public Toast(ToastType level, String message) {
 		this(level);
 
 		ToastOption option = new ToastOption();
@@ -431,7 +431,7 @@ public class Toast implements IToast {
 	 * @param message the string displayed on toast
 	 * @param title the string displayed on toast
 	 */
-	public Toast(ToastLevel level, String message, String title) {
+	public Toast(ToastType level, String message, String title) {
 		this(level);
 
 		ToastOption option = new ToastOption();
@@ -446,7 +446,7 @@ public class Toast implements IToast {
 	 * @param level the toast level
 	 * @param option option for override global option
 	 */
-	public Toast(ToastLevel level, ToastOption option) {
+	public Toast(ToastType level, ToastOption option) {
 		if (!level.isSupported()) {
 			throw new IllegalArgumentException("This level is unsupported.");
 		}
@@ -483,7 +483,7 @@ public class Toast implements IToast {
 	 * @return the toast level
 	 */
 	@Override
-	public ToastLevel getToastLevel() {
+	public ToastType getToastLevel() {
 		return level;
 	}
 

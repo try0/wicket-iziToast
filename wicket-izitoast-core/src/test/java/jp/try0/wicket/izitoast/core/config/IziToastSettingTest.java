@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import jp.try0.wicket.izitoast.core.EachLevelToastOptions;
 import jp.try0.wicket.izitoast.core.ToastOption;
-import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.Toast.ToastType;
 import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior;
 import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior.ToastMessageCombiner;
 import jp.try0.wicket.izitoast.core.config.IziToastSetting;
@@ -140,12 +140,12 @@ public class IziToastSettingTest extends AbstractIziToastTest {
 		ToastOption warn = new ToastOption();
 		ToastOption error = new ToastOption();
 
-		EachLevelToastOptions options = new EachLevelToastOptions(new HashMap<ToastLevel, ToastOption>() {
+		EachLevelToastOptions options = new EachLevelToastOptions(new HashMap<ToastType, ToastOption>() {
 			{
-				put(ToastLevel.INFO, info);
-				put(ToastLevel.SUCCESS, success);
-				put(ToastLevel.WARNING, warn);
-				put(ToastLevel.ERROR, error);
+				put(ToastType.INFO, info);
+				put(ToastType.SUCCESS, success);
+				put(ToastType.WARNING, warn);
+				put(ToastType.ERROR, error);
 			}
 		});
 
@@ -154,14 +154,14 @@ public class IziToastSettingTest extends AbstractIziToastTest {
 				.setGlobalEachLevelOptions(options)
 				.initialize();
 
-		assertTrue(setting.getGlobalEachLevelOptions().get(ToastLevel.INFO).isPresent());
-		assertTrue(setting.getGlobalEachLevelOptions().get(ToastLevel.INFO).get() == info);
-		assertTrue(setting.getGlobalEachLevelOptions().get(ToastLevel.SUCCESS).isPresent());
-		assertTrue(setting.getGlobalEachLevelOptions().get(ToastLevel.SUCCESS).get() == success);
-		assertTrue(setting.getGlobalEachLevelOptions().get(ToastLevel.WARNING).isPresent());
-		assertTrue(setting.getGlobalEachLevelOptions().get(ToastLevel.WARNING).get() == warn);
-		assertTrue(setting.getGlobalEachLevelOptions().get(ToastLevel.ERROR).isPresent());
-		assertTrue(setting.getGlobalEachLevelOptions().get(ToastLevel.ERROR).get() == error);
+		assertTrue(setting.getGlobalEachLevelOptions().get(ToastType.INFO).isPresent());
+		assertTrue(setting.getGlobalEachLevelOptions().get(ToastType.INFO).get() == info);
+		assertTrue(setting.getGlobalEachLevelOptions().get(ToastType.SUCCESS).isPresent());
+		assertTrue(setting.getGlobalEachLevelOptions().get(ToastType.SUCCESS).get() == success);
+		assertTrue(setting.getGlobalEachLevelOptions().get(ToastType.WARNING).isPresent());
+		assertTrue(setting.getGlobalEachLevelOptions().get(ToastType.WARNING).get() == warn);
+		assertTrue(setting.getGlobalEachLevelOptions().get(ToastType.ERROR).isPresent());
+		assertTrue(setting.getGlobalEachLevelOptions().get(ToastType.ERROR).get() == error);
 
 	}
 }

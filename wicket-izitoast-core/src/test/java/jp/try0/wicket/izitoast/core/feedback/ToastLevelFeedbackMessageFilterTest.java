@@ -17,7 +17,7 @@ import com.google.common.collect.Sets;
 
 import jp.try0.wicket.izitoast.core.Toast;
 import jp.try0.wicket.izitoast.core.Toast.FeedbackMessageLevel;
-import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.Toast.ToastType;
 import jp.try0.wicket.izitoast.core.feedback.ToastLevelFeedbackMessageFilter;
 import jp.try0.wicket.izitoast.core.test.AbstractIziToastTest;
 
@@ -30,13 +30,13 @@ import jp.try0.wicket.izitoast.core.test.AbstractIziToastTest;
 public class ToastLevelFeedbackMessageFilterTest extends AbstractIziToastTest {
 
 	/**
-	 * {@link ToastLevelFeedbackMessageFilter#lessThan(ToastLevel)} test.
+	 * {@link ToastLevelFeedbackMessageFilter#lessThan(ToastType)} test.
 	 *
 	 * @param level
 	 */
 	@ParameterizedTest
-	@EnumSource(value = ToastLevel.class, mode = Mode.EXCLUDE, names = { "UNDEFINED" })
-	public void lessThan(ToastLevel level) {
+	@EnumSource(value = ToastType.class, mode = Mode.EXCLUDE, names = { "UNDEFINED" })
+	public void lessThan(ToastType level) {
 		ToastLevelFeedbackMessageFilter filter = ToastLevelFeedbackMessageFilter.lessThan(level);
 
 		Component dummy = new WebMarkupContainer("dummy");
@@ -65,13 +65,13 @@ public class ToastLevelFeedbackMessageFilterTest extends AbstractIziToastTest {
 	}
 
 	/**
-	 * {@link ToastLevelFeedbackMessageFilter#lessThanOrEqual(ToastLevel)} test.
+	 * {@link ToastLevelFeedbackMessageFilter#lessThanOrEqual(ToastType)} test.
 	 *
 	 * @param level
 	 */
 	@ParameterizedTest
-	@EnumSource(value = ToastLevel.class, mode = Mode.EXCLUDE, names = { "UNDEFINED" })
-	public void lessThanOrEqual(ToastLevel level) {
+	@EnumSource(value = ToastType.class, mode = Mode.EXCLUDE, names = { "UNDEFINED" })
+	public void lessThanOrEqual(ToastType level) {
 		ToastLevelFeedbackMessageFilter filter = ToastLevelFeedbackMessageFilter.lessThanOrEqual(level);
 
 		Component dummy = new WebMarkupContainer("dummy");
@@ -104,13 +104,13 @@ public class ToastLevelFeedbackMessageFilterTest extends AbstractIziToastTest {
 	}
 
 	/**
-	 * {@link ToastLevelFeedbackMessageFilter#greaterThan(ToastLevel)} test.
+	 * {@link ToastLevelFeedbackMessageFilter#greaterThan(ToastType)} test.
 	 *
 	 * @param level
 	 */
 	@ParameterizedTest
-	@EnumSource(value = ToastLevel.class, mode = Mode.EXCLUDE, names = { "UNDEFINED" })
-	public void greaterThan(ToastLevel level) {
+	@EnumSource(value = ToastType.class, mode = Mode.EXCLUDE, names = { "UNDEFINED" })
+	public void greaterThan(ToastType level) {
 		ToastLevelFeedbackMessageFilter filter = ToastLevelFeedbackMessageFilter.greaterThan(level);
 
 		Component dummy = new WebMarkupContainer("dummy");
@@ -139,13 +139,13 @@ public class ToastLevelFeedbackMessageFilterTest extends AbstractIziToastTest {
 	}
 
 	/**
-	 * {@link ToastLevelFeedbackMessageFilter#greaterThanOrEqual(ToastLevel)} test.
+	 * {@link ToastLevelFeedbackMessageFilter#greaterThanOrEqual(ToastType)} test.
 	 *
 	 * @param level
 	 */
 	@ParameterizedTest
-	@EnumSource(value = ToastLevel.class, mode = Mode.EXCLUDE, names = { "UNDEFINED" })
-	public void greaterThanOrEqual(ToastLevel level) {
+	@EnumSource(value = ToastType.class, mode = Mode.EXCLUDE, names = { "UNDEFINED" })
+	public void greaterThanOrEqual(ToastType level) {
 		ToastLevelFeedbackMessageFilter filter = ToastLevelFeedbackMessageFilter.greaterThanOrEqual(level);
 
 		Component dummy = new WebMarkupContainer("dummy");
@@ -178,28 +178,28 @@ public class ToastLevelFeedbackMessageFilterTest extends AbstractIziToastTest {
 	}
 
 	private static final String GET_LEVEL_SET_SOURCE = "getLevelSetSource";
-	public static Stream<Set<ToastLevel>> getLevelSetSource() {
+	public static Stream<Set<ToastType>> getLevelSetSource() {
 		return Stream.of(
-				Sets.newHashSet(ToastLevel.SUCCESS),
-				Sets.newHashSet(ToastLevel.SUCCESS, ToastLevel.ERROR),
-				Sets.newHashSet(ToastLevel.INFO, ToastLevel.ERROR),
-				Sets.newHashSet(ToastLevel.WARNING, ToastLevel.ERROR),
-				Sets.newHashSet(ToastLevel.SUCCESS, ToastLevel.WARNING),
-				Sets.newHashSet(ToastLevel.SUCCESS, ToastLevel.INFO, ToastLevel.ERROR)
+				Sets.newHashSet(ToastType.SUCCESS),
+				Sets.newHashSet(ToastType.SUCCESS, ToastType.ERROR),
+				Sets.newHashSet(ToastType.INFO, ToastType.ERROR),
+				Sets.newHashSet(ToastType.WARNING, ToastType.ERROR),
+				Sets.newHashSet(ToastType.SUCCESS, ToastType.WARNING),
+				Sets.newHashSet(ToastType.SUCCESS, ToastType.INFO, ToastType.ERROR)
 				);
 	}
 
 	/**
-	 * {@link ToastLevelFeedbackMessageFilter#accepts(ToastLevel...)} test.
+	 * {@link ToastLevelFeedbackMessageFilter#accepts(ToastType...)} test.
 	 *
 	 * @param level
 	 */
 	@ParameterizedTest
 	@MethodSource(GET_LEVEL_SET_SOURCE)
-	public void accepts(Set<ToastLevel> levels) {
+	public void accepts(Set<ToastType> levels) {
 
 		ToastLevelFeedbackMessageFilter filter =
-				ToastLevelFeedbackMessageFilter.accepts(levels.toArray(new ToastLevel[0]));
+				ToastLevelFeedbackMessageFilter.accepts(levels.toArray(new ToastType[0]));
 
 		Component dummy = new WebMarkupContainer("dummy");
 
@@ -222,16 +222,16 @@ public class ToastLevelFeedbackMessageFilterTest extends AbstractIziToastTest {
 	}
 
 	/**
-	 * {@link ToastLevelFeedbackMessageFilter#ignores(ToastLevel...)} test.
+	 * {@link ToastLevelFeedbackMessageFilter#ignores(ToastType...)} test.
 	 *
 	 * @param level
 	 */
 	@ParameterizedTest
 	@MethodSource(GET_LEVEL_SET_SOURCE)
-	public void ignores(Set<ToastLevel> levels) {
+	public void ignores(Set<ToastType> levels) {
 
 		ToastLevelFeedbackMessageFilter filter =
-				ToastLevelFeedbackMessageFilter.ignores(levels.toArray(new ToastLevel[0]));
+				ToastLevelFeedbackMessageFilter.ignores(levels.toArray(new ToastType[0]));
 
 		Component dummy = new WebMarkupContainer("dummy");
 

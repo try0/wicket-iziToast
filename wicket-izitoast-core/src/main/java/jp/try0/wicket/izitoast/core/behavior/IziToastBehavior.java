@@ -23,7 +23,7 @@ import jp.try0.wicket.izitoast.core.EachLevelToastOptions;
 import jp.try0.wicket.izitoast.core.IToast;
 import jp.try0.wicket.izitoast.core.IToastOption;
 import jp.try0.wicket.izitoast.core.Toast;
-import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.Toast.ToastType;
 import jp.try0.wicket.izitoast.core.ToastOption;
 import jp.try0.wicket.izitoast.core.config.IziToastSetting;
 
@@ -137,7 +137,7 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 		 */
 		public Stream<IToast> combine(Stream<IToast> toastStream) {
 
-			Map<ToastLevel, List<IToast>> groupByLevel = toastStream
+			Map<ToastType, List<IToast>> groupByLevel = toastStream
 					.collect(Collectors.groupingBy(IToast::getToastLevel));
 
 			return groupByLevel.entrySet().stream()
@@ -433,7 +433,7 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 	 */
 	private Stream<IToast> toToastStream(List<FeedbackMessage> feedbackMessages) {
 		return feedbackMessages.stream()
-				.filter(fm -> ToastLevel.fromFeedbackMessageLevel(fm.getLevel()).isSupported())
+				.filter(fm -> ToastType.fromFeedbackMessageLevel(fm.getLevel()).isSupported())
 				.map(fm -> {
 					markRendered(fm);
 					return fm;
@@ -453,7 +453,7 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 			return (IToast) feedbackMessage.getMessage();
 		} else {
 			// create new one
-			ToastLevel level = ToastLevel.fromFeedbackMessageLevel(feedbackMessage.getLevel());
+			ToastType level = ToastType.fromFeedbackMessageLevel(feedbackMessage.getLevel());
 			Toast toast = Toast.create(level, feedbackMessage.getMessage().toString());
 
 			return applyDefaultOption(toast);

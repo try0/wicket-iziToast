@@ -11,7 +11,7 @@ import org.apache.wicket.feedback.FeedbackMessage;
 import org.apache.wicket.feedback.IFeedbackMessageFilter;
 
 import jp.try0.wicket.izitoast.core.IToast;
-import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.Toast.ToastType;
 
 /**
  * Filter to accepts feedback messages with toast level.
@@ -28,11 +28,11 @@ public class ToastLevelFeedbackMessageFilter implements IFeedbackMessageFilter {
 	 * @param level the level that compare to each levels
 	 * @return the filter that accepts less than argument's level
 	 */
-	public static ToastLevelFeedbackMessageFilter lessThan(ToastLevel level) {
+	public static ToastLevelFeedbackMessageFilter lessThan(ToastType level) {
 
-		Set<ToastLevel> accepts = new HashSet<>();
+		Set<ToastType> accepts = new HashSet<>();
 
-		for (ToastLevel lv : ToastLevel.values()) {
+		for (ToastType lv : ToastType.values()) {
 			if (lv.lessThan(level)) {
 				accepts.add(lv);
 			}
@@ -47,11 +47,11 @@ public class ToastLevelFeedbackMessageFilter implements IFeedbackMessageFilter {
 	 * @param level the level that compare to each levels
 	 * @return the filter that accepts less than or equals argument's level
 	 */
-	public static ToastLevelFeedbackMessageFilter lessThanOrEqual(ToastLevel level) {
+	public static ToastLevelFeedbackMessageFilter lessThanOrEqual(ToastType level) {
 
-		Set<ToastLevel> accepts = new HashSet<>();
+		Set<ToastType> accepts = new HashSet<>();
 
-		for (ToastLevel lv : ToastLevel.values()) {
+		for (ToastType lv : ToastType.values()) {
 			if (lv.lessThan(level) || level == lv) {
 				accepts.add(lv);
 			}
@@ -66,11 +66,11 @@ public class ToastLevelFeedbackMessageFilter implements IFeedbackMessageFilter {
 	 * @param level the level that compare to each levels
 	 * @return the filter that accepts greater than argument's level
 	 */
-	public static ToastLevelFeedbackMessageFilter greaterThan(ToastLevel level) {
+	public static ToastLevelFeedbackMessageFilter greaterThan(ToastType level) {
 
-		Set<ToastLevel> accepts = new HashSet<>();
+		Set<ToastType> accepts = new HashSet<>();
 
-		for (ToastLevel lv : ToastLevel.values()) {
+		for (ToastType lv : ToastType.values()) {
 			if (lv.greaterThan(level)) {
 				accepts.add(lv);
 			}
@@ -85,11 +85,11 @@ public class ToastLevelFeedbackMessageFilter implements IFeedbackMessageFilter {
 	 * @param level the level that compares to each levels
 	 * @return the filter that accepts greater than or equals argument's level
 	 */
-	public static ToastLevelFeedbackMessageFilter greaterThanOrEqual(ToastLevel level) {
+	public static ToastLevelFeedbackMessageFilter greaterThanOrEqual(ToastType level) {
 
-		Set<ToastLevel> accepts = new HashSet<>();
+		Set<ToastType> accepts = new HashSet<>();
 
-		for (ToastLevel lv : ToastLevel.values()) {
+		for (ToastType lv : ToastType.values()) {
 			if (lv.greaterThan(level) || level == lv) {
 				accepts.add(lv);
 			}
@@ -104,7 +104,7 @@ public class ToastLevelFeedbackMessageFilter implements IFeedbackMessageFilter {
 	 * @param accepts the levels to accepts
 	 * @return the filter that accepts argument's level
 	 */
-	public static ToastLevelFeedbackMessageFilter accepts(ToastLevel ...accepts) {
+	public static ToastLevelFeedbackMessageFilter accepts(ToastType ...accepts) {
 		return new ToastLevelFeedbackMessageFilter(accepts);
 	}
 
@@ -114,11 +114,11 @@ public class ToastLevelFeedbackMessageFilter implements IFeedbackMessageFilter {
 	 * @param ignores the levels to ignores
 	 * @return the filter that ignores argument's level
 	 */
-	public static ToastLevelFeedbackMessageFilter ignores(ToastLevel ...ignores) {
+	public static ToastLevelFeedbackMessageFilter ignores(ToastType ...ignores) {
 
-		Set<ToastLevel> accepts = EnumSet.allOf(ToastLevel.class).stream()
+		Set<ToastType> accepts = EnumSet.allOf(ToastType.class).stream()
 				.filter(lv -> {
-					for (ToastLevel ignore : ignores) {
+					for (ToastType ignore : ignores) {
 						if (lv == ignore) {
 							return false;
 						}
@@ -134,7 +134,7 @@ public class ToastLevelFeedbackMessageFilter implements IFeedbackMessageFilter {
 	/**
 	 * Levels to accepts
 	 */
-	private final EnumSet<ToastLevel> accepts = EnumSet.noneOf(ToastLevel.class);
+	private final EnumSet<ToastType> accepts = EnumSet.noneOf(ToastType.class);
 
 
 
@@ -143,8 +143,8 @@ public class ToastLevelFeedbackMessageFilter implements IFeedbackMessageFilter {
 	 *
 	 * @param accepts the levels to accepts
 	 */
-	public ToastLevelFeedbackMessageFilter(ToastLevel... accepts) {
-		for (ToastLevel level : accepts) {
+	public ToastLevelFeedbackMessageFilter(ToastType... accepts) {
+		for (ToastType level : accepts) {
 			this.accepts.add(level);
 		}
 	}
@@ -154,8 +154,8 @@ public class ToastLevelFeedbackMessageFilter implements IFeedbackMessageFilter {
 	 *
 	 * @param accepts the levels to accepts
 	 */
-	public ToastLevelFeedbackMessageFilter(Collection<ToastLevel> accepts) {
-		for (ToastLevel level : accepts) {
+	public ToastLevelFeedbackMessageFilter(Collection<ToastType> accepts) {
+		for (ToastType level : accepts) {
 			this.accepts.add(level);
 		}
 	}
@@ -172,7 +172,7 @@ public class ToastLevelFeedbackMessageFilter implements IFeedbackMessageFilter {
 			IToast toast = (IToast) messageObject;
 			return accepts.contains(toast.getToastLevel());
 		} else {
-			return accepts.contains(ToastLevel.fromFeedbackMessageLevel(message.getLevel()));
+			return accepts.contains(ToastType.fromFeedbackMessageLevel(message.getLevel()));
 		}
 	}
 

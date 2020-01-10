@@ -11,7 +11,7 @@ import org.apache.wicket.markup.html.link.ExternalLink;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import jp.try0.wicket.izitoast.core.Toast;
-import jp.try0.wicket.izitoast.core.Toast.ToastLevel;
+import jp.try0.wicket.izitoast.core.Toast.ToastType;
 import jp.try0.wicket.izitoast.samples.ajax.ToastAjaxEventSamplePanel;
 import jp.try0.wicket.izitoast.samples.basic.LevelToastSamplePanel;
 import jp.try0.wicket.izitoast.samples.hide.ToastHideSamplePanel;
@@ -41,10 +41,10 @@ public class HomePage extends WebPage {
 		warn("warn2");
 		error("error2");
 
-		info(Toast.create(ToastLevel.INFO, "infomation message", "Information"));
-		success(Toast.create(ToastLevel.SUCCESS, "success message", "Success"));
-		warn(Toast.create(ToastLevel.WARNING, "warning message", "Warning"));
-		error(Toast.create(ToastLevel.ERROR, "error message", "Error"));
+		info(Toast.create(ToastType.INFO, "infomation message", "Information"));
+		success(Toast.create(ToastType.SUCCESS, "success message", "Success"));
+		warn(Toast.create(ToastType.WARNING, "warning message", "Warning"));
+		error(Toast.create(ToastType.ERROR, "error message", "Error"));
 	}
 
 
