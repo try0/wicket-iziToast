@@ -73,9 +73,9 @@ public class Toast implements IToast {
 		int feedbackMessageLevel;
 
 		/**
-		 * Level string. Except for {@link ToastType#UNDEFINED}, it's same as iziToast's method name that display messages.
+		 * Toast type. Except for {@link ToastType#UNDEFINED}, it's same as iziToast's method name that display messages.
 		 */
-		String level;
+		String toastType;
 
 		/**
 		 * Whether toast can be displayed.
@@ -90,7 +90,7 @@ public class Toast implements IToast {
 		 */
 		ToastType(String level, int feedbackMessageLevel, boolean isSupported) {
 			this.feedbackMessageLevel = feedbackMessageLevel;
-			this.level = level;
+			this.toastType = level;
 			this.isSupported = isSupported;
 		}
 
@@ -100,7 +100,7 @@ public class Toast implements IToast {
 		 * @return a type as string
 		 */
 		public String getTypeAsString() {
-			return this.level;
+			return this.toastType;
 		}
 
 		/**

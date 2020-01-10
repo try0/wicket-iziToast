@@ -192,7 +192,7 @@ public class ToastLevelFeedbackMessageFilterTest extends AbstractIziToastTest {
 	/**
 	 * {@link ToastLevelFeedbackMessageFilter#accepts(ToastType...)} test.
 	 *
-	 * @param level
+	 * @param toastType
 	 */
 	@ParameterizedTest
 	@MethodSource(GET_LEVEL_SET_SOURCE)
@@ -224,7 +224,7 @@ public class ToastLevelFeedbackMessageFilterTest extends AbstractIziToastTest {
 	/**
 	 * {@link ToastLevelFeedbackMessageFilter#ignores(ToastType...)} test.
 	 *
-	 * @param level
+	 * @param toastType
 	 */
 	@ParameterizedTest
 	@MethodSource(GET_LEVEL_SET_SOURCE)
