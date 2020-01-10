@@ -8,12 +8,13 @@ import org.apache.wicket.model.Model;
 import jp.try0.wicket.izitoast.core.Toast;
 import jp.try0.wicket.izitoast.core.Toast.ToastType;
 import jp.try0.wicket.izitoast.core.ToastOption;
+import jp.try0.wicket.izitoast.core.config.IziToastSetting;
 import jp.try0.wicket.izitoast.samples.AbstractSamplePanel;
 
-public class LevelToastSamplePanel extends AbstractSamplePanel {
+public class ToastTypeSamplePanel extends AbstractSamplePanel {
 
-	public LevelToastSamplePanel(String id) {
-		super(id, Model.of("Levels"));
+	public ToastTypeSamplePanel(String id) {
+		super(id, Model.of("Types"));
 	}
 
 	@Override
@@ -58,6 +59,34 @@ public class LevelToastSamplePanel extends AbstractSamplePanel {
 
 				showLevelToastCode("error(\"Error feedback message\");", target);
 			}
+		});
+
+		add(new AjaxLink<Void>("btnPlain") {
+
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+				ToastOption option = new ToastOption();
+				option.setMessage("Plain type");
+				if (IziToastSetting.get().hasGlobalOptions()) {
+					option = IziToastSetting.get().getGlobalOption().get().overwrite(option);
+				}
+				Toast.create(ToastType.PLAIN, option).show(target);
+			}
+
+		});
+
+		add(new AjaxLink<Void>("btnQuestion") {
+
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+				ToastOption option = new ToastOption();
+				option.setMessage("Question type");
+				if (IziToastSetting.get().hasGlobalOptions()) {
+					option = IziToastSetting.get().getGlobalOption().get().overwrite(option);
+				}
+				Toast.create(ToastType.QUESTION, option).show(target);
+			}
+
 		});
 
 	}

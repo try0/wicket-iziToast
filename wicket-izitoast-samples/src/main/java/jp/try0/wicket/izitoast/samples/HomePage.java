@@ -13,7 +13,7 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import jp.try0.wicket.izitoast.core.Toast;
 import jp.try0.wicket.izitoast.core.Toast.ToastType;
 import jp.try0.wicket.izitoast.samples.ajax.ToastAjaxEventSamplePanel;
-import jp.try0.wicket.izitoast.samples.basic.LevelToastSamplePanel;
+import jp.try0.wicket.izitoast.samples.basic.ToastTypeSamplePanel;
 import jp.try0.wicket.izitoast.samples.hide.ToastHideSamplePanel;
 import jp.try0.wicket.izitoast.samples.random.RandomToastSamplePanel;
 
@@ -72,7 +72,7 @@ public class HomePage extends WebPage {
 
 		add(new ExternalLink("linkToSource", HomePage.getGitHubUrl(getClass())));
 
-		add(new LevelToastSamplePanel("LevelToastSamplePanel"));
+		add(new ToastTypeSamplePanel("LevelToastSamplePanel"));
 
 		add(new RandomToastSamplePanel("RandomToastSamplePanel"));
 

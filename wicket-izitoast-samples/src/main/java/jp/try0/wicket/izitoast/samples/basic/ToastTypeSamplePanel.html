@@ -1,6 +1,8 @@
 <html xmlns:wicket="http://wicket.apache.org">
 
 <wicket:extend>
+
+	<div class="ui small header">Levels</div>
 	<div class="buttons">
 		<button wicket:id="btnInformation" class="ui button teal"
 			type="button">
@@ -20,6 +22,17 @@
 	<div class="ui center aligned grid"
 		style="max-height: 150px; overflow-y: auto; margin: 10px 0px;">
 		<div id="level-toasts" class="text column"></div>
+	</div>
+
+
+	<div class="ui small header">Others</div>
+	<div class="buttons">
+		<button wicket:id="btnPlain" class="ui basic button" type="button">
+			Plain</button>
+		<button wicket:id="btnQuestion" class="ui button yellow" type="button">
+			<i class="question icon"></i> Question
+		</button>
+
 	</div>
 
 </wicket:extend>
