@@ -65,6 +65,11 @@ public class Toast implements IToast {
 				 * Plain
 				 */
 				PLAIN("show", FeedbackMessage.UNDEFINED, true),
+
+				/**
+				 * Question
+				 */
+				QUESTION("question", FeedbackMessage.UNDEFINED, true),
 				;
 
 		/**
