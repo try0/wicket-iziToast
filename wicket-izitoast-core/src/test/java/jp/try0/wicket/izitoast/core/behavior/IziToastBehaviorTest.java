@@ -133,10 +133,10 @@ public class IziToastBehaviorTest extends AbstractIziToastTest {
 				add(new IziToastBehavior(msg -> ToastType.fromFeedbackMessageLevel(msg.getLevel()) == accept));
 			}
 		};
-		page.info(ToastType.INFO.getLevelString());
-		page.success(ToastType.SUCCESS.getLevelString());
-		page.warn(ToastType.WARNING.getLevelString());
-		page.error(ToastType.ERROR.getLevelString());
+		page.info(ToastType.INFO.getTypeAsString());
+		page.success(ToastType.SUCCESS.getTypeAsString());
+		page.warn(ToastType.WARNING.getTypeAsString());
+		page.error(ToastType.ERROR.getTypeAsString());
 
 		tester.startPage(page);
 
@@ -145,10 +145,10 @@ public class IziToastBehaviorTest extends AbstractIziToastTest {
 		for (ToastType lv : Arrays.asList(ToastType.INFO, ToastType.SUCCESS, ToastType.WARNING, ToastType.ERROR)) {
 			if (lv == accept) {
 				assertTrue(lastResponseString
-						.contains("iziToast." + lv.getLevelString() + "("));
+						.contains("iziToast." + lv.getTypeAsString() + "("));
 			} else {
 				assertFalse(lastResponseString
-						.contains("iziToast." + lv.getLevelString() + "("));
+						.contains("iziToast." + lv.getTypeAsString() + "("));
 			}
 		}
 

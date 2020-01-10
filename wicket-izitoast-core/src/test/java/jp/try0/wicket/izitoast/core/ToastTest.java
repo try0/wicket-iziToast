@@ -74,7 +74,7 @@ public class ToastTest extends AbstractIziToastTest {
 
 			@Override
 			public void onClick(AjaxRequestTarget target) {
-				Toast.create(level, level.getLevelString()).show(target);
+				Toast.create(level, level.getTypeAsString()).show(target);
 			}
 
 		};
@@ -84,7 +84,7 @@ public class ToastTest extends AbstractIziToastTest {
 		tester.clickLink(link);
 
 		final String lastResponseString = tester.getLastResponseAsString();
-		final String toastLevelString = level.getLevelString();
+		final String toastLevelString = level.getTypeAsString();
 		assertTrue(lastResponseString.contains("iziToast." + toastLevelString));
 
 	}
@@ -98,7 +98,7 @@ public class ToastTest extends AbstractIziToastTest {
 			@Override
 			public void renderHead(IHeaderResponse response) {
 				super.renderHead(response);
-				Toast.create(level, level.getLevelString()).show(response);
+				Toast.create(level, level.getTypeAsString()).show(response);
 			}
 
 		};
@@ -107,7 +107,7 @@ public class ToastTest extends AbstractIziToastTest {
 		tester.startPage(page);
 
 		final String lastResponseString = tester.getLastResponseAsString();
-		final String toastLevelString = level.getLevelString();
+		final String toastLevelString = level.getTypeAsString();
 		assertTrue(lastResponseString.contains("iziToast." + toastLevelString));
 
 	}
@@ -125,7 +125,7 @@ public class ToastTest extends AbstractIziToastTest {
 
 			@Override
 			public void onClick() {
-				Toast.create(level, level.getLevelString()).show(this);
+				Toast.create(level, level.getTypeAsString()).show(this);
 			}
 
 		};

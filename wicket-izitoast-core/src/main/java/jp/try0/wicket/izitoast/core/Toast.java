@@ -30,39 +30,39 @@ public class Toast implements IToast {
 			+ "toasts.forEach(function(toast) { iziToast.hide({}, toast); });";
 
 	/**
-	 * Toast levels
+	 * Toast Types
 	 *
 	 * @author Ryo Tsunoda
 	 *
 	 */
 	public static enum ToastType {
 				/**
-				 * Undefined level
+				 * Undefined
 				 */
 				UNDEFINED("undefined", FeedbackMessage.UNDEFINED, false),
 
 				/**
-				 * Success level
+				 * Success
 				 */
 				SUCCESS("success", FeedbackMessage.SUCCESS, true),
 
 				/**
-				 * Information level
+				 * Information
 				 */
 				INFO("info", FeedbackMessage.INFO, true),
 
 				/**
-				 * Warning level
+				 * Warning
 				 */
 				WARNING("warning", FeedbackMessage.WARNING, true),
 
 				/**
-				 * Error level
+				 * Error
 				 */
 				ERROR("error", FeedbackMessage.ERROR, true),
 
 				/**
-				 * None level
+				 * Plain
 				 */
 				PLAIN("show", FeedbackMessage.UNDEFINED, true),
 				;
@@ -95,11 +95,11 @@ public class Toast implements IToast {
 		}
 
 		/**
-		 * Gets level as string. Except for {@link ToastType#UNDEFINED}, it's same as iziToast's method name that display messages.
+		 * Gets type as string. Except for {@link ToastType#UNDEFINED}, it's same as iziToast's method name that display messages.
 		 *
-		 * @return a level string
+		 * @return a type as string
 		 */
-		public String getLevelString() {
+		public String getTypeAsString() {
 			return this.level;
 		}
 
@@ -506,7 +506,7 @@ public class Toast implements IToast {
 	public String getScriptForDisplay() {
 		final StringBuilder script = new StringBuilder();
 
-		script.append("iziToast.").append(level.getLevelString()).append("(");
+		script.append("iziToast.").append(level.getTypeAsString()).append("(");
 
 		// sets override options
 		script.append(option.toJsonString());
