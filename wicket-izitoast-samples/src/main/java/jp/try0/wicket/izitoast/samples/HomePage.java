@@ -1,11 +1,13 @@
 package jp.try0.wicket.izitoast.samples;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.regex.Pattern;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.event.IEvent;
 import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.markup.html.link.ExternalLink;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import jp.try0.wicket.izitoast.core.Toast;
@@ -17,6 +19,12 @@ import jp.try0.wicket.izitoast.samples.random.RandomToastSamplePanel;
 
 public class HomePage extends WebPage {
 	private static final long serialVersionUID = 1L;
+
+	public static String getGitHubUrl(Class<?> clazz) {
+		String base = "https://github.com/try0/wicket-iziToast/tree/develop/wicket-izitoast-samples/src/main/java/";
+		return base + clazz.getName().replaceAll(Pattern.quote("."), "/") + ".java";
+	}
+
 
 	public AtomicInteger toastId = new AtomicInteger(0);
 
@@ -61,6 +69,8 @@ public class HomePage extends WebPage {
 	@Override
 	protected void onInitialize() {
 		super.onInitialize();
+
+		add(new ExternalLink("linkToSource", HomePage.getGitHubUrl(getClass())));
 
 		add(new LevelToastSamplePanel("LevelToastSamplePanel"));
 

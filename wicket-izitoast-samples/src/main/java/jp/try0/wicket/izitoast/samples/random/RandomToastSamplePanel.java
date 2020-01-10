@@ -53,7 +53,7 @@ public class RandomToastSamplePanel extends AbstractSamplePanel {
 	private WebMarkupContainer dummyContainer;
 
 	public RandomToastSamplePanel(String id) {
-		super(id, Model.of("Random example"));
+		super(id, Model.of("Random"));
 	}
 
 	@Override

@@ -14,7 +14,7 @@ import jp.try0.wicket.izitoast.samples.HomePage;
 public class ToastAjaxEventSamplePanel extends AbstractSamplePanel {
 
 	public ToastAjaxEventSamplePanel(String id) {
-		super(id, Model.of("Toast event ajax callback"));
+		super(id, Model.of("Toast event with ajax"));
 	}
 
 	@Override

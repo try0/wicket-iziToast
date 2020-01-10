@@ -1,7 +1,5 @@
 package jp.try0.wicket.izitoast.samples;
 
-import java.util.regex.Pattern;
-
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.ExternalLink;
 import org.apache.wicket.markup.html.panel.Panel;
@@ -35,8 +33,7 @@ public abstract class AbstractSamplePanel extends Panel {
 
 		add(new Label("lblSampleTitle", titleModel));
 
-		String base = "https://github.com/try0/wicket-iziToast/tree/develop/wicket-izitoast-samples/src/main/java/";
-		add(new ExternalLink("linkToSource", base + getClass().getName().replaceAll(Pattern.quote("."), "/") + ".java"));
+		add(new ExternalLink("linkToSource", HomePage.getGitHubUrl(getClass())));
 	}
 
 	protected ToastOption newSourceToastOption() {

@@ -23,7 +23,7 @@ import jp.try0.wicket.izitoast.samples.HomePage;
 public class ToastHideSamplePanel extends AbstractSamplePanel {
 
 	public ToastHideSamplePanel(String id) {
-		super(id, Model.of("Hide toast"));
+		super(id, Model.of("Hide toast with ajax"));
 	}
 
 	@Override
