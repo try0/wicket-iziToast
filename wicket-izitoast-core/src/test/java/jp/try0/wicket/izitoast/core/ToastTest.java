@@ -113,7 +113,7 @@ public class ToastTest extends AbstractIziToastTest {
 	}
 
 	@ParameterizedTest
-	@EnumSource(value = ToastType.class, mode = Mode.EXCLUDE, names = { "UNDEFINED", "PLAIN"})
+	@EnumSource(value = ToastType.class, mode = Mode.EXCLUDE, names = { "UNDEFINED", "PLAIN", "QUESTION"})
 	public void showToastWithFeedbackMessage(ToastType level) {
 
 		Link<Void> link = new Link<Void>("showToast") {
