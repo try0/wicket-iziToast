@@ -356,6 +356,16 @@ public class Toast implements IToast {
 	}
 
 	/**
+	 * Creates a question toast.
+	 *
+	 * @param message the string displayed on toast
+	 * @return a question type toast
+	 */
+	public static Toast question(String message) {
+		return new Toast(ToastType.QUESTION, message);
+	}
+
+	/**
 	 * Remove current toasts without using animation.
 	 *
 	 * @param response the response object
