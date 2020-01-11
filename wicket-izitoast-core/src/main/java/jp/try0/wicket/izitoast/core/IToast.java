@@ -20,18 +20,20 @@ public interface IToast extends Serializable {
 	public ToastType getToastType();
 
 	/**
-	 * Gets toast title.
+	 * Gets toast title. (option.title)
 	 *
 	 * @return title
+	 * @see #getToastOption()
 	 */
 	public default String getTitle() {
 		return getToastOption().getTitle();
 	}
 
 	/**
-	 * Gets toast message.
+	 * Gets toast message. (option.message)
 	 *
 	 * @return message
+	 * @see #getToastOption()
 	 */
 	public default String getMessage() {
 		return getToastOption().getMessage();
