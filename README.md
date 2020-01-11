@@ -11,7 +11,7 @@ wicket-iziToast converts feedback messages to JavaScript for displaying toast.
 
 
 # Version
-0.4.0
+0.4.0  
 wicket:8.x iziToast:1.4.0
 
 [Change Log](CHANGELOG.md)
