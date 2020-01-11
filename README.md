@@ -1,5 +1,5 @@
 # wicket-iziToast
-[Apache Wicket](https://wicket.apache.org/) utilities for using [iziToast](http://izitoast.marcelodolza.com/).  
+[Apache Wicket](https://wicket.apache.org/) utilities for using [iziToast](http://izitoast.marcelodolza.com/).
 wicket-iziToast converts feedback messages to JavaScript for displaying toast.
 
 
@@ -11,10 +11,10 @@ wicket-iziToast converts feedback messages to JavaScript for displaying toast.
 
 
 # Version
-0.4.0  
+0.4.0
 wicket:8.x iziToast:1.4.0
 
-[Change Log]("CHANGELOG.md")
+[Change Log](CHANGELOG.md)
 
 
 
@@ -43,7 +43,7 @@ IziToastSetting
 .createInitializer(this)
 .setAutoAppendBehavior(true)
 .setGlobalOption(option) // default iziToast option. apply in client-side (execute iziToast.settings(option))
-.setGlobalEachLevelOptions(perLevelOptions) // default option per levels. apply in server-side. 
+.setGlobalEachLevelOptions(perLevelOptions) // default option per levels. apply in server-side.
 .setToastMessageCombiner(combiner) // combiner that combine same level feedback messages.
 .initialize();
 ```
@@ -69,7 +69,7 @@ EachLevelToastOptions options = EachLevelToastOptions.builder()
 ```
 
 
-Option priority level  
+Option priority level
 Default option per levels (GlobalEachLevelOptions) > Default option (GlobalOption)
 
 ##### ToastMessageCombiner
@@ -112,24 +112,24 @@ Success toast
 
 
 Information toast
-* org.apache.wicket.Component#info(Serializable)  
+* org.apache.wicket.Component#info(Serializable)
 * org.apache.wicket.Session#info(Serializable)
 
 ![info](https://user-images.githubusercontent.com/17096601/71773896-aa83d880-2fa8-11ea-9149-e0c99aec01b9.PNG)
 
 
 Warning toast
-* org.apache.wicket.Component#warn(Serializable)  
+* org.apache.wicket.Component#warn(Serializable)
 * org.apache.wicket.Session#warn(Serializable)
 
 ![warn](https://user-images.githubusercontent.com/17096601/71773898-b40d4080-2fa8-11ea-81aa-0776713cdb2e.PNG)
 
 
 Error toast
-* org.apache.wicket.Component#error(Serializable)  
-* org.apache.wicket.Session#error(Serializable)  
-* org.apache.wicket.Component#fatal(Serializable)  
-* org.apache.wicket.Session#fatal(Serializable)  
+* org.apache.wicket.Component#error(Serializable)
+* org.apache.wicket.Session#error(Serializable)
+* org.apache.wicket.Component#fatal(Serializable)
+* org.apache.wicket.Session#fatal(Serializable)
 
 ![error](https://user-images.githubusercontent.com/17096601/71773873-50831300-2fa8-11ea-9df5-0474e7a1b7c1.PNG)
 
