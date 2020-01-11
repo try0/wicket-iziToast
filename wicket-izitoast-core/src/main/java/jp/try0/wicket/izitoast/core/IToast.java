@@ -17,7 +17,7 @@ public interface IToast extends Serializable {
 	 *
 	 * @return the toast level
 	 */
-	public ToastType getToastLevel();
+	public ToastType getToastType();
 
 	/**
 	 * Gets toast title.

@@ -170,7 +170,7 @@ public class ToastLevelFeedbackMessageFilter implements IFeedbackMessageFilter {
 		Serializable messageObject = message.getMessage();
 		if (messageObject instanceof IToast) {
 			IToast toast = (IToast) messageObject;
-			return accepts.contains(toast.getToastLevel());
+			return accepts.contains(toast.getToastType());
 		} else {
 			return accepts.contains(ToastType.fromFeedbackMessageLevel(message.getLevel()));
 		}

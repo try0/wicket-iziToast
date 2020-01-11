@@ -40,22 +40,22 @@ public class ToastTest extends AbstractIziToastTest {
 
 		{
 			Toast toast = Toast.info("info");
-			assertEquals(toast.getToastLevel(), ToastType.INFO);
+			assertEquals(toast.getToastType(), ToastType.INFO);
 			assertEquals(toast.getMessage(), "info");
 		}
 		{
 			Toast toast = Toast.success("success");
-			assertEquals(toast.getToastLevel(), ToastType.SUCCESS);
+			assertEquals(toast.getToastType(), ToastType.SUCCESS);
 			assertEquals(toast.getMessage(), "success");
 		}
 		{
 			Toast toast = Toast.warn("warn");
-			assertEquals(toast.getToastLevel(), ToastType.WARNING);
+			assertEquals(toast.getToastType(), ToastType.WARNING);
 			assertEquals(toast.getMessage(), "warn");
 		}
 		{
 			Toast toast = Toast.error("error");
-			assertEquals(toast.getToastLevel(), ToastType.ERROR);
+			assertEquals(toast.getToastType(), ToastType.ERROR);
 			assertEquals(toast.getMessage(), "error");
 		}
 
@@ -113,7 +113,7 @@ public class ToastTest extends AbstractIziToastTest {
 	}
 
 	@ParameterizedTest
-	@EnumSource(value = ToastType.class, mode = Mode.EXCLUDE, names = { "UNDEFINED", "PLAIN" })
+	@EnumSource(value = ToastType.class, mode = Mode.EXCLUDE, names = { "UNDEFINED", "PLAIN"})
 	public void showToastWithFeedbackMessage(ToastType level) {
 
 		Link<Void> link = new Link<Void>("showToast") {
@@ -139,7 +139,7 @@ public class ToastTest extends AbstractIziToastTest {
 		for (FeedbackMessage fm : link.getFeedbackMessages()) {
 			if (fm.getMessage() instanceof IToast) {
 				IToast toast = (IToast) fm.getMessage();
-				assertEquals(toast.getToastLevel(), level);
+				assertEquals(toast.getToastType(), level);
 			} else {
 				fail();
 			}

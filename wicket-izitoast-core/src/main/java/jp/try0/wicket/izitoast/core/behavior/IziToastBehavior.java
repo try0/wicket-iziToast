@@ -138,7 +138,7 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 		public Stream<IToast> combine(Stream<IToast> toastStream) {
 
 			Map<ToastType, List<IToast>> groupByLevel = toastStream
-					.collect(Collectors.groupingBy(IToast::getToastLevel));
+					.collect(Collectors.groupingBy(IToast::getToastType));
 
 			return groupByLevel.entrySet().stream()
 					.filter(es -> !es.getValue().isEmpty())
@@ -175,7 +175,7 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 			tmpOption.setTitle(title);
 			tmpOption.setMessage(concatenatedMessage);
 
-			final Toast newToast = Toast.create(target.getToastLevel(), option.overwrite(tmpOption));
+			final Toast newToast = Toast.create(target.getToastType(), option.overwrite(tmpOption));
 
 
 			return newToast;
@@ -468,7 +468,7 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 	 */
 	private Toast applyDefaultOption(Toast toast) {
 		EachLevelToastOptions defaultOptions = IziToastSetting.get().getGlobalEachLevelOptions();
-		defaultOptions.get(toast.getToastLevel()).ifPresent(option -> {
+		defaultOptions.get(toast.getToastType()).ifPresent(option -> {
 			ToastOption merged = option.overwrite(toast.getToastOption());
 			toast.setToastOption(merged);
 		});

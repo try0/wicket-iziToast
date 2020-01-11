@@ -48,19 +48,19 @@ public class ToastLevelFeedbackMessageFilterTest extends AbstractIziToastTest {
 
 		Toast successToast = Toast.success("dummy");
 		FeedbackMessage successMessage = new FeedbackMessage(dummy, successToast, FeedbackMessage.SUCCESS);
-		assertEquals(filter.accept(successMessage), successToast.getToastLevel().lessThan(level));
+		assertEquals(filter.accept(successMessage), successToast.getToastType().lessThan(level));
 
 		Toast infoToast = Toast.info("dummy");
 		FeedbackMessage infoMessage = new FeedbackMessage(dummy, infoToast, FeedbackMessage.INFO);
-		assertEquals(filter.accept(infoMessage), infoToast.getToastLevel().lessThan(level));
+		assertEquals(filter.accept(infoMessage), infoToast.getToastType().lessThan(level));
 
 		Toast warnToast = Toast.warn("dummy");
 		FeedbackMessage warnMessage = new FeedbackMessage(dummy, warnToast, FeedbackMessage.WARNING);
-		assertEquals(filter.accept(warnMessage), warnToast.getToastLevel().lessThan(level));
+		assertEquals(filter.accept(warnMessage), warnToast.getToastType().lessThan(level));
 
 		Toast errorToast = Toast.error("dummy");
 		FeedbackMessage errorMessage = new FeedbackMessage(dummy, errorToast, FeedbackMessage.ERROR);
-		assertEquals(filter.accept(errorMessage), errorToast.getToastLevel().lessThan(level));
+		assertEquals(filter.accept(errorMessage), errorToast.getToastType().lessThan(level));
 
 	}
 
@@ -84,22 +84,22 @@ public class ToastLevelFeedbackMessageFilterTest extends AbstractIziToastTest {
 		Toast successToast = Toast.success("dummy");
 		FeedbackMessage successMessage = new FeedbackMessage(dummy, successToast, FeedbackMessage.SUCCESS);
 		assertEquals(filter.accept(successMessage),
-				successToast.getToastLevel().lessThan(level) || successToast.getToastLevel().equals(level));
+				successToast.getToastType().lessThan(level) || successToast.getToastType().equals(level));
 
 		Toast infoToast = Toast.info("dummy");
 		FeedbackMessage infoMessage = new FeedbackMessage(dummy, infoToast, FeedbackMessage.INFO);
 		assertEquals(filter.accept(infoMessage),
-				infoToast.getToastLevel().lessThan(level) || infoToast.getToastLevel().equals(level));
+				infoToast.getToastType().lessThan(level) || infoToast.getToastType().equals(level));
 
 		Toast warnToast = Toast.warn("dummy");
 		FeedbackMessage warnMessage = new FeedbackMessage(dummy, warnToast, FeedbackMessage.WARNING);
 		assertEquals(filter.accept(warnMessage),
-				warnToast.getToastLevel().lessThan(level) || warnToast.getToastLevel().equals(level));
+				warnToast.getToastType().lessThan(level) || warnToast.getToastType().equals(level));
 
 		Toast errorToast = Toast.error("dummy");
 		FeedbackMessage errorMessage = new FeedbackMessage(dummy, errorToast, FeedbackMessage.ERROR);
 		assertEquals(filter.accept(errorMessage),
-				errorToast.getToastLevel().lessThan(level) || errorToast.getToastLevel().equals(level));
+				errorToast.getToastType().lessThan(level) || errorToast.getToastType().equals(level));
 
 	}
 
@@ -122,19 +122,19 @@ public class ToastLevelFeedbackMessageFilterTest extends AbstractIziToastTest {
 
 		Toast successToast = Toast.success("dummy");
 		FeedbackMessage successMessage = new FeedbackMessage(dummy, successToast, FeedbackMessage.SUCCESS);
-		assertEquals(filter.accept(successMessage), successToast.getToastLevel().greaterThan(level));
+		assertEquals(filter.accept(successMessage), successToast.getToastType().greaterThan(level));
 
 		Toast infoToast = Toast.info("dummy");
 		FeedbackMessage infoMessage = new FeedbackMessage(dummy, infoToast, FeedbackMessage.INFO);
-		assertEquals(filter.accept(infoMessage), infoToast.getToastLevel().greaterThan(level));
+		assertEquals(filter.accept(infoMessage), infoToast.getToastType().greaterThan(level));
 
 		Toast warnToast = Toast.warn("dummy");
 		FeedbackMessage warnMessage = new FeedbackMessage(dummy, warnToast, FeedbackMessage.WARNING);
-		assertEquals(filter.accept(warnMessage), warnToast.getToastLevel().greaterThan(level));
+		assertEquals(filter.accept(warnMessage), warnToast.getToastType().greaterThan(level));
 
 		Toast errorToast = Toast.error("dummy");
 		FeedbackMessage errorMessage = new FeedbackMessage(dummy, errorToast, FeedbackMessage.ERROR);
-		assertEquals(filter.accept(errorMessage), errorToast.getToastLevel().greaterThan(level));
+		assertEquals(filter.accept(errorMessage), errorToast.getToastType().greaterThan(level));
 
 	}
 
@@ -158,22 +158,22 @@ public class ToastLevelFeedbackMessageFilterTest extends AbstractIziToastTest {
 		Toast successToast = Toast.success("dummy");
 		FeedbackMessage successMessage = new FeedbackMessage(dummy, successToast, FeedbackMessage.SUCCESS);
 		assertEquals(filter.accept(successMessage),
-				successToast.getToastLevel().greaterThan(level) || successToast.getToastLevel().equals(level));
+				successToast.getToastType().greaterThan(level) || successToast.getToastType().equals(level));
 
 		Toast infoToast = Toast.info("dummy");
 		FeedbackMessage infoMessage = new FeedbackMessage(dummy, infoToast, FeedbackMessage.INFO);
 		assertEquals(filter.accept(infoMessage),
-				infoToast.getToastLevel().greaterThan(level) || infoToast.getToastLevel().equals(level));
+				infoToast.getToastType().greaterThan(level) || infoToast.getToastType().equals(level));
 
 		Toast warnToast = Toast.warn("dummy");
 		FeedbackMessage warnMessage = new FeedbackMessage(dummy, warnToast, FeedbackMessage.WARNING);
 		assertEquals(filter.accept(warnMessage),
-				warnToast.getToastLevel().greaterThan(level) || warnToast.getToastLevel().equals(level));
+				warnToast.getToastType().greaterThan(level) || warnToast.getToastType().equals(level));
 
 		Toast errorToast = Toast.error("dummy");
 		FeedbackMessage errorMessage = new FeedbackMessage(dummy, errorToast, FeedbackMessage.ERROR);
 		assertEquals(filter.accept(errorMessage),
-				errorToast.getToastLevel().greaterThan(level) || errorToast.getToastLevel().equals(level));
+				errorToast.getToastType().greaterThan(level) || errorToast.getToastType().equals(level));
 
 	}
 
@@ -205,19 +205,19 @@ public class ToastLevelFeedbackMessageFilterTest extends AbstractIziToastTest {
 
 		Toast successToast = Toast.success("dummy");
 		FeedbackMessage successMessage = new FeedbackMessage(dummy, successToast, FeedbackMessage.SUCCESS);
-		assertEquals(filter.accept(successMessage), levels.contains(successToast.getToastLevel()));
+		assertEquals(filter.accept(successMessage), levels.contains(successToast.getToastType()));
 
 		Toast infoToast = Toast.info("dummy");
 		FeedbackMessage infoMessage = new FeedbackMessage(dummy, infoToast, FeedbackMessage.INFO);
-		assertEquals(filter.accept(infoMessage), levels.contains(infoToast.getToastLevel()));
+		assertEquals(filter.accept(infoMessage), levels.contains(infoToast.getToastType()));
 
 		Toast warnToast = Toast.warn("dummy");
 		FeedbackMessage warnMessage = new FeedbackMessage(dummy, warnToast, FeedbackMessage.WARNING);
-		assertEquals(filter.accept(warnMessage), levels.contains(warnToast.getToastLevel()));
+		assertEquals(filter.accept(warnMessage), levels.contains(warnToast.getToastType()));
 
 		Toast errorToast = Toast.error("dummy");
 		FeedbackMessage errorMessage = new FeedbackMessage(dummy, errorToast, FeedbackMessage.ERROR);
-		assertEquals(filter.accept(errorMessage), levels.contains(errorToast.getToastLevel()));
+		assertEquals(filter.accept(errorMessage), levels.contains(errorToast.getToastType()));
 
 	}
 
@@ -237,19 +237,19 @@ public class ToastLevelFeedbackMessageFilterTest extends AbstractIziToastTest {
 
 		Toast successToast = Toast.success("dummy");
 		FeedbackMessage successMessage = new FeedbackMessage(dummy, successToast, FeedbackMessage.SUCCESS);
-		assertEquals(filter.accept(successMessage), !levels.contains(successToast.getToastLevel()));
+		assertEquals(filter.accept(successMessage), !levels.contains(successToast.getToastType()));
 
 		Toast infoToast = Toast.info("dummy");
 		FeedbackMessage infoMessage = new FeedbackMessage(dummy, infoToast, FeedbackMessage.INFO);
-		assertEquals(filter.accept(infoMessage), !levels.contains(infoToast.getToastLevel()));
+		assertEquals(filter.accept(infoMessage), !levels.contains(infoToast.getToastType()));
 
 		Toast warnToast = Toast.warn("dummy");
 		FeedbackMessage warnMessage = new FeedbackMessage(dummy, warnToast, FeedbackMessage.WARNING);
-		assertEquals(filter.accept(warnMessage), !levels.contains(warnToast.getToastLevel()));
+		assertEquals(filter.accept(warnMessage), !levels.contains(warnToast.getToastType()));
 
 		Toast errorToast = Toast.error("dummy");
 		FeedbackMessage errorMessage = new FeedbackMessage(dummy, errorToast, FeedbackMessage.ERROR);
-		assertEquals(filter.accept(errorMessage), !levels.contains(errorToast.getToastLevel()));
+		assertEquals(filter.accept(errorMessage), !levels.contains(errorToast.getToastType()));
 
 	}
 

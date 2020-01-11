@@ -48,7 +48,7 @@ public class ToastIgnoreFilterTest extends AbstractIziToastTest {
 			IToast toast = new IToast() {
 
 				@Override
-				public ToastType getToastLevel() {
+				public ToastType getToastType() {
 					return null;
 				}
 

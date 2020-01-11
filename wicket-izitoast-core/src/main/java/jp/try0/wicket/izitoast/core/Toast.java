@@ -414,25 +414,25 @@ public class Toast implements IToast {
 	/**
 	 * Toast level
 	 */
-	private ToastType level;
+	private ToastType toastType;
 
 	/**
 	 * Option for override global option
 	 */
 	private ToastOption option;
 
-	private Toast(ToastType level) {
-		this.level = Args.notNull(level, "level");
+	private Toast(ToastType toastType) {
+		this.toastType = Args.notNull(toastType, "toastType");
 	}
 
 	/**
 	 * Constractor
 	 *
-	 * @param level the toast level
+	 * @param toastType the toast type
 	 * @param message the string displayed on toast
 	 */
-	public Toast(ToastType level, String message) {
-		this(level);
+	public Toast(ToastType toastType, String message) {
+		this(toastType);
 
 		ToastOption option = new ToastOption();
 		option.setMessage(message);
@@ -442,12 +442,12 @@ public class Toast implements IToast {
 	/**
 	 * Constractor
 	 *
-	 * @param level the toast level
+	 * @param toastType the toast type
 	 * @param message the string displayed on toast
 	 * @param title the string displayed on toast
 	 */
-	public Toast(ToastType level, String message, String title) {
-		this(level);
+	public Toast(ToastType toastType, String message, String title) {
+		this(toastType);
 
 		ToastOption option = new ToastOption();
 		option.setTitle(title);
@@ -458,15 +458,15 @@ public class Toast implements IToast {
 	/**
 	 * Constractor
 	 *
-	 * @param level the toast level
+	 * @param toastType the toast type
 	 * @param option option for override global option
 	 */
-	public Toast(ToastType level, ToastOption option) {
-		if (!level.isSupported()) {
-			throw new IllegalArgumentException("This level is unsupported.");
+	public Toast(ToastType toastType, ToastOption option) {
+		if (!toastType.isSupported()) {
+			throw new IllegalArgumentException("This toast type is unsupported.");
 		}
 
-		this.level = Args.notNull(level, "level");
+		this.toastType = Args.notNull(toastType, "level");
 		this.option = Args.notNull(option, "option");
 	}
 
@@ -493,13 +493,13 @@ public class Toast implements IToast {
 	}
 
 	/**
-	 * Gets toast level.
+	 * Gets toast type.
 	 *
-	 * @return the toast level
+	 * @return the toast type
 	 */
 	@Override
-	public ToastType getToastLevel() {
-		return level;
+	public ToastType getToastType() {
+		return toastType;
 	}
 
 	/**
@@ -521,7 +521,7 @@ public class Toast implements IToast {
 	public String getScriptForDisplay() {
 		final StringBuilder script = new StringBuilder();
 
-		script.append("iziToast.").append(level.getTypeAsString()).append("(");
+		script.append("iziToast.").append(toastType.getTypeAsString()).append("(");
 
 		// sets override options
 		script.append(option.toJsonString());
@@ -556,7 +556,7 @@ public class Toast implements IToast {
 	 * @param component the reporting component
 	 */
 	public void show(final Component component) {
-		switch (level) {
+		switch (toastType) {
 		case ERROR:
 			component.error(this);
 			break;
