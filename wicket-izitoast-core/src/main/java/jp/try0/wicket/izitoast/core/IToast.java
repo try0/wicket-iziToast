@@ -13,9 +13,9 @@ import jp.try0.wicket.izitoast.core.Toast.ToastType;
 public interface IToast extends Serializable {
 
 	/**
-	 * Gets toast level.
+	 * Gets toast type.
 	 *
-	 * @return the toast level
+	 * @return the toast type
 	 */
 	public ToastType getToastType();
 
