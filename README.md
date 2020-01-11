@@ -11,8 +11,11 @@ wicket-iziToast converts feedback messages to JavaScript for displaying toast.
 
 
 # Version
-0.3.1  
+0.4.0  
 wicket:8.x iziToast:1.4.0
+
+[Change Log]("CHANGELOG.md")
+
 
 
 
@@ -28,7 +31,7 @@ Add wicket-izitoast-core dependency.
 <dependency>
     <groupId>jp.try0.wicket</groupId>
     <artifactId>wicket-izitoast-core</artifactId>
-    <version>0.3.1</version>
+    <version>0.4.0</version>
 </dependency>
 ```
 
