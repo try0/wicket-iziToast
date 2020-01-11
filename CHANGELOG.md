@@ -9,6 +9,8 @@
 * Rename jp.try0.wicket.izitoast.core.IToast#getToastLevel() to getToastType()
 * Rename jp.try0.wicket.izitoast.core.Toast.SCRIPT_HIDE_TOAST to SCRIPT_HIDE_ALL_TOAST
 * Rename jp.try0.wicket.izitoast.core.Toast.hide(IHeaderResponse) to hideAll(IHeaderResponse) (static method)
+* Update wicket version
+* Update junit version
 
 
 ## 0.3.1
