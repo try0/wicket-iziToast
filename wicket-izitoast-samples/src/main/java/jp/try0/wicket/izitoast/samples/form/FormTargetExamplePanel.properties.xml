@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="txtFirstName">First Name</entry>
+	<entry key="txtLastName">Last Name</entry>
+	<entry key="chkAcceptLicense">License Agreement</entry>
+</properties>

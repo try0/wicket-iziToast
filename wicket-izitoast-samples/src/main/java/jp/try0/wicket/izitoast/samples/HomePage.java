@@ -14,6 +14,7 @@ import jp.try0.wicket.izitoast.core.Toast;
 import jp.try0.wicket.izitoast.core.Toast.ToastType;
 import jp.try0.wicket.izitoast.samples.ajax.ToastAjaxEventSamplePanel;
 import jp.try0.wicket.izitoast.samples.basic.ToastTypeSamplePanel;
+import jp.try0.wicket.izitoast.samples.form.FormTargetExamplePanel;
 import jp.try0.wicket.izitoast.samples.hide.ToastHideSamplePanel;
 import jp.try0.wicket.izitoast.samples.random.RandomToastSamplePanel;
 
@@ -24,7 +25,6 @@ public class HomePage extends WebPage {
 		String base = "https://github.com/try0/wicket-iziToast/tree/develop/wicket-izitoast-samples/src/main/java/";
 		return base + clazz.getName().replaceAll(Pattern.quote("."), "/") + ".java";
 	}
-
 
 	public AtomicInteger toastId = new AtomicInteger(0);
 
@@ -46,7 +46,6 @@ public class HomePage extends WebPage {
 		warn(Toast.create(ToastType.WARNING, "warning message", "Warning"));
 		error(Toast.create(ToastType.ERROR, "error message", "Error"));
 	}
-
 
 	@Override
 	public void onEvent(IEvent<?> event) {
@@ -80,8 +79,7 @@ public class HomePage extends WebPage {
 
 		add(new ToastHideSamplePanel("ToastHideSamplePanel"));
 
-
-
+		add(new FormTargetExamplePanel("FormSamplePanel"));
 
 		add(new AjaxLink<Void>("btnHide") {
 
@@ -100,6 +98,5 @@ public class HomePage extends WebPage {
 		});
 
 	}
-
 
 }

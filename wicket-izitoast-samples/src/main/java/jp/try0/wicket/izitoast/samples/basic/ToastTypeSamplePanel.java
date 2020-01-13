@@ -25,7 +25,7 @@ public class ToastTypeSamplePanel extends AbstractSamplePanel {
 
 			@Override
 			public void onClick(AjaxRequestTarget target) {
-				info("Information feedback message");
+				getPage().info("Information feedback message");
 
 				showLevelToastCode("info(\"Information feedback message\");", target);
 			}
@@ -35,7 +35,7 @@ public class ToastTypeSamplePanel extends AbstractSamplePanel {
 
 			@Override
 			public void onClick(AjaxRequestTarget target) {
-				success("Success feedback message");
+				getPage().success("Success feedback message");
 
 				showLevelToastCode("success(\"Success feedback message\");", target);
 			}
@@ -45,7 +45,7 @@ public class ToastTypeSamplePanel extends AbstractSamplePanel {
 
 			@Override
 			public void onClick(AjaxRequestTarget target) {
-				warn("Warning feedback message");
+				getPage().warn("Warning feedback message");
 
 				showLevelToastCode("warn(\"Warning feedback message\");", target);
 			}
@@ -55,7 +55,7 @@ public class ToastTypeSamplePanel extends AbstractSamplePanel {
 
 			@Override
 			public void onClick(AjaxRequestTarget target) {
-				error("Error feedback message");
+				getPage().error("Error feedback message");
 
 				showLevelToastCode("error(\"Error feedback message\");", target);
 			}
@@ -68,7 +68,7 @@ public class ToastTypeSamplePanel extends AbstractSamplePanel {
 				ToastOption option = new ToastOption();
 				option.setMessage("Plain type");
 				if (IziToastSetting.get().hasGlobalOptions()) {
-					option = IziToastSetting.get().getGlobalOption().get().overwrite(option);
+					option.merge(IziToastSetting.get().getGlobalOption().get());
 				}
 				Toast.create(ToastType.PLAIN, option).show(target);
 			}
@@ -82,7 +82,7 @@ public class ToastTypeSamplePanel extends AbstractSamplePanel {
 				ToastOption option = new ToastOption();
 				option.setMessage("Question type");
 				if (IziToastSetting.get().hasGlobalOptions()) {
-					option = IziToastSetting.get().getGlobalOption().get().overwrite(option);
+					option.merge(IziToastSetting.get().getGlobalOption().get());
 				}
 				Toast.create(ToastType.QUESTION, option).show(target);
 			}

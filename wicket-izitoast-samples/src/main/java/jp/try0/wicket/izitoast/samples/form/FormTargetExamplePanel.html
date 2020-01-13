@@ -1,0 +1,26 @@
+<html xmlns:wicket="http://wicket.apache.org">
+
+<wicket:extend>
+
+	<div class="ui small header">Works with the feedback message reporter</div>
+
+	<form wicket:id="formTargets" class="ui form">
+		<div class="field">
+			<label>First Name</label> <input wicket:id="txtFirstName" type="text"
+				name="first-name" placeholder="First Name" tabindex="1">
+		</div>
+		<div class="field">
+			<label>Last Name</label> <input wicket:id="txtLastName" type="text"
+				name="last-name" placeholder="Last Name" tabindex="2">
+		</div>
+		<div class="field">
+			<label>Accept the license agreement</label> <input
+				wicket:id="chkAcceptLicense" type="checkbox" class="ui checkbox" tabindex="3">
+		</div>
+		<button class="ui button" type="reset">Clear</button>
+		<button wicket:id="btnSubmit" class="ui primary button" type="submit" tabindex="4">Submit</button>
+	</form>
+
+</wicket:extend>
+
+</html>

@@ -1,13 +1,17 @@
 package jp.try0.wicket.izitoast.samples;
 
+import java.io.Serializable;
+
 import org.apache.wicket.RuntimeConfigurationType;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.settings.RequestCycleSettings.RenderStrategy;
 
 import jp.try0.wicket.izitoast.core.ToastOption;
-import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior.ToastMessageCombiner;
+import jp.try0.wicket.izitoast.core.config.DefaultToastTargetSetter;
 import jp.try0.wicket.izitoast.core.config.IziToastSetting;
+import jp.try0.wicket.izitoast.core.config.ToastMessageCombiner;
+import jp.try0.wicket.izitoast.core.config.ToastTargetContainerAppender;
 
 /**
  * Application object for your web application.
@@ -15,14 +19,12 @@ import jp.try0.wicket.izitoast.core.config.IziToastSetting;
  *
  * @see jp.try0.wicket.izitoast.samples.Start#main(String[])
  */
-public class WicketApplication extends WebApplication
-{
+public class WicketApplication extends WebApplication implements Serializable {
 	/**
 	 * @see org.apache.wicket.Application#getHomePage()
 	 */
 	@Override
-	public Class<? extends WebPage> getHomePage()
-	{
+	public Class<? extends WebPage> getHomePage() {
 		return HomePage.class;
 	}
 
@@ -30,8 +32,7 @@ public class WicketApplication extends WebApplication
 	 * @see org.apache.wicket.Application#init()
 	 */
 	@Override
-	public void init()
-	{
+	public void init() {
 		super.init();
 
 		getMarkupSettings().setStripWicketTags(true);
@@ -47,20 +48,24 @@ public class WicketApplication extends WebApplication
 		option.setLayout(2);
 		option.setTransitionIn("fadeIn");
 
+
 		ToastMessageCombiner combiner = new ToastMessageCombiner();
+		combiner.setIgnoreToastFilter(DefaultToastTargetSetter.NO_TARGET_FILTER.negate());
 		combiner.setPrefix("・");
 
 		IziToastSetting.createInitializer(this)
-		.setAutoAppendBehavior(true)
-		.setGlobalOption(option)
-		.setToastMessageCombiner(combiner)
-		.initialize();
+				.setAutoAppendBehavior(true)
+				.setGlobalOption(option)
+				.setToastMessageCombiner(combiner)
+				.setToastTargetSetter(DefaultToastTargetSetter.getInstance())
+				.initialize();
+
+		getComponentInstantiationListeners().add(new ToastTargetContainerAppender());
 	}
 
 	@Override
 	public RuntimeConfigurationType getConfigurationType() {
 		return RuntimeConfigurationType.DEPLOYMENT;
 	}
-
 
 }

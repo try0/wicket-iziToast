@@ -31,7 +31,11 @@ public abstract class AbstractSamplePanel extends Panel {
 	protected void onInitialize() {
 		super.onInitialize();
 
-		add(new Label("lblSampleTitle", titleModel));
+		add(new Label("lblSampleTitle", titleModel) {
+			{
+				setMarkupId(AbstractSamplePanel.this.getClass().getSimpleName());
+			}
+		});
 
 		add(new ExternalLink("linkToSource", HomePage.getGitHubUrl(getClass())));
 	}
