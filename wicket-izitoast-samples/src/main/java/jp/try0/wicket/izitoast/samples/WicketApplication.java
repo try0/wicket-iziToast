@@ -1,6 +1,8 @@
 package jp.try0.wicket.izitoast.samples;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.Properties;
 
 import org.apache.wicket.RuntimeConfigurationType;
 import org.apache.wicket.markup.html.WebPage;
@@ -35,6 +37,17 @@ public class WicketApplication extends WebApplication implements Serializable {
 	public void init() {
 		super.init();
 
+		try {
+			Properties properties = System.getProperties();
+			properties.load(WicketApplication.class.getResourceAsStream("/wicket-iziToast.properties"));
+
+			properties.forEach((k, v) -> {
+				System.out.println(k.toString() + ": " + v.toString());
+			});
+		} catch (IOException ignored) {
+			ignored.printStackTrace();
+		}
+
 		getMarkupSettings().setStripWicketTags(true);
 		getRequestCycleSettings().setRenderStrategy(RenderStrategy.ONE_PASS_RENDER);
 
@@ -47,7 +60,6 @@ public class WicketApplication extends WebApplication implements Serializable {
 		option.setProgressBar(true);
 		option.setLayout(2);
 		option.setTransitionIn("fadeIn");
-
 
 		ToastMessageCombiner combiner = new ToastMessageCombiner();
 		combiner.setIgnoreToastFilter(DefaultToastTargetSetter.NO_TARGET_FILTER.negate());

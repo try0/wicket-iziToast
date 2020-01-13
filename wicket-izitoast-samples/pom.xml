@@ -30,6 +30,8 @@
 		<commons-text.version>1.7</commons-text.version>
 		<wicket-izitoast.version>0.5.0-SNAPSHOT</wicket-izitoast.version>
 		<wtp.version>none</wtp.version>
+
+		<wicket-iziToast.build.timestamp>${maven.build.timestamp}</wicket-iziToast.build.timestamp>
 	</properties>
 	<dependencies>
 
@@ -122,16 +124,12 @@
 				<version>1.0.0</version>
 				<executions>
 					<execution>
+						<phase>generate-resources</phase>
 						<goals>
-							<goal>set-system-properties</goal>
+							<goal>write-project-properties</goal>
 						</goals>
 						<configuration>
-							<properties>
-								<property>
-									<name>wicket-iziToast.build.timestamp</name>
-									<value>${maven.build.timestamp}</value>
-								</property>
-							</properties>
+							<outputFile>${project.basedir}/src/main/resources/wicket-iziToast.properties</outputFile>
 						</configuration>
 					</execution>
 				</executions>
