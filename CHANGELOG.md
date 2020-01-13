@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.5.0
+
+* Supports work with the feedback message reporter component
+* Move jp.try0.wicket.izitoast.core.behavior.IziToastBehavior$ToastMessageCombiner to jp.try0.wicket.izitoast.core.config.ToastMessageCombiner
+* jp.try0.wicket.izitoast.core.config.ToastMessageCombiner#combine, Changes the argument and return type from the Stream to the List
+* Rename jp.try0.wicket.izitoast.core.ToastOption#overwrite(ToastOption) => #merge(ToastOption), and create new mearged option => update members
+
 ## 0.4.0
 
 * Add jp.try0.wicket.izitoast.core.ajax.ToastAjaxEventBehavior
