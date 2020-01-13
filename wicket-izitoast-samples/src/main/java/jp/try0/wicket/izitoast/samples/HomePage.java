@@ -7,6 +7,7 @@ import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.event.IEvent;
 import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.ExternalLink;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
@@ -68,6 +69,8 @@ public class HomePage extends WebPage {
 	@Override
 	protected void onInitialize() {
 		super.onInitialize();
+
+		add(new Label("buildDate", System.getProperty("wicket-iziToast.build.timestamp")));
 
 		add(new ExternalLink("linkToSource", HomePage.getGitHubUrl(getClass())));
 
