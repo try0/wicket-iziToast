@@ -44,7 +44,7 @@ public interface IToast extends Serializable {
 	 *
 	 * @return toast option
 	 */
-	public IToastOption getToastOption();
+	public ToastOption getToastOption();
 
 	/**
 	 * Gets script for display toast.

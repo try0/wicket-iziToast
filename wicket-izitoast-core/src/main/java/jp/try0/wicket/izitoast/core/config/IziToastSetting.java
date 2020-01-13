@@ -8,12 +8,13 @@ import org.apache.wicket.MetaDataKey;
 import org.apache.wicket.Page;
 import org.apache.wicket.feedback.IFeedbackMessageFilter;
 import org.apache.wicket.util.lang.Args;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import jp.try0.wicket.izitoast.core.EachLevelToastOptions;
 import jp.try0.wicket.izitoast.core.IToastOption;
 import jp.try0.wicket.izitoast.core.ToastOption;
 import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior;
-import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior.ToastMessageCombiner;
 
 /**
  * iziToast settings. This class has configs for using iziToast.
@@ -23,6 +24,7 @@ import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior.ToastMessageCombin
  */
 public class IziToastSetting {
 
+
 	/**
 	 * Settings builder.
 	 *
@@ -30,6 +32,8 @@ public class IziToastSetting {
 	 *
 	 */
 	public static class IziToastSettingInitializer {
+
+		private static Logger logger = LoggerFactory.getLogger(IziToastSettingInitializer.class);
 
 		/**
 		 * Create builder.
@@ -76,6 +80,10 @@ public class IziToastSetting {
 		 */
 		private ToastMessageCombiner toastMessageCombiner = ToastMessageCombiner.VOID_COMBINER;
 
+		/**
+		 * Target container setter
+		 */
+		private IToastTargetSetter toastTargetSetter = DefaultToastTargetSetter.getNullInstance();
 
 		/**
 		 * Constractor
@@ -116,6 +124,11 @@ public class IziToastSetting {
 		 */
 		public IziToastSettingInitializer setMessageFilter(IFeedbackMessageFilter filter) {
 			this.filter = filter;
+			return this;
+		}
+
+		public IziToastSettingInitializer setToastTargetSetter(IToastTargetSetter toastTargetSetter) {
+			this.toastTargetSetter = toastTargetSetter;
 			return this;
 		}
 
@@ -173,6 +186,7 @@ public class IziToastSetting {
 
 			application.setMetaData(META_DATA_KEY, settings);
 
+			logger.info("Initialized IziToastSetting");
 			return settings;
 		}
 
@@ -265,6 +279,11 @@ public class IziToastSetting {
 	private final ToastMessageCombiner toastMessageCombiner;
 
 	/**
+	 * Toast target setter
+	 */
+	private final IToastTargetSetter toastTargetSetter;
+
+	/**
 	 * Constractor
 	 */
 	private IziToastSetting() {
@@ -273,6 +292,7 @@ public class IziToastSetting {
 		this.filter = Optional.empty();
 		this.iziToastBehaviorFactory = DEFAULT_IZITOAST_BEHAVIOR_FACTORY;
 		this.toastMessageCombiner = ToastMessageCombiner.VOID_COMBINER;
+		this.toastTargetSetter = DefaultToastTargetSetter.getNullInstance();
 	}
 
 	/**
@@ -285,6 +305,7 @@ public class IziToastSetting {
 		this.filter = Optional.ofNullable(initializer.filter);
 		this.iziToastBehaviorFactory = Args.notNull(initializer.iziToastBehaviorFactory, "iziToastBehaviorFactory");
 		this.toastMessageCombiner = Args.notNull(initializer.toastMessageCombiner, "toastMessageCombiner");
+		this.toastTargetSetter = Args.notNull(initializer.toastTargetSetter, "toastTargetSetter");
 	}
 
 	/**
@@ -353,6 +374,15 @@ public class IziToastSetting {
 	 */
 	public ToastMessageCombiner getToastMessageCombiner() {
 		return toastMessageCombiner;
+	}
+
+	/**
+	 * Gets target container setter
+	 *
+	 * @return the setter
+	 */
+	public IToastTargetSetter getToastTargetSetter() {
+		return toastTargetSetter;
 	}
 
 }

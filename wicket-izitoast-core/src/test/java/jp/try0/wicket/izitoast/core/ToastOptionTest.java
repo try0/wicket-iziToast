@@ -4,8 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import jp.try0.wicket.izitoast.core.IToastOption;
-import jp.try0.wicket.izitoast.core.ToastOption;
 import jp.try0.wicket.izitoast.core.IToastOption.OptionKeys;
 
 /**
@@ -42,7 +40,7 @@ public class ToastOptionTest {
 	}
 
 	/**
-	 * {@link ToastOption#overwrite(IToastOption)}
+	 * {@link ToastOption#merge(IToastOption)}
 	 */
 	@Test
 	public void createOverwriteOptions() {
@@ -55,11 +53,11 @@ public class ToastOptionTest {
 			overwrite.setImageWidth(1000);
 			overwrite.setBackgroundColor("red");
 
-			ToastOption overwritten = base.overwrite(overwrite);
+			base.merge(overwrite);
 
-			assertEquals(overwritten.getAnimateInside(), false);
-			assertTrue(overwritten.getImageWidth() == 1000);
-			assertEquals(overwritten.getBackgroundColor(), "red");
+			assertEquals(base.getAnimateInside(), false);
+			assertTrue(base.getImageWidth() == 1000);
+			assertEquals(base.getBackgroundColor(), "red");
 		}
 
 		{
@@ -72,11 +70,11 @@ public class ToastOptionTest {
 			overwrite.setImageWidth(1000);
 			overwrite.setBackgroundColor("red");
 
-			ToastOption overwritten = base.overwrite(overwrite);
+			 base.merge(overwrite);
 
-			assertEquals(overwritten.getAnimateInside(), false);
-			assertTrue(overwritten.getImageWidth() == 1000);
-			assertEquals(overwritten.getBackgroundColor(), "red");
+			assertEquals(base.getAnimateInside(), false);
+			assertTrue(base.getImageWidth() == 1000);
+			assertEquals(base.getBackgroundColor(), "red");
 		}
 
 	}

@@ -52,6 +52,146 @@ public class ToastOption implements IToastOption {
 		return new ToastOption();
 	}
 
+	public static ToastOption createMerged(IToastOption base, IToastOption priority) {
+		ToastOption newOption = new ToastOption();
+		return meargeOptions(newOption, base, priority);
+	}
+
+	public static void meargeOptions(ToastOption option, IToastOption priority) {
+		meargeOptions(option, option, priority);
+	}
+
+	private static ToastOption meargeOptions(ToastOption newOption, IToastOption base, IToastOption priority) {
+
+		newOption.setId(priority.getId() == null ? base.getId() : priority.getId());
+
+		newOption.setStyleClass(priority.getStyleClass() == null ? base.getStyleClass() : priority.getStyleClass());
+
+		newOption.setTitle(priority.getTitle() == null ? base.getTitle() : priority.getTitle());
+
+		newOption.setTitleColor(priority.getTitleColor() == null ? base.getTitleColor() : priority.getTitleColor());
+
+		newOption.setTitleSize(priority.getTitleSize() == null ? base.getTitleSize() : priority.getTitleSize());
+
+		newOption.setTitleLineHeight(
+				priority.getTitleLineHeight() == null ? base.getTitleLineHeight() : priority.getTitleLineHeight());
+
+		newOption.setMessage(priority.getMessage() == null ? base.getMessage() : priority.getMessage());
+
+		newOption.setMessageColor(
+				priority.getMessageColor() == null ? base.getMessageColor() : priority.getMessageColor());
+
+		newOption.setMessageSize(priority.getMessageSize() == null ? base.getMessageSize() : priority.getMessageSize());
+
+		newOption.setMessageLineHeight(
+				priority.getMessageLineHeight() == null ? base.getMessageLineHeight()
+						: priority.getMessageLineHeight());
+
+		newOption.setBackgroundColor(
+				priority.getBackgroundColor() == null ? base.getBackgroundColor() : priority.getBackgroundColor());
+
+		newOption.setTheme(priority.getTheme() == null ? base.getTheme() : priority.getTheme());
+
+		newOption.setColor(priority.getColor() == null ? base.getColor() : priority.getColor());
+
+		newOption.setIcon(priority.getIcon() == null ? base.getIcon() : priority.getIcon());
+
+		newOption.setIconText(priority.getIconText() == null ? base.getIconText() : priority.getIconText());
+
+		newOption.setIconColor(priority.getIconColor() == null ? base.getIconColor() : priority.getIconColor());
+
+		newOption.setIconUrl(priority.getIconUrl() == null ? base.getIconUrl() : priority.getIconUrl());
+
+		newOption.setImage(priority.getImage() == null ? base.getImage() : priority.getImage());
+
+		newOption.setImageWidth(priority.getImageWidth() == null ? base.getImageWidth() : priority.getImageWidth());
+
+		newOption.setMaxWidth(priority.getMaxWidth() == null ? base.getMaxWidth() : priority.getMaxWidth());
+
+		newOption.setZindex(priority.getZindex() == null ? base.getZindex() : priority.getZindex());
+
+		newOption.setLayout(priority.getLayout() == null ? base.getLayout() : priority.getLayout());
+
+		newOption.setBalloon(priority.getBalloon() == null ? base.getBalloon() : priority.getBalloon());
+
+		newOption.setClose(priority.getClose() == null ? base.getClose() : priority.getClose());
+
+		newOption.setCloseOnEscape(
+				priority.getCloseOnEscape() == null ? base.getCloseOnEscape() : priority.getCloseOnEscape());
+
+		newOption.setCloseOnClick(
+				priority.getCloseOnClick() == null ? base.getCloseOnClick() : priority.getCloseOnClick());
+
+		newOption.setDisplayMode(priority.getDisplayMode() == null ? base.getDisplayMode() : priority.getDisplayMode());
+
+		newOption.setPosition(priority.getPosition() == null ? base.getPosition() : priority.getPosition());
+
+		newOption.setTarget(priority.getTarget() == null ? base.getTarget() : priority.getTarget());
+
+		newOption.setTargetFirst(priority.getTargetFirst() == null ? base.getTargetFirst() : priority.getTargetFirst());
+
+		newOption.setTimeout(priority.getTimeout() == null ? base.getTimeout() : priority.getTimeout());
+
+		newOption.setRtl(priority.getRtl() == null ? base.getRtl() : priority.getRtl());
+
+		newOption.setAnimateInside(
+				priority.getAnimateInside() == null ? base.getAnimateInside() : priority.getAnimateInside());
+
+		newOption.setDrag(priority.getDrag() == null ? base.getDrag() : priority.getDrag());
+
+		newOption.setPauseOnHover(
+				priority.getPauseOnHover() == null ? base.getPauseOnHover() : priority.getPauseOnHover());
+
+		newOption.setResetOnHover(
+				priority.getResetOnHover() == null ? base.getResetOnHover() : priority.getResetOnHover());
+
+		newOption.setProgressBar(priority.getProgressBar() == null ? base.getProgressBar() : priority.getProgressBar());
+
+		newOption.setProgressBarColor(
+				priority.getProgressBarColor() == null ? base.getProgressBarColor() : priority.getProgressBarColor());
+
+		newOption.setProgressBarEasing(
+				priority.getProgressBarEasing() == null ? base.getProgressBarEasing()
+						: priority.getProgressBarEasing());
+
+		newOption.setOverlay(priority.getOverlay() == null ? base.getOverlay() : priority.getOverlay());
+
+		newOption.setOverlayClose(
+				priority.getOverlayClose() == null ? base.getOverlayClose() : priority.getOverlayClose());
+
+		newOption.setOverlayColor(
+				priority.getOverlayColor() == null ? base.getOverlayColor() : priority.getOverlayColor());
+
+		newOption.setTransitionIn(
+				priority.getTransitionIn() == null ? base.getTransitionIn() : priority.getTransitionIn());
+
+		newOption.setTransitionOut(
+				priority.getTransitionOut() == null ? base.getTransitionOut() : priority.getTransitionOut());
+
+		newOption.setTransitionInMobile(
+				priority.getTransitionInMobile() == null ? base.getTransitionInMobile()
+						: priority.getTransitionInMobile());
+
+		newOption.setTransitionOutMobile(
+				priority.getTransitionOutMobile() == null ? base.getTransitionOutMobile()
+						: priority.getTransitionOutMobile());
+
+		newOption.setButtons(priority.getButtons() == null ? base.getButtons() : priority.getButtons());
+
+		newOption.setInputs(priority.getInputs() == null ? base.getInputs() : priority.getInputs());
+
+		newOption.setOnOpening(priority.getOnOpening() == null ? base.getOnOpening() : priority.getOnOpening());
+
+		newOption.setOnOpened(priority.getOnOpened() == null ? base.getOnOpened() : priority.getOnOpened());
+
+		newOption.setOnClosing(priority.getOnClosing() == null ? base.getOnClosing() : priority.getOnClosing());
+
+		newOption.setOnClosed(priority.getOnClosed() == null ? base.getOnClosed() : priority.getOnClosed());
+
+		return newOption;
+
+	}
+
 	/**
 	 * Constractor
 	 */
@@ -744,121 +884,8 @@ public class ToastOption implements IToastOption {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ToastOption overwrite(IToastOption option) {
-		ToastOption newOption = new ToastOption();
-
-		newOption.setId(option.getId() == null ? this.id : option.getId());
-
-		newOption.setStyleClass(option.getStyleClass() == null ? this.styleClass : option.getStyleClass());
-
-		newOption.setTitle(option.getTitle() == null ? this.title : option.getTitle());
-
-		newOption.setTitleColor(option.getTitleColor() == null ? this.titleColor : option.getTitleColor());
-
-		newOption.setTitleSize(option.getTitleSize() == null ? this.titleSize : option.getTitleSize());
-
-		newOption.setTitleLineHeight(
-				option.getTitleLineHeight() == null ? this.titleLineHeight : option.getTitleLineHeight());
-
-		newOption.setMessage(option.getMessage() == null ? this.message : option.getMessage());
-
-		newOption.setMessageColor(option.getMessageColor() == null ? this.messageColor : option.getMessageColor());
-
-		newOption.setMessageSize(option.getMessageSize() == null ? this.messageSize : option.getMessageSize());
-
-		newOption.setMessageLineHeight(
-				option.getMessageLineHeight() == null ? this.messageLineHeight : option.getMessageLineHeight());
-
-		newOption.setBackgroundColor(
-				option.getBackgroundColor() == null ? this.backgroundColor : option.getBackgroundColor());
-
-		newOption.setTheme(option.getTheme() == null ? this.theme : option.getTheme());
-
-		newOption.setColor(option.getColor() == null ? this.color : option.getColor());
-
-		newOption.setIcon(option.getIcon() == null ? this.icon : option.getIcon());
-
-		newOption.setIconText(option.getIconText() == null ? this.iconText : option.getIconText());
-
-		newOption.setIconColor(option.getIconColor() == null ? this.iconColor : option.getIconColor());
-
-		newOption.setIconUrl(option.getIconUrl() == null ? this.iconUrl : option.getIconUrl());
-
-		newOption.setImage(option.getImage() == null ? this.image : option.getImage());
-
-		newOption.setImageWidth(option.getImageWidth() == null ? this.imageWidth : option.getImageWidth());
-
-		newOption.setMaxWidth(option.getMaxWidth() == null ? this.maxWidth : option.getMaxWidth());
-
-		newOption.setZindex(option.getZindex() == null ? this.zindex : option.getZindex());
-
-		newOption.setLayout(option.getLayout() == null ? this.layout : option.getLayout());
-
-		newOption.setBalloon(option.getBalloon() == null ? this.balloon : option.getBalloon());
-
-		newOption.setClose(option.getClose() == null ? this.close : option.getClose());
-
-		newOption.setCloseOnEscape(option.getCloseOnEscape() == null ? this.closeOnEscape : option.getCloseOnEscape());
-
-		newOption.setCloseOnClick(option.getCloseOnClick() == null ? this.closeOnClick : option.getCloseOnClick());
-
-		newOption.setDisplayMode(option.getDisplayMode() == null ? this.displayMode : option.getDisplayMode());
-
-		newOption.setPosition(option.getPosition() == null ? this.position : option.getPosition());
-
-		newOption.setTarget(option.getTarget() == null ? this.target : option.getTarget());
-
-		newOption.setTargetFirst(option.getTargetFirst() == null ? this.targetFirst : option.getTargetFirst());
-
-		newOption.setTimeout(option.getTimeout() == null ? this.timeout : option.getTimeout());
-
-		newOption.setRtl(option.getRtl() == null ? this.rtl : option.getRtl());
-
-		newOption.setAnimateInside(option.getAnimateInside() == null ? this.animateInside : option.getAnimateInside());
-
-		newOption.setDrag(option.getDrag() == null ? this.drag : option.getDrag());
-
-		newOption.setPauseOnHover(option.getPauseOnHover() == null ? this.pauseOnHover : option.getPauseOnHover());
-
-		newOption.setResetOnHover(option.getResetOnHover() == null ? this.resetOnHover : option.getResetOnHover());
-
-		newOption.setProgressBar(option.getProgressBar() == null ? this.progressBar : option.getProgressBar());
-
-		newOption.setProgressBarColor(
-				option.getProgressBarColor() == null ? this.progressBarColor : option.getProgressBarColor());
-
-		newOption.setProgressBarEasing(
-				option.getProgressBarEasing() == null ? this.progressBarEasing : option.getProgressBarEasing());
-
-		newOption.setOverlay(option.getOverlay() == null ? this.overlay : option.getOverlay());
-
-		newOption.setOverlayClose(option.getOverlayClose() == null ? this.overlayClose : option.getOverlayClose());
-
-		newOption.setOverlayColor(option.getOverlayColor() == null ? this.overlayColor : option.getOverlayColor());
-
-		newOption.setTransitionIn(option.getTransitionIn() == null ? this.transitionIn : option.getTransitionIn());
-
-		newOption.setTransitionOut(option.getTransitionOut() == null ? this.transitionOut : option.getTransitionOut());
-
-		newOption.setTransitionInMobile(
-				option.getTransitionInMobile() == null ? this.transitionInMobile : option.getTransitionInMobile());
-
-		newOption.setTransitionOutMobile(
-				option.getTransitionOutMobile() == null ? this.transitionOutMobile : option.getTransitionOutMobile());
-
-		newOption.setButtons(option.getButtons() == null ? this.buttons : option.getButtons());
-
-		newOption.setInputs(option.getInputs() == null ? this.inputs : option.getInputs());
-
-		newOption.setOnOpening(option.getOnOpening() == null ? this.onOpening : option.getOnOpening());
-
-		newOption.setOnOpened(option.getOnOpened() == null ? this.onOpened : option.getOnOpened());
-
-		newOption.setOnClosing(option.getOnClosing() == null ? this.onClosing : option.getOnClosing());
-
-		newOption.setOnClosed(option.getOnClosed() == null ? this.onClosed : option.getOnClosed());
-
-		return newOption;
+	public void merge(IToastOption option) {
+		meargeOptions(this, option);
 	}
 
 }

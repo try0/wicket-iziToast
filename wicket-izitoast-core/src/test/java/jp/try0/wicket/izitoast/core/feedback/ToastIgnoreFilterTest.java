@@ -8,10 +8,9 @@ import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.junit.jupiter.api.Test;
 
 import jp.try0.wicket.izitoast.core.IToast;
-import jp.try0.wicket.izitoast.core.IToastOption;
 import jp.try0.wicket.izitoast.core.Toast;
 import jp.try0.wicket.izitoast.core.Toast.ToastType;
-import jp.try0.wicket.izitoast.core.feedback.ToastIgnoreFilter;
+import jp.try0.wicket.izitoast.core.ToastOption;
 import jp.try0.wicket.izitoast.core.test.AbstractIziToastTest;
 
 /**
@@ -53,7 +52,7 @@ public class ToastIgnoreFilterTest extends AbstractIziToastTest {
 				}
 
 				@Override
-				public IToastOption getToastOption() {
+				public ToastOption getToastOption() {
 					return null;
 				}
 

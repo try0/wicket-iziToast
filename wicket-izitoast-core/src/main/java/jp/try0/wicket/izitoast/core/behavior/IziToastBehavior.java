@@ -1,9 +1,7 @@
 package jp.try0.wicket.izitoast.core.behavior;
 
-import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -25,7 +23,9 @@ import jp.try0.wicket.izitoast.core.IToastOption;
 import jp.try0.wicket.izitoast.core.Toast;
 import jp.try0.wicket.izitoast.core.Toast.ToastType;
 import jp.try0.wicket.izitoast.core.ToastOption;
+import jp.try0.wicket.izitoast.core.config.IToastTargetSetter;
 import jp.try0.wicket.izitoast.core.config.IziToastSetting;
+import jp.try0.wicket.izitoast.core.config.ToastMessageCombiner;
 
 /**
  * iziToast behavior.<br>
@@ -36,192 +36,6 @@ import jp.try0.wicket.izitoast.core.config.IziToastSetting;
  */
 public class IziToastBehavior extends IziToastResourcesBehavior {
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * Combiner that combines messages for each toast level.<br>
-	 * This class works when there are multiple messages for the level.
-	 *
-	 * @author Ryo Tsunoda
-	 *
-	 */
-	public static class ToastMessageCombiner implements Serializable {
-		private static final long serialVersionUID = 1L;
-
-		/**
-		 * Void action.
-		 */
-		public static final ToastMessageCombiner VOID_COMBINER = new ToastMessageCombiner() {
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public Stream<IToast> combine(Stream<IToast> toastStream) {
-				return toastStream;
-			}
-
-			@Override
-			public String getPrefix() {
-				return "";
-			}
-
-			@Override
-			public String getSuffix() {
-				return "";
-			}
-		};
-
-		/**
-		 * Default delimiter string.
-		 */
-		public static final String DEFAULT_SUFFIX = "<br>";
-
-		// dummy to append suffix. this toast's level has no meaning.
-		private static final Toast IDENTITY = Toast.success("");
-
-		/**
-		 * Prefix of each message
-		 */
-		private String prefix = "";
-
-		/**
-		 * Suffix of each message
-		 */
-		private String suffix = DEFAULT_SUFFIX;
-
-		/**
-		 * Constractor
-		 */
-		public ToastMessageCombiner() {
-		}
-
-		/**
-		 * Gets prefix of each message.
-		 *
-		 * @return the prefix
-		 */
-		public String getPrefix() {
-			return prefix;
-		}
-
-		/**
-		 * Sets prefix of each message.
-		 *
-		 * @param prefix the prefix
-		 */
-		public void setPrefix(String prefix) {
-			this.prefix = prefix;
-		}
-
-		/**
-		 * Gets suffix of each message.
-		 *
-		 * @return the suffix
-		 */
-		public String getSuffix() {
-			return suffix;
-		}
-
-		/**
-		 * Sets suffix of each message.
-		 *
-		 * @param suffix the suffix
-		 */
-		public void setSuffix(String suffix) {
-			this.suffix = suffix;
-		}
-
-		/**
-		 * Combines messages for each toast level.
-		 *
-		 * @param toastStream the target
-		 * @return the stream that combined messages for each toast level
-		 */
-		public Stream<IToast> combine(Stream<IToast> toastStream) {
-
-			Map<ToastType, List<IToast>> groupByLevel = toastStream
-					.collect(Collectors.groupingBy(IToast::getToastType));
-
-			return groupByLevel.entrySet().stream()
-					.filter(es -> !es.getValue().isEmpty())
-					.map(es -> es.getValue())
-					.map(toasts -> {
-						return toasts.stream()
-								.reduce(IDENTITY, (joined, t) -> {
-									return combine(joined, t);
-								});
-					});
-		}
-
-		/**
-		 * Combines toasts.
-		 *
-		 * @param combined the combined toast
-		 * @param target the uncombined toast
-		 * @return the toast that combine combined and target
-		 */
-		public IToast combine(IToast combined, IToast target) {
-
-
-			// select toast title
-			String title = decideTitle(combined, target);
-
-			// combine messages
-			String decoratedMessage = decorateMessage(target.getMessage(), getPrefix(), getSuffix());
-			String concatenatedMessage = combined.getMessage() + decoratedMessage;
-
-			// combine toast options
-			IToastOption option = decideToastOption(combined, target);
-
-			ToastOption tmpOption = new ToastOption();
-			tmpOption.setTitle(title);
-			tmpOption.setMessage(concatenatedMessage);
-
-			final Toast newToast = Toast.create(target.getToastType(), option.overwrite(tmpOption));
-
-
-			return newToast;
-		}
-
-		/**
-		 * Decides toast option.
-		 *
-		 * @param combined the combined toast
-		 * @param target the uncombined toast
-		 * @return the option to apply
-		 */
-		protected IToastOption decideToastOption(IToast combined, IToast target) {
-
-			IToastOption combinedOption = combined.getToastOption();
-			IToastOption targetOption = target.getToastOption();
-
-
-			return combinedOption.overwrite(targetOption);
-
-		}
-
-		/**
-		 * Decides toast title.
-		 *
-		 * @param combined the combined toast
-		 * @param target the uncombined toast
-		 * @return the title to display
-		 */
-		protected String decideTitle(IToast combined, IToast target) {
-			return target.getTitle();
-		}
-
-		/**
-		 * Decorates message.
-		 *
-		 * @param message the toast message
-		 * @param prefix the message prefix
-		 * @param suffix the message suffix
-		 * @return decorated message
-		 */
-		protected String decorateMessage(String message, String prefix, String suffix) {
-			return prefix + message + suffix;
-		}
-
-	}
 
 	/**
 	 * Model that returns empty list of {@link FeedbackMessage}
@@ -263,6 +77,16 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 
 	}
 
+	private class Tuple<X, Y> {
+		public final X x;
+		public final Y y;
+
+		public Tuple(X x, Y y) {
+			this.x = x;
+			this.y = y;
+		}
+	}
+
 	/**
 	 * Model of {@link FeedbackMessage}s
 	 */
@@ -277,6 +101,11 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 	 * Message combiner
 	 */
 	private ToastMessageCombiner messageCombiner = IziToastSetting.get().getToastMessageCombiner();
+
+	/**
+	 * Toast target setter
+	 */
+	private IToastTargetSetter toastTargetSetter = IziToastSetting.get().getToastTargetSetter();
 
 	/**
 	 * Constractor
@@ -392,6 +221,15 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 	}
 
 	/**
+	 * Sets target setter that set toast target container.
+	 *
+	 * @param toastTargetSetter the toast target setter
+	 */
+	public void setToastTargetSetter(IToastTargetSetter toastTargetSetter) {
+		this.toastTargetSetter = Args.notNull(toastTargetSetter, "toastTargetSetter");
+	}
+
+	/**
 	 * Creates a {@link FeedbackMessagesModel}.
 	 *
 	 * @param pageResolvingComponent The component for retrieving page instance
@@ -415,10 +253,10 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 			return "";
 		}
 
-		Stream<IToast> toastStream = messageCombiner.combine(toToastStream(feedbackMessages));
+		List<IToast> toasts = messageCombiner.combine(toToastStream(feedbackMessages).collect(Collectors.toList()));
 
 		final StringBuilder scripts = new StringBuilder();
-		toastStream.forEachOrdered(toast -> {
+		toasts.forEach(toast -> {
 			// create script
 			scripts.append(getScriptForDisplay(toast));
 		});
@@ -432,13 +270,32 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 	 * @return the stream of toast that to display
 	 */
 	private Stream<IToast> toToastStream(List<FeedbackMessage> feedbackMessages) {
+		final IziToastSetting settings = IziToastSetting.get();
 		return feedbackMessages.stream()
 				.filter(fm -> ToastType.fromFeedbackMessageLevel(fm.getLevel()).isSupported())
-				.map(fm -> {
-					markRendered(fm);
-					return fm;
-				})
-				.map(fm -> getToast(fm));
+				.map(fm -> new Tuple<>(fm, getToast(fm)))
+				.map(ft -> setup(ft, settings).y);
+	}
+
+	/**
+	 * Setup feedback message and toast.
+	 *
+	 * @param tuple
+	 * @param settings
+	 * @return
+	 */
+	private Tuple<FeedbackMessage, IToast> setup(Tuple<FeedbackMessage, IToast> tuple, IziToastSetting settings) {
+
+		final FeedbackMessage feedbackMessage = tuple.x;
+		final IToast toast = tuple.y;
+
+		markRendered(feedbackMessage);
+
+		toastTargetSetter.setTarget(toast, feedbackMessage.getReporter());
+
+		applyDefaultOption(toast, settings);
+
+		return tuple;
 	}
 
 	/**
@@ -455,8 +312,7 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 			// create new one
 			ToastType level = ToastType.fromFeedbackMessageLevel(feedbackMessage.getLevel());
 			Toast toast = Toast.create(level, feedbackMessage.getMessage().toString());
-
-			return applyDefaultOption(toast);
+			return toast;
 		}
 	}
 
@@ -466,13 +322,12 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 	 * @param toast the toast
 	 * @return toast
 	 */
-	private Toast applyDefaultOption(Toast toast) {
-		EachLevelToastOptions defaultOptions = IziToastSetting.get().getGlobalEachLevelOptions();
+	private void applyDefaultOption(IToast toast, IziToastSetting settings) {
+		EachLevelToastOptions defaultOptions = settings.getGlobalEachLevelOptions();
 		defaultOptions.get(toast.getToastType()).ifPresent(option -> {
-			ToastOption merged = option.overwrite(toast.getToastOption());
-			toast.setToastOption(merged);
+			ToastOption mearged = ToastOption.createMerged(option, toast.getToastOption());
+			toast.getToastOption().merge(mearged);
 		});
-		return toast;
 	}
 
 	/**

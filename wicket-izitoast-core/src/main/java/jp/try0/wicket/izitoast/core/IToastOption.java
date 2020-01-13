@@ -181,12 +181,12 @@ public interface IToastOption extends Serializable {
 	public String toJsonString();
 
 	/**
-	 * Gets new overwritten options.<br>
+	 * Overwrite options.<br>
 	 * If the value of the argument's option is exists, overwrite the option value.
 	 *
 	 * @param option overwrite options
 	 * @return overwritten option
 	 */
-	public <T extends IToastOption> T overwrite(T option);
+	public void merge(IToastOption option);
 
 }
