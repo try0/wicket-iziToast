@@ -14,6 +14,18 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.0/semantic.min.js"></script>
 
+<script type="text/javascript">
+	$(function() {
+
+		if (window.location.href.indexOf("wicket-izitoast-samples-dev") > -1) {
+			$("#lblAppDev").addClass("blue");
+		} else {
+			$("#lblAppMaster").addClass("blue");
+		}
+
+	});
+</script>
+
 <style type="text/css">
 .iziToast-wrapper {
 	line-height: initial;
@@ -79,11 +91,16 @@
 
 	<div class="ui container main" style="max-width: 800px !important;">
 
-		<div class="ui large header">
-			Examples
-			<a wicket:id="linkToSource" href="" target="blank" title="show sample code on GitHub"><i class="github icon"></i></a>
 
-			<span  class="ui small label grey" >build: <wicket:container wicket:id="buildDate"></wicket:container></span>
+		<a href="https://try0.jp/app/wicket-izitoast-samples/"><span
+			id="lblAppMaster" class="ui label">master</span></a> / <a
+			href="https://try0.jp/app/wicket-izitoast-samples-dev/"><span
+			id="lblAppDev" class="ui label">develop</span></a>
+		<div class="ui large header">
+			Examples <a wicket:id="linkToSource" href="" target="blank"
+				title="show sample code on GitHub"><i class="github icon"></i></a> <span
+				class="ui small label grey">build: <wicket:container
+					wicket:id="buildDate"></wicket:container></span>
 		</div>
 
 		<div class="ui message">
@@ -92,7 +109,8 @@
 				Apache <a href="https://wicket.apache.org/">Wicket</a> utilities for
 				using <a href="http://izitoast.marcelodolza.com//">iziToast</a>.
 			</p>
-			<p>wicket-iziToast converts feedback messages to JavaScript for displaying toast.</p>
+			<p>wicket-iziToast converts feedback messages to JavaScript for
+				displaying toast.</p>
 		</div>
 
 		<div class="ui divider"></div>
