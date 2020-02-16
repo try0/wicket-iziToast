@@ -38,7 +38,7 @@ public class ToastTargetContainerAppender implements IComponentInstantiationList
 
 	}
 
-	protected boolean needAppend(Component component) {
+	public boolean needAppend(Component component) {
 		return component instanceof FormComponent;
 	}
 

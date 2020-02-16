@@ -1,8 +1,9 @@
 package jp.try0.wicket.izitoast.core.config;
 
+import org.apache.wicket.Application;
 import org.apache.wicket.Component;
 import org.apache.wicket.Page;
-import org.apache.wicket.markup.html.form.FormComponent;
+import org.apache.wicket.application.IComponentInstantiationListener;
 
 import jp.try0.wicket.izitoast.core.IToast;
 import jp.try0.wicket.izitoast.core.IToastFilter;
@@ -59,11 +60,20 @@ public class DefaultToastTargetSetter implements IToastTargetSetter {
 			return;
 		}
 
-		if (component instanceof FormComponent) {
-			toast.getToastOption().setTarget("#" + TARGET_COMPONENT_ID_PREFIX + component.getMarkupId());
-			toast.getToastOption().setTimeout(false);
-			toast.getToastOption().setDisplayMode(1);
-			return;
+		if (Application.exists()) {
+			Application app = Application.get();
+
+			for (IComponentInstantiationListener listener : app.getComponentInstantiationListeners()) {
+				if (listener instanceof ToastTargetContainerAppender) {
+					ToastTargetContainerAppender appender = (ToastTargetContainerAppender) listener;
+					if (appender.needAppend(component)) {
+						toast.getToastOption().setTarget("#" + TARGET_COMPONENT_ID_PREFIX + component.getMarkupId());
+						toast.getToastOption().setTimeout(false);
+						toast.getToastOption().setDisplayMode(1);
+						return;
+					}
+				}
+			}
 		}
 
 		toast.getToastOption().setTarget("#" + component.getMarkupId());
