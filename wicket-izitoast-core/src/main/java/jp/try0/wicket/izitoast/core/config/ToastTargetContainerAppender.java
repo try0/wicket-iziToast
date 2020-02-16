@@ -22,7 +22,7 @@ public class ToastTargetContainerAppender implements IComponentInstantiationList
 	@Override
 	public void onInstantiation(Component component) {
 
-		if (component instanceof FormComponent) {
+		if (needAppend(component)) {
 
 			component.add(new Behavior() {
 
@@ -30,23 +30,33 @@ public class ToastTargetContainerAppender implements IComponentInstantiationList
 				public void renderHead(Component component, IHeaderResponse response) {
 					super.renderHead(component, response);
 
-					String idPrefix = DefaultToastTargetSetter.TARGET_COMPONENT_ID_PREFIX;
-					String componentId = component.getMarkupId();
-
-					String script = "var fc = document.getElementById('" + componentId + "');";
-					script += "var target = document.createElement('div'); "
-							+ "target.id = '" + idPrefix + componentId + "';";
-					script += "fc.parentNode.insertBefore(target, fc.nextSibling);";
-					script += "fc.addEventListener('change', function() {"
-							+ "var toast = document.querySelector('#" + idPrefix + componentId + " .iziToast');"
-							+ "iziToast.hide({}, toast);"
-							+ "});";
-
+					String script = getTargetAppendScript(component);
 					response.render(OnDomReadyHeaderItem.forScript(script));
 				}
 			});
 		}
 
+	}
+
+	protected boolean needAppend(Component component) {
+		return component instanceof FormComponent;
+	}
+
+	protected String getTargetAppendScript(Component component) {
+		String idPrefix = DefaultToastTargetSetter.TARGET_COMPONENT_ID_PREFIX;
+		String componentId = component.getMarkupId();
+
+		String script = "var fc = document.getElementById('" + componentId + "');";
+		script += "var target = document.createElement('div'); "
+				+ "target.id = '" + idPrefix + componentId + "';";
+		script += "fc.parentNode.insertBefore(target, fc.nextSibling);";
+
+		script += "fc.addEventListener('change', function() {"
+				+ "var toast = document.querySelector('#" + idPrefix + componentId + " .iziToast');"
+				+ "iziToast.hide({}, toast);"
+				+ "});";
+
+		return script;
 	}
 
 }
