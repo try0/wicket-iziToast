@@ -13,7 +13,6 @@ import jp.try0.wicket.izitoast.core.ToastOption;
 import jp.try0.wicket.izitoast.core.config.DefaultToastTargetLinker;
 import jp.try0.wicket.izitoast.core.config.IziToastSetting;
 import jp.try0.wicket.izitoast.core.config.ToastMessageCombiner;
-import jp.try0.wicket.izitoast.core.config.ToastTargetContainerAppender;
 
 /**
  * Application object for your web application.
@@ -69,10 +68,10 @@ public class WicketApplication extends WebApplication implements Serializable {
 				.setAutoAppendBehavior(true)
 				.setGlobalOption(option)
 				.setToastMessageCombiner(combiner)
+				.setAutoAppendContainerCreateBehavior(true)
 				.setToastTargetLinker(DefaultToastTargetLinker.getInstance())
 				.initialize();
 
-		getComponentInstantiationListeners().add(new ToastTargetContainerAppender());
 	}
 
 	@Override
