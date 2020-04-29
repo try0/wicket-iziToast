@@ -105,7 +105,7 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 	/**
 	 * Toast target setter
 	 */
-	private IToastTargetLinker toastTargetSetter = IziToastSetting.get().getToastTargetLinker();
+	private IToastTargetLinker toastTargetLinker = IziToastSetting.get().getToastTargetLinker();
 
 	/**
 	 * Constractor
@@ -225,8 +225,8 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 	 *
 	 * @param toastTargetSetter the toast target setter
 	 */
-	public void setToastTargetSetter(IToastTargetLinker toastTargetSetter) {
-		this.toastTargetSetter = Args.notNull(toastTargetSetter, "toastTargetSetter");
+	public void setToastTargetLinker(IToastTargetLinker toastTargetLinker) {
+		this.toastTargetLinker = Args.notNull(toastTargetLinker, "toastTargetLinker");
 	}
 
 	/**
@@ -291,7 +291,7 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 
 		markRendered(feedbackMessage);
 
-		toastTargetSetter.setTarget(toast, feedbackMessage.getReporter());
+		toastTargetLinker.setTarget(toast, feedbackMessage.getReporter());
 
 		applyDefaultOption(toast, settings);
 
