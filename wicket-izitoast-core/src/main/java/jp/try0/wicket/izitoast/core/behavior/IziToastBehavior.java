@@ -100,19 +100,22 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 	/**
 	 * Message combiner
 	 */
-	private ToastMessageCombiner messageCombiner = IziToastSetting.get().getToastMessageCombiner();
+	private ToastMessageCombiner messageCombiner;
 
 	/**
 	 * Toast target setter
 	 */
-	private IToastTargetLinker toastTargetLinker = IziToastSetting.get().getToastTargetLinker();
+	private IToastTargetLinker toastTargetLinker;
 
 	/**
 	 * Constractor
 	 */
 	public IziToastBehavior() {
 		super();
-		IziToastSetting.get().getMessageFilter().ifPresent(filter -> this.messageFilter = filter);
+		IziToastSetting setting = IziToastSetting.get();
+		this.messageCombiner = setting.getToastMessageCombiner();
+		this.toastTargetLinker = setting.getToastTargetLinker();
+		setting.getMessageFilter().ifPresent(filter -> this.messageFilter = filter);
 	}
 
 	/**
@@ -122,6 +125,9 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 	 */
 	public IziToastBehavior(IFeedbackMessageFilter messageFilter) {
 		super();
+		IziToastSetting setting = IziToastSetting.get();
+		this.messageCombiner = setting.getToastMessageCombiner();
+		this.toastTargetLinker = setting.getToastTargetLinker();
 		this.messageFilter = Args.notNull(messageFilter, "messageFilter");
 	}
 
