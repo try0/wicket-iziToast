@@ -5,7 +5,7 @@ import org.apache.wicket.behavior.Behavior;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 
-import jp.try0.wicket.izitoast.core.config.DefaultToastTargetSetter;
+import jp.try0.wicket.izitoast.core.config.DefaultToastTargetLinker;
 
 /**
  * Behavior that append javascript for create target container.
@@ -39,7 +39,7 @@ public class ToastTargetContainerCreateBehavior extends Behavior {
 	 * @return script
 	 */
 	protected String getTargetContainerAppendScript(Component component) {
-		String idPrefix = DefaultToastTargetSetter.TARGET_COMPONENT_ID_PREFIX;
+		String idPrefix = DefaultToastTargetLinker.TARGET_COMPONENT_ID_PREFIX;
 		String componentId = component.getMarkupId();
 
 		StringBuilder scriptBuilder = new StringBuilder();

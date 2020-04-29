@@ -83,7 +83,7 @@ public class IziToastSetting {
 		/**
 		 * Target container setter
 		 */
-		private IToastTargetSetter toastTargetSetter = DefaultToastTargetSetter.getNullInstance();
+		private IToastTargetLinker toastTargetLinker = DefaultToastTargetLinker.getNullInstance();
 
 		/**
 		 * Constractor
@@ -127,8 +127,14 @@ public class IziToastSetting {
 			return this;
 		}
 
-		public IziToastSettingInitializer setToastTargetSetter(IToastTargetSetter toastTargetSetter) {
-			this.toastTargetSetter = toastTargetSetter;
+		/**
+		 * Sets target linker.
+		 *
+		 * @param toastTargetLinker
+		 * @return
+		 */
+		public IziToastSettingInitializer setToastTargetLinker(IToastTargetLinker toastTargetLinker) {
+			this.toastTargetLinker = toastTargetLinker;
 			return this;
 		}
 
@@ -181,6 +187,8 @@ public class IziToastSetting {
 			if (needAutoAppendToastBehavior) {
 				application.getComponentInstantiationListeners().add(new IziToastBehaviorAutoAppender());
 			}
+
+
 
 			IziToastSetting settings = new IziToastSetting(this);
 
@@ -279,9 +287,9 @@ public class IziToastSetting {
 	private final ToastMessageCombiner toastMessageCombiner;
 
 	/**
-	 * Toast target setter
+	 * Toast target linker
 	 */
-	private final IToastTargetSetter toastTargetSetter;
+	private final IToastTargetLinker toastTargetLinker;
 
 	/**
 	 * Constractor
@@ -292,7 +300,7 @@ public class IziToastSetting {
 		this.filter = Optional.empty();
 		this.iziToastBehaviorFactory = DEFAULT_IZITOAST_BEHAVIOR_FACTORY;
 		this.toastMessageCombiner = ToastMessageCombiner.VOID_COMBINER;
-		this.toastTargetSetter = DefaultToastTargetSetter.getNullInstance();
+		this.toastTargetLinker = DefaultToastTargetLinker.getNullInstance();
 	}
 
 	/**
@@ -305,7 +313,7 @@ public class IziToastSetting {
 		this.filter = Optional.ofNullable(initializer.filter);
 		this.iziToastBehaviorFactory = Args.notNull(initializer.iziToastBehaviorFactory, "iziToastBehaviorFactory");
 		this.toastMessageCombiner = Args.notNull(initializer.toastMessageCombiner, "toastMessageCombiner");
-		this.toastTargetSetter = Args.notNull(initializer.toastTargetSetter, "toastTargetSetter");
+		this.toastTargetLinker = Args.notNull(initializer.toastTargetLinker, "toastTargetLinker");
 	}
 
 	/**
@@ -377,12 +385,12 @@ public class IziToastSetting {
 	}
 
 	/**
-	 * Gets target container setter
+	 * Gets target container linker
 	 *
 	 * @return the setter
 	 */
-	public IToastTargetSetter getToastTargetSetter() {
-		return toastTargetSetter;
+	public IToastTargetLinker getToastTargetLinker() {
+		return toastTargetLinker;
 	}
 
 }

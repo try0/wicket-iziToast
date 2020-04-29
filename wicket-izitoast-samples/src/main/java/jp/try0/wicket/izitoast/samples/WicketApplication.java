@@ -10,7 +10,7 @@ import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.settings.RequestCycleSettings.RenderStrategy;
 
 import jp.try0.wicket.izitoast.core.ToastOption;
-import jp.try0.wicket.izitoast.core.config.DefaultToastTargetSetter;
+import jp.try0.wicket.izitoast.core.config.DefaultToastTargetLinker;
 import jp.try0.wicket.izitoast.core.config.IziToastSetting;
 import jp.try0.wicket.izitoast.core.config.ToastMessageCombiner;
 import jp.try0.wicket.izitoast.core.config.ToastTargetContainerAppender;
@@ -62,14 +62,14 @@ public class WicketApplication extends WebApplication implements Serializable {
 		option.setTransitionIn("fadeIn");
 
 		ToastMessageCombiner combiner = new ToastMessageCombiner();
-		combiner.setIgnoreToastFilter(DefaultToastTargetSetter.NO_TARGET_FILTER.negate());
+		combiner.setIgnoreToastFilter(DefaultToastTargetLinker.NO_TARGET_FILTER.negate());
 		combiner.setPrefix("・");
 
 		IziToastSetting.createInitializer(this)
 				.setAutoAppendBehavior(true)
 				.setGlobalOption(option)
 				.setToastMessageCombiner(combiner)
-				.setToastTargetSetter(DefaultToastTargetSetter.getInstance())
+				.setToastTargetLinker(DefaultToastTargetLinker.getInstance())
 				.initialize();
 
 		getComponentInstantiationListeners().add(new ToastTargetContainerAppender());

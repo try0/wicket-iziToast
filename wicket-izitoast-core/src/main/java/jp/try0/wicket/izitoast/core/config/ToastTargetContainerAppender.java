@@ -12,7 +12,7 @@ import jp.try0.wicket.izitoast.core.behavior.ToastTargetContainerCreateBehavior;
  * Toast target cotainer appender.<br>
  * Appends toast container to FormComponent.
  *
- * @see DefaultToastTargetSetter
+ * @see DefaultToastTargetLinker
  * @author Ryo Tsunoda
  *
  */

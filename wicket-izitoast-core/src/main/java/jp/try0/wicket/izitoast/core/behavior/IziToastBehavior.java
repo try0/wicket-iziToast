@@ -23,7 +23,7 @@ import jp.try0.wicket.izitoast.core.IToastOption;
 import jp.try0.wicket.izitoast.core.Toast;
 import jp.try0.wicket.izitoast.core.Toast.ToastType;
 import jp.try0.wicket.izitoast.core.ToastOption;
-import jp.try0.wicket.izitoast.core.config.IToastTargetSetter;
+import jp.try0.wicket.izitoast.core.config.IToastTargetLinker;
 import jp.try0.wicket.izitoast.core.config.IziToastSetting;
 import jp.try0.wicket.izitoast.core.config.ToastMessageCombiner;
 
@@ -105,7 +105,7 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 	/**
 	 * Toast target setter
 	 */
-	private IToastTargetSetter toastTargetSetter = IziToastSetting.get().getToastTargetSetter();
+	private IToastTargetLinker toastTargetSetter = IziToastSetting.get().getToastTargetLinker();
 
 	/**
 	 * Constractor
@@ -225,7 +225,7 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 	 *
 	 * @param toastTargetSetter the toast target setter
 	 */
-	public void setToastTargetSetter(IToastTargetSetter toastTargetSetter) {
+	public void setToastTargetSetter(IToastTargetLinker toastTargetSetter) {
 		this.toastTargetSetter = Args.notNull(toastTargetSetter, "toastTargetSetter");
 	}
 

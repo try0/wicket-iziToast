@@ -15,11 +15,11 @@ import jp.try0.wicket.izitoast.core.IToastFilter;
  * @author Ryo Tsunoda
  *
  */
-public class DefaultToastTargetSetter implements IToastTargetSetter {
+public class DefaultToastTargetLinker implements IToastTargetLinker {
 
-	private static final IToastTargetSetter INSTANCE = new DefaultToastTargetSetter();
+	private static final IToastTargetLinker INSTANCE = new DefaultToastTargetLinker();
 
-	private static final IToastTargetSetter NULL_INSTANCE = new DefaultToastTargetSetter() {
+	private static final IToastTargetLinker NULL_INSTANCE = new DefaultToastTargetLinker() {
 		@Override
 		public void setTarget(IToast toast, Component component) {
 			// no-op
@@ -37,11 +37,11 @@ public class DefaultToastTargetSetter implements IToastTargetSetter {
 		}
 	};
 
-	public static IToastTargetSetter getInstance() {
+	public static IToastTargetLinker getInstance() {
 		return INSTANCE;
 	}
 
-	public static IToastTargetSetter getNullInstance() {
+	public static IToastTargetLinker getNullInstance() {
 		return NULL_INSTANCE;
 	}
 

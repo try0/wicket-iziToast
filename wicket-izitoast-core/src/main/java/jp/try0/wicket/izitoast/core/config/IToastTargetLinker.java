@@ -11,7 +11,7 @@ import jp.try0.wicket.izitoast.core.IToast;
  * @author Ryo Tsunoda
  *
  */
-public interface IToastTargetSetter extends SerializableBiConsumer<IToast, Component> {
+public interface IToastTargetLinker extends SerializableBiConsumer<IToast, Component> {
 
 	/**
 	 * Sets target container to toast.
