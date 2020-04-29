@@ -7,6 +7,7 @@ import org.apache.wicket.Application;
 import org.apache.wicket.MetaDataKey;
 import org.apache.wicket.Page;
 import org.apache.wicket.feedback.IFeedbackMessageFilter;
+import org.apache.wicket.markup.html.form.FormComponent;
 import org.apache.wicket.util.lang.Args;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +24,6 @@ import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior;
  *
  */
 public class IziToastSetting {
-
 
 	/**
 	 * Settings builder.
@@ -86,6 +86,11 @@ public class IziToastSetting {
 		private IToastTargetLinker toastTargetLinker = DefaultToastTargetLinker.getNullInstance();
 
 		/**
+		 * Need append {@link ToastTargetContainerAppender} to {@link FormComponent}
+		 */
+		private boolean needAutoAppendContainerCreateBehavior = false;
+
+		/**
 		 * Constractor
 		 *
 		 * @param application the current application
@@ -139,6 +144,18 @@ public class IziToastSetting {
 		}
 
 		/**
+		 * Sets need auto append {@link ToastTargetContainerAppender} to new {@link FormComponent}.
+		 *
+		 * @param needAutoAppendContainerCreateBehavior whether or not to append {@link ToastTargetContainerAppender} to {@link FormComponent}
+		 * @return this
+		 */
+		public IziToastSettingInitializer setAutoAppendContainerCreateBehavior(
+				boolean needAutoAppendContainerCreateBehavior) {
+			this.needAutoAppendContainerCreateBehavior = needAutoAppendContainerCreateBehavior;
+			return this;
+		}
+
+		/**
 		 * Sets need auto append {@link IziToastBehavior} to new {@link Page}.
 		 *
 		 * @param needAutoAppendToastBehavior whether or not to append {@link IziToastBehavior} to new page
@@ -188,7 +205,9 @@ public class IziToastSetting {
 				application.getComponentInstantiationListeners().add(new IziToastBehaviorAutoAppender());
 			}
 
-
+			if (needAutoAppendContainerCreateBehavior) {
+				application.getComponentInstantiationListeners().add(new ToastTargetContainerAppender());
+			}
 
 			IziToastSetting settings = new IziToastSetting(this);
 

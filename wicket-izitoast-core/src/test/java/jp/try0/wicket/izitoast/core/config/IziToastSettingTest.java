@@ -6,17 +6,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.function.Supplier;
 
+import org.apache.wicket.application.IComponentInstantiationListener;
 import org.apache.wicket.feedback.IFeedbackMessageFilter;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
+import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.jupiter.api.Test;
 
 import jp.try0.wicket.izitoast.core.EachLevelToastOptions;
-import jp.try0.wicket.izitoast.core.ToastOption;
 import jp.try0.wicket.izitoast.core.Toast.ToastType;
+import jp.try0.wicket.izitoast.core.ToastOption;
 import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior;
-import jp.try0.wicket.izitoast.core.config.IziToastSetting;
 import jp.try0.wicket.izitoast.core.test.AbstractIziToastTest;
 import jp.try0.wicket.izitoast.core.test.IziToastTestPage;
 
@@ -32,17 +33,22 @@ public class IziToastSettingTest extends AbstractIziToastTest {
 	public void initializeSettings() {
 
 		boolean autoAppend = true;
+		boolean autoAppendContainerCreater = true;
 		ToastOption options = ToastOption.create();
 		IFeedbackMessageFilter filter = msg -> true;
 		Supplier<IziToastBehavior> factory = () -> new IziToastBehavior();
 		ToastMessageCombiner combier = new ToastMessageCombiner();
+		IToastTargetLinker linker = new DefaultToastTargetLinker();
 
-		IziToastSetting.createInitializer(getWebApplication())
+		WebApplication app = getWebApplication();
+		IziToastSetting.createInitializer(app)
 				.setAutoAppendBehavior(autoAppend)
 				.setGlobalOption(options)
 				.setMessageFilter(filter)
 				.setIziToastBehaviorFactory(factory)
 				.setToastMessageCombiner(combier)
+				.setToastTargetLinker(linker)
+				.setAutoAppendContainerCreateBehavior(autoAppendContainerCreater)
 				.initialize();
 
 		IziToastSetting settings = IziToastSetting.get();
@@ -53,6 +59,17 @@ public class IziToastSettingTest extends AbstractIziToastTest {
 		assertTrue(settings.getGlobalOption().get() == options);
 		assertTrue(settings.getMessageFilter().get() == filter);
 		assertTrue(settings.getToastMessageCombiner() == combier);
+		assertTrue(settings.getToastTargetLinker() == linker);
+
+		boolean hasAppender = false;
+		for (IComponentInstantiationListener l : app.getComponentInstantiationListeners()) {
+			if (l.getClass() == ToastTargetContainerAppender.class) {
+				hasAppender = true;
+				break;
+			}
+		}
+
+		assertTrue(hasAppender);
 	}
 
 	@Test
@@ -66,6 +83,7 @@ public class IziToastSettingTest extends AbstractIziToastTest {
 		assertFalse(settings.getGlobalOption().isPresent());
 		assertTrue(settings.getMessageFilter().isPresent());
 		assertEquals(settings.getMessageFilter().get(), IFeedbackMessageFilter.ALL);
+		assertTrue(settings.getToastTargetLinker() != null);
 
 	}
 
@@ -110,8 +128,6 @@ public class IziToastSettingTest extends AbstractIziToastTest {
 		assertTrue(behaviors.size() == 1);
 		assertTrue(behaviors.contains(behavior.getObject()));
 	}
-
-
 
 	@Test
 	public void setGlobalOptions() {
