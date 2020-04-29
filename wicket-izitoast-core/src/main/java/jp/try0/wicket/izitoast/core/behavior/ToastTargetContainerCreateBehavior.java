@@ -5,15 +5,18 @@ import org.apache.wicket.behavior.Behavior;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 
-import jp.try0.wicket.izitoast.core.config.DefaultToastTargetLinker;
-
 /**
  * Behavior that append javascript for create target container.
- * @author Ryo Tsundoa
+ * @author Ryo Tsunoda
  *
  */
 public class ToastTargetContainerCreateBehavior extends Behavior {
 	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Container markup id prefix.
+	 */
+	public static final String TARGET_COMPONENT_ID_PREFIX = "wicket-iziToast-target-";
 
 	/**
 	 * Constructor.
@@ -39,19 +42,33 @@ public class ToastTargetContainerCreateBehavior extends Behavior {
 	 * @return script
 	 */
 	protected String getTargetContainerAppendScript(Component component) {
-		String idPrefix = DefaultToastTargetLinker.TARGET_COMPONENT_ID_PREFIX;
+		String containerId = getContainerId(component);
 		String componentId = component.getMarkupId();
 
 		StringBuilder scriptBuilder = new StringBuilder();
 		scriptBuilder.append("var fc = document.getElementById('").append(componentId).append("');")
 				.append("var target = document.createElement('div');")
-				.append("target.id = '").append(idPrefix).append(componentId).append("';")
+				.append("target.id = '").append(containerId).append("';")
 				.append("fc.parentNode.insertBefore(target, fc.nextSibling);")
 				.append("fc.addEventListener('change', function() {")
-				.append("var toast = document.querySelector('#").append(idPrefix).append(componentId)
+				.append("var toast = document.querySelector('#").append(containerId)
 				.append(" .iziToast');")
 				.append("iziToast.hide({}, toast);});");
 
 		return scriptBuilder.toString();
 	}
+
+	/**
+	 * Gets target container id.
+	 *
+	 * @param component
+	 * @return
+	 */
+	public String getContainerId(Component component) {
+		String idPrefix = TARGET_COMPONENT_ID_PREFIX;
+		String componentId = component.getMarkupId();
+
+		return idPrefix + componentId;
+	}
+
 }

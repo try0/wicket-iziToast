@@ -1,12 +1,13 @@
 package jp.try0.wicket.izitoast.core.config;
 
-import org.apache.wicket.Application;
+import java.util.List;
+
 import org.apache.wicket.Component;
 import org.apache.wicket.Page;
-import org.apache.wicket.application.IComponentInstantiationListener;
 
 import jp.try0.wicket.izitoast.core.IToast;
 import jp.try0.wicket.izitoast.core.IToastFilter;
+import jp.try0.wicket.izitoast.core.behavior.ToastTargetContainerCreateBehavior;
 
 /**
  * The toast target setter.
@@ -25,8 +26,6 @@ public class DefaultToastTargetLinker implements IToastTargetLinker {
 			// no-op
 		}
 	};
-
-	public static final String TARGET_COMPONENT_ID_PREFIX = "wicket-iziToast-target-";
 
 	public static final IToastFilter NO_TARGET_FILTER = new IToastFilter() {
 
@@ -60,22 +59,16 @@ public class DefaultToastTargetLinker implements IToastTargetLinker {
 			return;
 		}
 
-		if (Application.exists()) {
-			Application app = Application.get();
+		List<ToastTargetContainerCreateBehavior> behaviors = component
+				.getBehaviors(ToastTargetContainerCreateBehavior.class);
 
-			for (IComponentInstantiationListener listener : app.getComponentInstantiationListeners()) {
-				if (listener instanceof ToastTargetContainerAppender) {
-					ToastTargetContainerAppender appender = (ToastTargetContainerAppender) listener;
-					if (appender.needAppend(component)) {
-						toast.getToastOption().setTarget("#" + TARGET_COMPONENT_ID_PREFIX + component.getMarkupId());
-						toast.getToastOption().setTimeout(false);
-						toast.getToastOption().setDisplayMode(1);
-						return;
-					}
-				}
-			}
+		if (behaviors.isEmpty()) {
+			toast.getToastOption().setTarget("#" + component.getMarkupId());
+		} else {
+			ToastTargetContainerCreateBehavior behavior = behaviors.get(0);
+			toast.getToastOption().setTarget("#" + behavior.getContainerId(component));
+			toast.getToastOption().setTimeout(false);
+			toast.getToastOption().setDisplayMode(1);
 		}
-
-		toast.getToastOption().setTarget("#" + component.getMarkupId());
 	}
 }
