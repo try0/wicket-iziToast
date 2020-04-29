@@ -72,6 +72,8 @@ public class FormTargetExamplePanel extends AbstractSamplePanel {
 									FormComponent<?> formComponent = (FormComponent<?>) component;
 									toast.getToastOption().setTarget("#" + formComponent.getForm().getMarkupId());
 									toast.getToastOption().setTimeout(0);
+									// replace
+									toast.getToastOption().setDisplayMode(2);
 								}
 							});
 						} else {

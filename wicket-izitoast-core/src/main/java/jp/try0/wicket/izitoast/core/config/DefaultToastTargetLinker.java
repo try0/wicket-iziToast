@@ -68,7 +68,8 @@ public class DefaultToastTargetLinker implements IToastTargetLinker {
 			ToastTargetContainerCreateBehavior behavior = behaviors.get(0);
 			toast.getToastOption().setTarget("#" + behavior.getContainerId(component));
 			toast.getToastOption().setTimeout(false);
-			toast.getToastOption().setDisplayMode(1);
+			// replace
+			toast.getToastOption().setDisplayMode(2);
 		}
 	}
 }
