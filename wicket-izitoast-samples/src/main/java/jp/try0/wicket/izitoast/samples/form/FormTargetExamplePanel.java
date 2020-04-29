@@ -1,9 +1,14 @@
 package jp.try0.wicket.izitoast.samples.form;
 
+import java.util.List;
+
+import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.form.AjaxCheckBox;
 import org.apache.wicket.ajax.markup.html.form.AjaxSubmitLink;
 import org.apache.wicket.markup.html.form.CheckBox;
 import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.form.FormComponent;
 import org.apache.wicket.markup.html.form.NumberTextField;
 import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.model.IModel;
@@ -13,7 +18,11 @@ import org.apache.wicket.validation.IValidator;
 import org.apache.wicket.validation.ValidationError;
 import org.apache.wicket.validation.validator.StringValidator;
 
+import jp.try0.wicket.izitoast.core.IToast;
 import jp.try0.wicket.izitoast.core.Toast;
+import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior;
+import jp.try0.wicket.izitoast.core.config.DefaultToastTargetLinker;
+import jp.try0.wicket.izitoast.core.config.IToastTargetLinker;
 import jp.try0.wicket.izitoast.samples.AbstractSamplePanel;
 
 public class FormTargetExamplePanel extends AbstractSamplePanel {
@@ -37,6 +46,40 @@ public class FormTargetExamplePanel extends AbstractSamplePanel {
 		add(new Form<Void>("formTargets") {
 
 			{
+				setOutputMarkupId(true);
+				add(new AjaxCheckBox("chkGroupingError", new Model<>(false)) {
+
+					@Override
+					protected void onUpdate(AjaxRequestTarget target) {
+						List<IziToastBehavior> behaviors = getPage().getBehaviors(IziToastBehavior.class);
+
+						if (behaviors.isEmpty()) {
+							return;
+						}
+
+						IziToastBehavior behavior = behaviors.get(0);
+
+						if (getModelObject()) {
+							behavior.setToastTargetLinker(new IToastTargetLinker() {
+
+								@Override
+								public void setTarget(IToast toast, Component component) {
+
+									if (!(component instanceof FormComponent)) {
+										return;
+									}
+
+									FormComponent<?> formComponent = (FormComponent<?>) component;
+									toast.getToastOption().setTarget("#" + formComponent.getForm().getMarkupId());
+									toast.getToastOption().setTimeout(0);
+								}
+							});
+						} else {
+							behavior.setToastTargetLinker(new DefaultToastTargetLinker());
+						}
+					}
+				});
+
 				add(new RequiredTextField<String>("txtFirstName", firstName) {
 					{
 						setOutputMarkupId(true);
@@ -58,7 +101,6 @@ public class FormTargetExamplePanel extends AbstractSamplePanel {
 						setMinimum(0);
 					}
 				});
-
 
 				add(new CheckBox("chkAcceptLicense", acceptLicense) {
 					{
