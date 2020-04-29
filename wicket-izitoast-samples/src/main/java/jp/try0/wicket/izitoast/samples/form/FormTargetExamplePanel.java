@@ -4,12 +4,14 @@ import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxSubmitLink;
 import org.apache.wicket.markup.html.form.CheckBox;
 import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.form.NumberTextField;
 import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.validation.IValidatable;
 import org.apache.wicket.validation.IValidator;
 import org.apache.wicket.validation.ValidationError;
+import org.apache.wicket.validation.validator.StringValidator;
 
 import jp.try0.wicket.izitoast.core.Toast;
 import jp.try0.wicket.izitoast.samples.AbstractSamplePanel;
@@ -19,6 +21,8 @@ public class FormTargetExamplePanel extends AbstractSamplePanel {
 	private IModel<String> firstName = new Model<>();
 
 	private IModel<String> lastName = new Model<>();
+
+	private IModel<Integer> age = new Model<>();
 
 	private IModel<Boolean> acceptLicense = new Model<>(false);
 
@@ -36,14 +40,25 @@ public class FormTargetExamplePanel extends AbstractSamplePanel {
 				add(new RequiredTextField<String>("txtFirstName", firstName) {
 					{
 						setOutputMarkupId(true);
+						add(StringValidator.minimumLength(2));
 					}
 				});
 
 				add(new RequiredTextField<String>("txtLastName", lastName) {
 					{
 						setOutputMarkupId(true);
+						add(StringValidator.minimumLength(2));
 					}
 				});
+
+				add(new NumberTextField<Integer>("txtAge", age, Integer.class) {
+					{
+						setOutputMarkupId(true);
+						setRequired(true);
+						setMinimum(0);
+					}
+				});
+
 
 				add(new CheckBox("chkAcceptLicense", acceptLicense) {
 					{

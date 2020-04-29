@@ -6,16 +6,20 @@
 
 	<form wicket:id="formTargets" class="ui form">
 		<div class="field">
-			<label>First Name</label> <input wicket:id="txtFirstName" type="text"
+			<label>First Name (required minlength=2)</label> <input wicket:id="txtFirstName" type="text"
 				name="first-name" placeholder="First Name" tabindex="1">
 		</div>
 		<div class="field">
-			<label>Last Name</label> <input wicket:id="txtLastName" type="text"
+			<label>Last Name (required minlength=2)</label> <input wicket:id="txtLastName" type="text"
 				name="last-name" placeholder="Last Name" tabindex="2">
 		</div>
 		<div class="field">
+			<label>Age (required min=0)</label> <input wicket:id="txtAge" type="number"
+				name="age" placeholder="Age" tabindex="3">
+		</div>
+		<div class="field">
 			<label>Accept the license agreement</label> <input
-				wicket:id="chkAcceptLicense" type="checkbox" class="ui checkbox" tabindex="3">
+				wicket:id="chkAcceptLicense" type="checkbox" class="ui checkbox" tabindex="4">
 		</div>
 		<button class="ui button" type="reset">Clear</button>
 		<button wicket:id="btnSubmit" class="ui primary button" type="submit" tabindex="4">Submit</button>
