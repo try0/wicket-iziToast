@@ -47,13 +47,11 @@ public class ToastTargetContainerCreateBehavior extends Behavior {
 
 		StringBuilder scriptBuilder = new StringBuilder();
 		scriptBuilder.append("var fc = document.getElementById('").append(componentId).append("');")
+				.append("if (fc) {")
 				.append("var target = document.createElement('div');")
 				.append("target.id = '").append(containerId).append("';")
 				.append("fc.parentNode.insertBefore(target, fc.nextSibling);")
-				.append("fc.addEventListener('change', function() {")
-				.append("var toast = document.querySelector('#").append(containerId)
-				.append(" .iziToast');")
-				.append("iziToast.hide({}, toast);});");
+				.append("}");
 
 		return scriptBuilder.toString();
 	}
