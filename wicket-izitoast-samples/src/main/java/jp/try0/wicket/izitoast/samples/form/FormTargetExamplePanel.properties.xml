@@ -3,5 +3,6 @@
 <properties>
 	<entry key="txtFirstName">First Name</entry>
 	<entry key="txtLastName">Last Name</entry>
+	<entry key="txtAge">Age</entry>
 	<entry key="chkAcceptLicense">License Agreement</entry>
 </properties>

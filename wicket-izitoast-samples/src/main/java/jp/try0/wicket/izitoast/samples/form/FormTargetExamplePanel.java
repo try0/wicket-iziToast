@@ -43,44 +43,45 @@ public class FormTargetExamplePanel extends AbstractSamplePanel {
 	protected void onInitialize() {
 		super.onInitialize();
 
+		add(new AjaxCheckBox("chkGroupingError", new Model<>(false)) {
+
+			@Override
+			protected void onUpdate(AjaxRequestTarget target) {
+				List<IziToastBehavior> behaviors = getPage().getBehaviors(IziToastBehavior.class);
+
+				if (behaviors.isEmpty()) {
+					return;
+				}
+
+				IziToastBehavior behavior = behaviors.get(0);
+
+				if (getModelObject()) {
+					behavior.setToastTargetLinker(new IToastTargetLinker() {
+
+						@Override
+						public void setTarget(IToast toast, Component component) {
+
+							if (!(component instanceof FormComponent) || component.getId().equals("chkGroupingError")) {
+								return;
+							}
+
+							FormComponent<?> formComponent = (FormComponent<?>) component;
+							toast.getToastOption().setTarget("#" + formComponent.getForm().getMarkupId());
+							toast.getToastOption().setTimeout(0);
+							// replace
+							toast.getToastOption().setDisplayMode(2);
+						}
+					});
+				} else {
+					behavior.setToastTargetLinker(new DefaultToastTargetLinker());
+				}
+			}
+		});
+
 		add(new Form<Void>("formTargets") {
 
 			{
 				setOutputMarkupId(true);
-				add(new AjaxCheckBox("chkGroupingError", new Model<>(false)) {
-
-					@Override
-					protected void onUpdate(AjaxRequestTarget target) {
-						List<IziToastBehavior> behaviors = getPage().getBehaviors(IziToastBehavior.class);
-
-						if (behaviors.isEmpty()) {
-							return;
-						}
-
-						IziToastBehavior behavior = behaviors.get(0);
-
-						if (getModelObject()) {
-							behavior.setToastTargetLinker(new IToastTargetLinker() {
-
-								@Override
-								public void setTarget(IToast toast, Component component) {
-
-									if (!(component instanceof FormComponent)) {
-										return;
-									}
-
-									FormComponent<?> formComponent = (FormComponent<?>) component;
-									toast.getToastOption().setTarget("#" + formComponent.getForm().getMarkupId());
-									toast.getToastOption().setTimeout(0);
-									// replace
-									toast.getToastOption().setDisplayMode(2);
-								}
-							});
-						} else {
-							behavior.setToastTargetLinker(new DefaultToastTargetLinker());
-						}
-					}
-				});
 
 				add(new RequiredTextField<String>("txtFirstName", firstName) {
 					{
@@ -124,9 +125,15 @@ public class FormTargetExamplePanel extends AbstractSamplePanel {
 
 				add(new AjaxSubmitLink("btnSubmit") {
 
+					protected void onError(AjaxRequestTarget target) {
+						target.prependJavaScript(Toast.SCRIPT_DESTROY_TOAST);
+					}
+
 					@Override
 					protected void onSubmit(AjaxRequestTarget target) {
 						target.focusComponent(getForm());
+
+						target.prependJavaScript(Toast.SCRIPT_DESTROY_TOAST);
 
 						Toast toast = Toast.success("Submit form <br><br>First Name: " + firstName.getObject()
 								+ "<br>Last Name: " + lastName.getObject());
