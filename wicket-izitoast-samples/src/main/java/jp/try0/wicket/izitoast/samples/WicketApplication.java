@@ -49,6 +49,7 @@ public class WicketApplication extends WebApplication implements Serializable {
 
 		getMarkupSettings().setStripWicketTags(true);
 		getRequestCycleSettings().setRenderStrategy(RenderStrategy.ONE_PASS_RENDER);
+		getCspSettings().blocking().disabled();
 
 		ToastOption option = new ToastOption();
 		option.setStyleClass("izi-toast-custom");
