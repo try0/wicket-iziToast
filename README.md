@@ -18,6 +18,7 @@ wicket-iziToast converts feedback messages to JavaScript for displaying toast.
 | Version | Wicket | iziToast |
 | ---- | ---- | ---- |
 | 1.x | 8.x | 1.4.0 |
+| 2.x | 9.x | 1.4.0 |
 
 
 [Change Log](CHANGELOG.md)
@@ -41,7 +42,14 @@ Wicket 8.x
     <version>1.0.0</version>
 </dependency>
 ```
-
+Wicket 9.x
+```xml
+<dependency>
+    <groupId>jp.try0.wicket</groupId>
+    <artifactId>wicket-izitoast-core</artifactId>
+    <version>2.0.0</version>
+</dependency>
+```
 
 ### Initialize Settings
 You can set default values, in the application initialize process(Application#init).
