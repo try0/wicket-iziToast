@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.0.0
+
+* Wicket 9.x
+
+## 1.0.0
+
+* Wicket 8.x
+
 ## 0.5.0
 
 * Supports work with the feedback message reporter component
