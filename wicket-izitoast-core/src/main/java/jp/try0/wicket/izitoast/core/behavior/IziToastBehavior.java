@@ -316,8 +316,7 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 			return (IToast) feedbackMessage.getMessage();
 		} else {
 			// create new one
-			ToastType level = ToastType.fromFeedbackMessageLevel(feedbackMessage.getLevel());
-			Toast toast = Toast.create(level, feedbackMessage.getMessage().toString());
+			Toast toast = Toast.create(feedbackMessage);
 			return toast;
 		}
 	}
