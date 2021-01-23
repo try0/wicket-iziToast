@@ -1,5 +1,8 @@
 package jp.try0.wicket.izitoast.core;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.wicket.Component;
 import org.apache.wicket.core.request.handler.IPartialPageRequestHandler;
 import org.apache.wicket.feedback.FeedbackMessage;
@@ -36,41 +39,41 @@ public class Toast implements IToast {
 	 *
 	 */
 	public static enum ToastType {
-				/**
-				 * Undefined
-				 */
-				UNDEFINED("undefined", FeedbackMessage.UNDEFINED, false),
+		/**
+		 * Undefined
+		 */
+		UNDEFINED("undefined", FeedbackMessage.UNDEFINED, false),
 
-				/**
-				 * Success
-				 */
-				SUCCESS("success", FeedbackMessage.SUCCESS, true),
+		/**
+		 * Success
+		 */
+		SUCCESS("success", FeedbackMessage.SUCCESS, true),
 
-				/**
-				 * Information
-				 */
-				INFO("info", FeedbackMessage.INFO, true),
+		/**
+		 * Information
+		 */
+		INFO("info", FeedbackMessage.INFO, true),
 
-				/**
-				 * Warning
-				 */
-				WARNING("warning", FeedbackMessage.WARNING, true),
+		/**
+		 * Warning
+		 */
+		WARNING("warning", FeedbackMessage.WARNING, true),
 
-				/**
-				 * Error
-				 */
-				ERROR("error", FeedbackMessage.ERROR, true),
+		/**
+		 * Error
+		 */
+		ERROR("error", FeedbackMessage.ERROR, true),
 
-				/**
-				 * Plain
-				 */
-				PLAIN("show", FeedbackMessage.UNDEFINED, true),
+		/**
+		 * Plain
+		 */
+		PLAIN("show", FeedbackMessage.UNDEFINED, true),
 
-				/**
-				 * Question
-				 */
-				QUESTION("question", FeedbackMessage.UNDEFINED, true),
-				;
+		/**
+		 * Question
+		 */
+		QUESTION("question", FeedbackMessage.UNDEFINED, true),
+		;
 
 		/**
 		 * Feedback message level
@@ -303,6 +306,34 @@ public class Toast implements IToast {
 	 */
 	public static Toast create(ToastType level, String message, String title) {
 		return new Toast(level, message, title);
+	}
+
+	/**
+	 * Creates a toast.
+	 *
+	 * @param feedbackMessage the feedback message
+	 * @return a toast
+	 */
+	public static Toast create(FeedbackMessage feedbackMessage) {
+		ToastType type = ToastType.fromFeedbackMessageLevel(feedbackMessage.getLevel());
+		String message = feedbackMessage.getMessage().toString();
+		return new Toast(type, message);
+	}
+
+	/**
+	 * Creates toast list.
+	 *
+	 * @param feedbackMessages the feedback message Iterable
+	 * @return toast list
+	 */
+	public static List<Toast> creates(Iterable<FeedbackMessage> feedbackMessages) {
+
+		List<Toast> toasts = new ArrayList<>();
+		for (FeedbackMessage feedbackMessage : feedbackMessages) {
+			toasts.add(create(feedbackMessage));
+		}
+
+		return toasts;
 	}
 
 	/**
