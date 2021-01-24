@@ -44,41 +44,41 @@ public class ToastTest extends AbstractIziToastTest {
 
 		{
 			Toast toast = Toast.info("info");
-			assertEquals(toast.getToastType(), ToastType.INFO);
-			assertEquals(toast.getMessage(), "info");
+			assertEquals(ToastType.INFO, toast.getToastType());
+			assertEquals("info", toast.getMessage());
 		}
 		{
 			Toast toast = Toast.success("success");
-			assertEquals(toast.getToastType(), ToastType.SUCCESS);
-			assertEquals(toast.getMessage(), "success");
+			assertEquals(ToastType.SUCCESS, toast.getToastType());
+			assertEquals("success", toast.getMessage());
 		}
 		{
 			Toast toast = Toast.warn("warn");
-			assertEquals(toast.getToastType(), ToastType.WARNING);
-			assertEquals(toast.getMessage(), "warn");
+			assertEquals(ToastType.WARNING, toast.getToastType());
+			assertEquals("warn", toast.getMessage());
 		}
 		{
 			Toast toast = Toast.error("error");
-			assertEquals(toast.getToastType(), ToastType.ERROR);
-			assertEquals(toast.getMessage(), "error");
+			assertEquals(ToastType.ERROR, toast.getToastType());
+			assertEquals("error", toast.getMessage());
 		}
 		{
 			Toast toast = Toast.plain("plain");
-			assertEquals(toast.getToastType(), ToastType.PLAIN);
-			assertEquals(toast.getMessage(), "plain");
+			assertEquals(ToastType.PLAIN, toast.getToastType());
+			assertEquals("plain", toast.getMessage());
 		}
 		{
 			Toast toast = Toast.question("question");
-			assertEquals(toast.getToastType(), ToastType.QUESTION);
-			assertEquals(toast.getMessage(), "question");
+			assertEquals(ToastType.QUESTION, toast.getToastType());
+			assertEquals("question", toast.getMessage());
 		}
 		{
 			FeedbackMessage fm = new FeedbackMessage(new Panel("id") {
 			}, "feedback", FeedbackMessage.ERROR);
 
 			Toast toast = Toast.create(fm);
-			assertEquals(toast.getToastType(), ToastType.ERROR);
-			assertEquals(toast.getMessage(), "feedback");
+			assertEquals(ToastType.ERROR, toast.getToastType());
+			assertEquals("feedback", toast.getMessage());
 		}
 		{
 			List<FeedbackMessage> feedbackMessages = new ArrayList<>();
@@ -92,10 +92,10 @@ public class ToastTest extends AbstractIziToastTest {
 			}, "warning", FeedbackMessage.WARNING));
 
 			List<Toast> toasts = Toast.creates(feedbackMessages);
-			assertEquals(toasts.size(), 4);
+			assertEquals(4, toasts.size());
 
 			for (Toast toast : toasts) {
-				assertEquals(toast.getMessage(), toast.getToastType().name().toLowerCase());
+				assertEquals(toast.getToastType().name().toLowerCase(), toast.getMessage());
 			}
 		}
 
@@ -179,7 +179,7 @@ public class ToastTest extends AbstractIziToastTest {
 		for (FeedbackMessage fm : link.getFeedbackMessages()) {
 			if (fm.getMessage() instanceof IToast) {
 				IToast toast = (IToast) fm.getMessage();
-				assertEquals(toast.getToastType(), level);
+				assertEquals(level, toast.getToastType());
 			} else {
 				fail();
 			}

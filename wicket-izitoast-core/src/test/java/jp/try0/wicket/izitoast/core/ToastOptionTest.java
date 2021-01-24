@@ -55,9 +55,9 @@ public class ToastOptionTest {
 
 			base.merge(overwrite);
 
-			assertEquals(base.getAnimateInside(), false);
+			assertEquals(false, base.getAnimateInside());
 			assertTrue(base.getImageWidth() == 1000);
-			assertEquals(base.getBackgroundColor(), "red");
+			assertEquals("red", base.getBackgroundColor());
 		}
 
 		{
@@ -70,11 +70,11 @@ public class ToastOptionTest {
 			overwrite.setImageWidth(1000);
 			overwrite.setBackgroundColor("red");
 
-			 base.merge(overwrite);
+			base.merge(overwrite);
 
-			assertEquals(base.getAnimateInside(), false);
+			assertEquals(false, base.getAnimateInside());
 			assertTrue(base.getImageWidth() == 1000);
-			assertEquals(base.getBackgroundColor(), "red");
+			assertEquals("red", base.getBackgroundColor());
 		}
 
 	}

@@ -10,7 +10,6 @@ import org.apache.wicket.util.tester.WicketTester;
 import org.junit.jupiter.api.Test;
 
 import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior;
-import jp.try0.wicket.izitoast.core.config.IziToastBehaviorAutoAppender;
 import jp.try0.wicket.izitoast.core.test.AbstractIziToastTest;
 
 /**
@@ -55,14 +54,14 @@ public class IziToastBehaviorAutoAppenderTest extends AbstractIziToastTest {
 
 		tester.assertBehavior(tester.getLastRenderedPage().getPageRelativePath(), IziToastBehavior.class);
 
-		assertEquals(container.getBehaviors(IziToastBehavior.class).size(), 0, "must be added only to page");
-		assertEquals(tester.getLastRenderedPage().getBehaviors(IziToastBehavior.class).size(), 1,
+		assertEquals(0, container.getBehaviors(IziToastBehavior.class).size(), "must be added only to page");
+		assertEquals(1, tester.getLastRenderedPage().getBehaviors(IziToastBehavior.class).size(),
 				"must be added only once to page");
 
 		tester.startPage(tester.getLastRenderedPage());
 
-		assertEquals(container.getBehaviors(IziToastBehavior.class).size(), 0, "must be added only to page");
-		assertEquals(tester.getLastRenderedPage().getBehaviors(IziToastBehavior.class).size(), 1,
+		assertEquals(0, container.getBehaviors(IziToastBehavior.class).size(), "must be added only to page");
+		assertEquals(1, tester.getLastRenderedPage().getBehaviors(IziToastBehavior.class).size(),
 				"must be added only once to page");
 	}
 
