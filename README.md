@@ -7,7 +7,7 @@ wicket-iziToast converts feedback messages to JavaScript for displaying toast.
 [![Build Status](https://github.com/try0/wicket-iziToast/workflows/Java%20CI/badge.svg)](https://github.com/try0/wicket-iziToast/actions?query=workflow%3A%22Java+CI%22)
 [![Build Status](https://travis-ci.org/try0/wicket-iziToast.svg?branch=master)](https://travis-ci.org/try0/wicket-iziToast)
 [![codecov](https://codecov.io/gh/try0/wicket-iziToast/branch/master/graph/badge.svg)](https://codecov.io/gh/try0/wicket-iziToast)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=jp.try0.wicket%3Awicket-iziToast-parent&metric=alert_status)](https://sonarcloud.io/dashboard?id=jp.try0.wicket%3Awicket-izitoast-parent)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=jp.try0.wicket%3Awicket-izitoast-parent&metric=alert_status)](https://sonarcloud.io/dashboard?id=jp.try0.wicket%3Awicket-izitoast-parent)
 [![Maven Central](https://img.shields.io/maven-central/v/jp.try0.wicket/wicket-izitoast-core.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22jp.try0.wicket%22%20AND%20a:%22wicket-izitoast-core%22)
 
 
