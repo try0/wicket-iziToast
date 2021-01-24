@@ -56,7 +56,6 @@
 						<goals>
 							<goal>report-aggregate</goal>
 						</goals>
-						<phase>verify</phase>
 					</execution>
 				</executions>
 			</plugin>
