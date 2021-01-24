@@ -79,10 +79,10 @@ public class IziToastSettingTest extends AbstractIziToastTest {
 
 		IziToastSetting settings = IziToastSetting.get();
 
-		assertEquals(settings.hasGlobalOptions(), false);
+		assertEquals(false, settings.hasGlobalOptions());
 		assertFalse(settings.getGlobalOption().isPresent());
 		assertTrue(settings.getMessageFilter().isPresent());
-		assertEquals(settings.getMessageFilter().get(), IFeedbackMessageFilter.ALL);
+		assertEquals(IFeedbackMessageFilter.ALL, settings.getMessageFilter().get());
 		assertTrue(settings.getToastTargetLinker() != null);
 
 	}
