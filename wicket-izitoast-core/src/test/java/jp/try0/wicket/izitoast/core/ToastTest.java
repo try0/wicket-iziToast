@@ -2,6 +2,9 @@ package jp.try0.wicket.izitoast.core;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.wicket.Page;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
@@ -9,6 +12,7 @@ import org.apache.wicket.feedback.FeedbackMessage;
 import org.apache.wicket.markup.Markup;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -57,6 +61,42 @@ public class ToastTest extends AbstractIziToastTest {
 			Toast toast = Toast.error("error");
 			assertEquals(toast.getToastType(), ToastType.ERROR);
 			assertEquals(toast.getMessage(), "error");
+		}
+		{
+			Toast toast = Toast.plain("plain");
+			assertEquals(toast.getToastType(), ToastType.PLAIN);
+			assertEquals(toast.getMessage(), "plain");
+		}
+		{
+			Toast toast = Toast.question("question");
+			assertEquals(toast.getToastType(), ToastType.QUESTION);
+			assertEquals(toast.getMessage(), "question");
+		}
+		{
+			FeedbackMessage fm = new FeedbackMessage(new Panel("id") {
+			}, "feedback", FeedbackMessage.ERROR);
+
+			Toast toast = Toast.create(fm);
+			assertEquals(toast.getToastType(), ToastType.ERROR);
+			assertEquals(toast.getMessage(), "feedback");
+		}
+		{
+			List<FeedbackMessage> feedbackMessages = new ArrayList<>();
+			feedbackMessages.add(new FeedbackMessage(new Panel("id") {
+			}, "error", FeedbackMessage.ERROR));
+			feedbackMessages.add(new FeedbackMessage(new Panel("id") {
+			}, "info", FeedbackMessage.INFO));
+			feedbackMessages.add(new FeedbackMessage(new Panel("id") {
+			}, "success", FeedbackMessage.SUCCESS));
+			feedbackMessages.add(new FeedbackMessage(new Panel("id") {
+			}, "warning", FeedbackMessage.WARNING));
+
+			List<Toast> toasts = Toast.creates(feedbackMessages);
+			assertEquals(toasts.size(), 4);
+
+			for (Toast toast : toasts) {
+				assertEquals(toast.getMessage(), toast.getToastType().name().toLowerCase());
+			}
 		}
 
 	}
@@ -113,7 +153,7 @@ public class ToastTest extends AbstractIziToastTest {
 	}
 
 	@ParameterizedTest
-	@EnumSource(value = ToastType.class, mode = Mode.EXCLUDE, names = { "UNDEFINED", "PLAIN", "QUESTION"})
+	@EnumSource(value = ToastType.class, mode = Mode.EXCLUDE, names = { "UNDEFINED", "PLAIN", "QUESTION" })
 	public void showToastWithFeedbackMessage(ToastType level) {
 
 		Link<Void> link = new Link<Void>("showToast") {
@@ -157,10 +197,9 @@ public class ToastTest extends AbstractIziToastTest {
 			protected void onClickAjaxLink(AjaxRequestTarget target) {
 				super.onClickAjaxLink(target);
 
-				assertThrows(IllegalStateException.class, () ->  {
+				assertThrows(IllegalStateException.class, () -> {
 					Toast.info("test").hide(target);
 				});
-
 
 			}
 		};
@@ -198,7 +237,6 @@ public class ToastTest extends AbstractIziToastTest {
 
 		AjaxLink<?> link = page.getAjaxLink();
 		tester.clickLink(link);
-
 
 		final String lastResponseString = tester.getLastResponseAsString();
 		assertTrue(lastResponseString.contains(Toast.getHideScript("hide-target-toast")));
