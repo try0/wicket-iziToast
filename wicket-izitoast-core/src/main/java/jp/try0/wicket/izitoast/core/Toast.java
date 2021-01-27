@@ -433,6 +433,26 @@ public class Toast implements IToast {
 	}
 
 	/**
+	 * Settings iziToast options.
+	 *
+	 * @param response the response object
+	 * @param option the toast option
+	 */
+	public static void settings(final IHeaderResponse response, IToastOption option) {
+		response.render(JavaScriptHeaderItem.forScript(getSettingsScript(option), null));
+	}
+
+	/**
+	 * Settings iziToast options.
+	 *
+	 * @param target the request target
+	 * @param option the toast option
+	 */
+	public static void settings(final IPartialPageRequestHandler target, IToastOption option) {
+		target.appendJavaScript(getSettingsScript(option));
+	}
+
+	/**
 	 * Gets hide toast script.
 	 *
 	 * @param toastId {@link ToastOption#id}
@@ -440,6 +460,16 @@ public class Toast implements IToast {
 	 */
 	public static String getHideScript(String toastId) {
 		return "var hideToast = document.getElementById('" + toastId + "');iziToast.hide({}, hideToast);";
+	}
+
+	/**
+	 * Gets settings script.
+	 *
+	 * @param option
+	 * @return
+	 */
+	public static String getSettingsScript(IToastOption option) {
+		return "iziToast.settings(" + option.toJsonString() + ");";
 	}
 
 	/**

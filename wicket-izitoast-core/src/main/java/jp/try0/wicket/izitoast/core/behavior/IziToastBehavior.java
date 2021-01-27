@@ -342,7 +342,7 @@ public class IziToastBehavior extends IziToastResourcesBehavior {
 	 * @return script for setting iziToast option
 	 */
 	protected String getScriptForSettingOption(final IToastOption option) {
-		return "iziToast.settings(" + option.toJsonString() + ");";
+		return Toast.getSettingsScript(option);
 	}
 
 	/**
