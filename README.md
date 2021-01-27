@@ -29,7 +29,7 @@ Deployed [wicket-izitoast-samples](https://try0.jp/app/wicket-izitoast-samples/)
 
 # Usage
 
-[Examples](https://github.com/try0/wicket-iziToast/wiki/Usage)
+[Examples](https://github.com/try0/wicket-iziToast/wiki)
 
 Add wicket-izitoast-core dependency.  
 Wicket 8.x
