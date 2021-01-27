@@ -1,6 +1,6 @@
 # wicket-iziToast
 [Apache Wicket](https://wicket.apache.org/) utilities for using [iziToast](http://izitoast.marcelodolza.com/).
-wicket-iziToast converts feedback messages to JavaScript for displaying toast.
+wicket-iziToast converts the feedback message to JavaScript to display the toast.
 
 
 
@@ -19,10 +19,6 @@ wicket-iziToast converts feedback messages to JavaScript for displaying toast.
 | ---- | ---- | ---- |
 | [1.x](https://search.maven.org/artifact/jp.try0.wicket/wicket-izitoast-core/1.0.0/jar)  | 8.x | 1.4.0 |
 | [2.x](https://search.maven.org/artifact/jp.try0.wicket/wicket-izitoast-core/2.0.0/jar) | 9.x | 1.4.0 |
-
-
-[Change Log](CHANGELOG.md)
-
 
 
 
