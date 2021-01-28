@@ -1,5 +1,32 @@
 # Change Log
 
+# Wicket9
+
+## 2.1.0
+
+* Add jp.try0.wicket.izitoast.core.Toast#settings(IHeaderResponse, IToastOption)
+* Add jp.try0.wicket.izitoast.core.Toast#settings(IPartialPageRequestHandler, IToastOption)
+* Add jp.try0.wicket.izitoast.core.Toast#create(FeedbackMessage)
+* add jp.try0.wicket.izitoast.core.Toast#creates(Iterable<FeedbackMessage>)
+
+## 2.0.0
+
+* For Wicket 9
+
+
+# Wicket8
+
+## 1.1.0
+
+* Add jp.try0.wicket.izitoast.core.Toast#settings(IHeaderResponse, IToastOption)
+* Add jp.try0.wicket.izitoast.core.Toast#settings(IPartialPageRequestHandler, IToastOption)
+* Add jp.try0.wicket.izitoast.core.Toast#create(FeedbackMessage)
+* add jp.try0.wicket.izitoast.core.Toast#creates(Iterable<FeedbackMessage>)
+
+## 1.0.0
+
+* For Wicket 8
+
 ## 0.5.0
 
 * Supports work with the feedback message reporter component
