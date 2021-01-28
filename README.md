@@ -17,8 +17,8 @@ wicket-iziToast converts the feedback message to JavaScript to display the toast
 
 | Version | Wicket | iziToast |
 | ---- | ---- | ---- |
-| [1.x](https://search.maven.org/artifact/jp.try0.wicket/wicket-izitoast-core/1.0.0/jar)  | 8.x | 1.4.0 |
-| [2.x](https://search.maven.org/artifact/jp.try0.wicket/wicket-izitoast-core/2.0.0/jar) | 9.x | 1.4.0 |
+| [1.1.0](https://search.maven.org/artifact/jp.try0.wicket/wicket-izitoast-core/1.1.0/jar)  | 8.x | 1.4.0 |
+| [2.1.0](https://search.maven.org/artifact/jp.try0.wicket/wicket-izitoast-core/2.1.0/jar) | 9.x | 1.4.0 |
 
 
 
@@ -37,7 +37,7 @@ Wicket 8.x
 <dependency>
     <groupId>jp.try0.wicket</groupId>
     <artifactId>wicket-izitoast-core</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 Wicket 9.x
@@ -45,7 +45,7 @@ Wicket 9.x
 <dependency>
     <groupId>jp.try0.wicket</groupId>
     <artifactId>wicket-izitoast-core</artifactId>
-    <version>2.0.0</version>
+    <version>2.1.0</version>
 </dependency>
 ```
 
