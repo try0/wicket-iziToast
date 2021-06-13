@@ -23,7 +23,7 @@ public class HomePage extends WebPage {
 	private static final long serialVersionUID = 1L;
 
 	public static String getGitHubUrl(Class<?> clazz) {
-		String base = "https://github.com/try0/wicket-iziToast/tree/develop/wicket-izitoast-samples/src/main/java/";
+		String base = "https://github.com/try0/wicket-iziToast/tree/wicket-9.x/wicket-izitoast-samples/src/main/java/";
 		return base + clazz.getName().replaceAll(Pattern.quote("."), "/") + ".java";
 	}
 
