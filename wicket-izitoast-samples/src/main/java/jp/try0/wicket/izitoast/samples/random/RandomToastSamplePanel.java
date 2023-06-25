@@ -1,5 +1,6 @@
 package jp.try0.wicket.izitoast.samples.random;
 
+import java.time.Duration;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -10,7 +11,6 @@ import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.Model;
-import org.apache.wicket.util.time.Duration;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -90,7 +90,7 @@ public class RandomToastSamplePanel extends AbstractSamplePanel {
 				counter.incrementAndGet();
 				showRandomToast(target);
 
-				dummyContainer.add(new AjaxSelfUpdatingTimerBehavior(Duration.milliseconds(800)) {
+				dummyContainer.add(new AjaxSelfUpdatingTimerBehavior(Duration.ofMillis(800)) {
 
 					@Override
 					protected void onPostProcessTarget(AjaxRequestTarget target) {
