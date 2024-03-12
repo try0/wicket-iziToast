@@ -65,9 +65,9 @@
 	<dependencies>
 		<!-- TEST DEPENDENCIES -->
 		<dependency>
-		    <groupId>jakarta.servlet</groupId>
-		    <artifactId>jakarta.servlet-api</artifactId>
-		    <version>6.0.0</version>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<version>6.0.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -105,6 +105,11 @@
 			<artifactId>guava</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.wicket</groupId>
+			<artifactId>wicket-tester</artifactId>
+			<scope>test</scope>
+		</dependency>
 
 	</dependencies>
 
@@ -124,6 +129,11 @@
 			<dependency>
 				<groupId>org.apache.wicket</groupId>
 				<artifactId>wicket-util</artifactId>
+				<version>${wicket.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.wicket</groupId>
+				<artifactId>wicket-tester</artifactId>
 				<version>${wicket.version}</version>
 			</dependency>
 
