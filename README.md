@@ -14,8 +14,9 @@ wicket-iziToast converts the feedback message to JavaScript to display the toast
 
 | Version | Wicket | iziToast |
 | ---- | ---- | ---- |
-| [1.1.0](https://search.maven.org/artifact/jp.try0.wicket/wicket-izitoast-core/1.1.0/jar)  | 8.x | 1.4.0 |
+| [3.0.0](https://search.maven.org/artifact/jp.try0.wicket/wicket-izitoast-core/3.0.0/jar) | 10.x | 1.4.0 |
 | [2.1.0](https://search.maven.org/artifact/jp.try0.wicket/wicket-izitoast-core/2.1.0/jar) | 9.x | 1.4.0 |
+| [1.1.0](https://search.maven.org/artifact/jp.try0.wicket/wicket-izitoast-core/1.1.0/jar)  | 8.x | 1.4.0 |
 
 
 
@@ -29,20 +30,30 @@ Deployed [wicket-izitoast-samples](https://try0.jp/app/wicket-izitoast-samples/)
 [Examples](https://github.com/try0/wicket-iziToast/wiki)
 
 Add wicket-izitoast-core dependency.  
-Wicket 8.x
+Wicket 10.x
 ```xml
 <dependency>
     <groupId>jp.try0.wicket</groupId>
     <artifactId>wicket-izitoast-core</artifactId>
-    <version>1.1.0</version>
+    <version>3.0.0</version>
 </dependency>
 ```
+
 Wicket 9.x
 ```xml
 <dependency>
     <groupId>jp.try0.wicket</groupId>
     <artifactId>wicket-izitoast-core</artifactId>
     <version>2.1.0</version>
+</dependency>
+```
+
+Wicket 8.x
+```xml
+<dependency>
+    <groupId>jp.try0.wicket</groupId>
+    <artifactId>wicket-izitoast-core</artifactId>
+    <version>1.1.0</version>
 </dependency>
 ```
 
@@ -62,7 +73,7 @@ IziToastSetting
 if true add IziToastBehavior to page automatically.
 
 ##### GlobalOption
-Default toast option. Execute iziToast.settings(option) in client-side and apply the default option.
+Default toast option. Execute iziToast.settings(option) on the client-side and apply the default option.
 
 ##### GlobalEachLevelOptions
 Default toast option per levels.
