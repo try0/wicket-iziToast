@@ -40,6 +40,11 @@
 			<artifactId>wicket-izitoast-core</artifactId>
 			<version>${wicket-izitoast.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>jp.try0.wicket</groupId>
+			<artifactId>wicket-honeypot-core</artifactId>
+			<version>3.0.0</version>
+		</dependency>
 		<!-- WICKET DEPENDENCIES -->
 		<dependency>
 			<groupId>org.apache.wicket</groupId>

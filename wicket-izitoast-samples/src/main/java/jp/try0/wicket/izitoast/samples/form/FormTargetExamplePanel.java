@@ -18,6 +18,8 @@ import org.apache.wicket.validation.IValidator;
 import org.apache.wicket.validation.ValidationError;
 import org.apache.wicket.validation.validator.StringValidator;
 
+import jp.try0.wicket.honeypot.behavior.HoneypotBehavior;
+import jp.try0.wicket.honeypot.behavior.HoneypotBehaviorConfig;
 import jp.try0.wicket.izitoast.core.IToast;
 import jp.try0.wicket.izitoast.core.Toast;
 import jp.try0.wicket.izitoast.core.behavior.IziToastBehavior;
@@ -82,6 +84,10 @@ public class FormTargetExamplePanel extends AbstractSamplePanel {
 
 			{
 				setOutputMarkupId(true);
+
+				var hbConfig = new HoneypotBehaviorConfig();
+				hbConfig.setDelay(1500);
+				add(new HoneypotBehavior(hbConfig));
 
 				add(new RequiredTextField<String>("txtFirstName", firstName) {
 					{

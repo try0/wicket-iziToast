@@ -5,4 +5,6 @@
 	<entry key="txtLastName">Last Name</entry>
 	<entry key="txtAge">Age</entry>
 	<entry key="chkAcceptLicense">License Agreement</entry>
+
+	<entry key="HoneypotBehavior.error">Please wait at least 1.5 second and then try again.</entry>
 </properties>
