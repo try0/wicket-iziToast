@@ -1,6 +1,9 @@
 # wicket-iziToast
-[Apache Wicket](https://wicket.apache.org/) utilities for using [iziToast](http://izitoast.marcelodolza.com/).
-wicket-iziToast converts the feedback message to JavaScript to display the toast.
+
+English | [日本語](README.ja.md)
+
+[Apache Wicket](https://wicket.apache.org/) utilities for using [iziToast](http://izitoast.marcelodolza.com/).  
+wicket-iziToast converts Wicket feedback messages into JavaScript that displays them as toasts.
 
 
 
@@ -14,14 +17,14 @@ wicket-iziToast converts the feedback message to JavaScript to display the toast
 
 | Version | Wicket | iziToast |
 | ---- | ---- | ---- |
+| [4.0.0](https://search.maven.org/artifact/jp.try0.wicket/wicket-izitoast-core/4.0.0/jar) | 11.x | 1.4.0 |
 | [3.0.0](https://search.maven.org/artifact/jp.try0.wicket/wicket-izitoast-core/3.0.0/jar) | 10.x | 1.4.0 |
-| [2.1.0](https://search.maven.org/artifact/jp.try0.wicket/wicket-izitoast-core/2.1.0/jar) | 9.x | 1.4.0 |
-| [1.1.0](https://search.maven.org/artifact/jp.try0.wicket/wicket-izitoast-core/1.1.0/jar)  | 8.x | 1.4.0 |
+
 
 
 
 # Demo
-Deployed [wicket-izitoast-samples](https://try0.jp/app/wicket-izitoast-samples/) module.
+A live demo of the [wicket-izitoast-samples](https://try0.jp/app/wicket-izitoast-samples/) module is available.
 
 
 
@@ -29,7 +32,16 @@ Deployed [wicket-izitoast-samples](https://try0.jp/app/wicket-izitoast-samples/)
 
 [Examples](https://github.com/try0/wicket-iziToast/wiki)
 
-Add wicket-izitoast-core dependency.  
+Add the wicket-izitoast-core dependency.  
+Wicket 11.x
+```xml
+<dependency>
+    <groupId>jp.try0.wicket</groupId>
+    <artifactId>wicket-izitoast-core</artifactId>
+    <version>4.0.0</version>
+</dependency>
+```
+
 Wicket 10.x
 ```xml
 <dependency>
@@ -39,44 +51,27 @@ Wicket 10.x
 </dependency>
 ```
 
-Wicket 9.x
-```xml
-<dependency>
-    <groupId>jp.try0.wicket</groupId>
-    <artifactId>wicket-izitoast-core</artifactId>
-    <version>2.1.0</version>
-</dependency>
-```
-
-Wicket 8.x
-```xml
-<dependency>
-    <groupId>jp.try0.wicket</groupId>
-    <artifactId>wicket-izitoast-core</artifactId>
-    <version>1.1.0</version>
-</dependency>
-```
 
 ### Initialize Settings
-You can set default values, in the application initialize process(Application#init).
+You can configure defaults during application initialization (Application#init).
 ```java
 IziToastSetting
 .createInitializer(this)
 .setAutoAppendBehavior(true)
-.setGlobalOption(option) // default iziToast option. apply in client-side (execute iziToast.settings(option))
-.setGlobalEachLevelOptions(perLevelOptions) // default option per levels. apply in server-side.
-.setToastMessageCombiner(combiner) // combiner that combine same level feedback messages.
+.setGlobalOption(option) // default iziToast options, applied on the client side via iziToast.settings(option)
+.setGlobalEachLevelOptions(perLevelOptions) // default options for each level, applied on the server side
+.setToastMessageCombiner(combiner) // combines feedback messages of the same level
 .initialize();
 ```
 #### Properties
 ##### AutoAppendBehavior
-if true add IziToastBehavior to page automatically.
+If true, IziToastBehavior is automatically added to every page.
 
 ##### GlobalOption
-Default toast option. Execute iziToast.settings(option) on the client-side and apply the default option.
+Default toast options. They are applied on the client side by calling iziToast.settings(option).
 
 ##### GlobalEachLevelOptions
-Default toast option per levels.
+Default toast options for each level.
 
 ```java
 ToastOption defaultInfoOption = new ToastOption();
@@ -90,11 +85,11 @@ EachLevelToastOptions options = EachLevelToastOptions.builder()
 ```
 
 
-Option priority level
-Default option per levels (GlobalEachLevelOptions) > Default option (GlobalOption)
+Option priority:  
+Per-level default options (GlobalEachLevelOptions) > Default options (GlobalOption)
 
 ##### ToastMessageCombiner
-Combiner that combines messages for each toast level.
+Combines messages of the same toast level into a single toast.
 
 ```java
 ToastMessageCombiner combiner = new ToastMessageCombiner();
@@ -103,26 +98,26 @@ combiner.setPrefix("・");
 // TODO setToastMessageCombiner(combiner)
 ```
 
-If execute this Java code.
+For example, with the following code:
 ```java
 error("message1");
 error("message2");
 ```
 
-Messages are combined and displayed in one toast.
+the messages are combined and displayed in a single toast.
 
 ![errors](https://user-images.githubusercontent.com/17096601/71779629-dd56bc80-2ffa-11ea-9f45-b75b1f86d5da.PNG)
 
 
 ### Display toast
 
-add IziToastBehavior to page.
-(If you set setAutoAppendBehavior to true when initializing settings, no need this code.)
+Add IziToastBehavior to the page.  
+(Not needed if you call setAutoAppendBehavior(true) during initialization.)
 ```java
 add(new IziToastBehavior());
 ```
 
-IziToastBehavior converts feedback messages to JavaScript for displaying toast.
+IziToastBehavior converts feedback messages into JavaScript that displays toasts.
 
 
 Success toast
@@ -157,7 +152,7 @@ Error toast
 
 
 ### Display toast manually
-In this case, need instance of class that implemented IHeaderResponse or AjaxRequestTarget.
+To show a toast manually, you need an IHeaderResponse or AjaxRequestTarget instance.
 
 ```java
 Toast.create(toastLevel, message)

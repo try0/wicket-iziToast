@@ -1,8 +1,8 @@
 package jp.try0.wicket.izitoast.samples;
 
 import org.apache.wicket.util.tester.WicketTester;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import jp.try0.wicket.izitoast.samples.HomePage;
 import jp.try0.wicket.izitoast.samples.WicketApplication;
@@ -14,7 +14,7 @@ public class TestHomePage
 {
 	private WicketTester tester;
 
-	@Before
+	@BeforeEach
 	public void setUp()
 	{
 		tester = new WicketTester(new WicketApplication());
@@ -28,5 +28,13 @@ public class TestHomePage
 
 		//assert rendered page class
 		tester.assertRenderedPage(HomePage.class);
+	}
+
+	@Test
+	public void homepageDoesNotLoadJQuery()
+	{
+		tester.startPage(HomePage.class);
+
+		tester.assertContainsNot("jquery");
 	}
 }

@@ -94,14 +94,19 @@ public class ToastHideSamplePanel extends AbstractSamplePanel {
 						super.renderHead(response);
 
 						response.render(OnDomReadyHeaderItem
-								.forScript("$('#" + getMarkupId() + "').on('mouseover', function(e) {"
+								.forScript("document.getElementById('" + getMarkupId() + "').addEventListener('mouseover', function(e) {"
 
 										+ "setTimeout(function() {"
-										+ "    if (!$(e.target).is(':hover')) return;"
-										+ "    var toast = $('#" + toastId + "');"
+										+ "    if (!e.target.matches(':hover')) return;"
+										+ "    var toast = document.getElementById('" + toastId + "');"
+										+ "    if (!toast) return;"
 						// remove conflict class. iziToast, Semantic UI"
-										+ "    toast.removeClass('fadeIn');"
-										+ "    toast.transition('jiggle');"
+										+ "    toast.classList.remove('fadeIn');"
+						// animation of semantic.css. duration 750ms
+										+ "    toast.classList.add('transition', 'jiggle');"
+										+ "    setTimeout(function() {"
+										+ "        toast.classList.remove('transition', 'jiggle');"
+										+ "    }, 750);"
 										+ "}, 500);"
 
 										+ "});"));

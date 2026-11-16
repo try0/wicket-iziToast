@@ -1,5 +1,12 @@
 # Change Log
 
+# Wicket11
+
+## 4.0.0
+
+* For Wicket 11 (requires Java 21)
+
+
 # Wicket9
 
 ## 2.1.0

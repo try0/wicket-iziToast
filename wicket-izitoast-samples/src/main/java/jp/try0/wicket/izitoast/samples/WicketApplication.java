@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.Properties;
 
 import org.apache.wicket.RuntimeConfigurationType;
+import org.apache.wicket.ajax.WicketAjaxResourceReference;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.settings.RequestCycleSettings.RenderStrategy;
@@ -50,6 +51,7 @@ public class WicketApplication extends WebApplication implements Serializable {
 		getMarkupSettings().setStripWicketTags(true);
 		getRequestCycleSettings().setRenderStrategy(RenderStrategy.ONE_PASS_RENDER);
 		getCspSettings().blocking().disabled();
+		getJavaScriptLibrarySettings().setWicketAjaxReference(WicketAjaxResourceReference.get());
 
 		ToastOption option = new ToastOption();
 		option.setStyleClass("izi-toast-custom");

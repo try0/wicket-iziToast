@@ -10,17 +10,14 @@
 <!-- semantic.css  -->
 <link rel="stylesheet" type="text/css"
 	href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.0/semantic.min.css">
-<!-- semantic.js  -->
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.0/semantic.min.js"></script>
 
 <script type="text/javascript">
-	$(function() {
+	document.addEventListener("DOMContentLoaded", function() {
 
 		if (window.location.href.indexOf("wicket-izitoast-samples-dev") > -1) {
-			$("#lblAppDev").addClass("blue");
+			document.getElementById("lblAppDev").classList.add("blue");
 		} else {
-			$("#lblAppMaster").addClass("blue");
+			document.getElementById("lblAppMaster").classList.add("blue");
 		}
 
 	});
