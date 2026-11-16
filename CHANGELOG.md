@@ -7,6 +7,13 @@
 * For Wicket 11 (requires Java 21)
 
 
+# Wicket10
+
+## 3.0.0
+
+* For Wicket 10 (requires Java 17)
+
+
 # Wicket9
 
 ## 2.1.0
