@@ -8,7 +8,7 @@ Wicket のフィードバックメッセージを JavaScript に変換し、ト�
 
 
 [![Build Status](https://github.com/try0/wicket-iziToast/workflows/Java%20CI/badge.svg)](https://github.com/try0/wicket-iziToast/actions?query=workflow%3A%22Java+CI%22)
-[![Maven Central](https://img.shields.io/maven-central/v/jp.try0.wicket/wicket-izitoast-core.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22jp.try0.wicket%22%20AND%20a:%22wicket-izitoast-core%22)
+[![Maven Central](https://img.shields.io/maven-central/v/jp.try0.wicket/wicket-izitoast-core.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/jp.try0.wicket/wicket-izitoast-core)
 
 
 
@@ -17,8 +17,8 @@ Wicket のフィードバックメッセージを JavaScript に変換し、ト�
 
 | バージョン | Wicket | iziToast |
 | ---- | ---- | ---- |
-| [4.0.0](https://search.maven.org/artifact/jp.try0.wicket/wicket-izitoast-core/4.0.0/jar) | 11.x | 1.4.0 |
-| [3.0.0](https://search.maven.org/artifact/jp.try0.wicket/wicket-izitoast-core/3.0.0/jar) | 10.x | 1.4.0 |
+| [4.0.0](https://central.sonatype.com/artifact/jp.try0.wicket/wicket-izitoast-core/4.0.0) | 11.x | 1.4.0 |
+| [3.0.0](https://central.sonatype.com/artifact/jp.try0.wicket/wicket-izitoast-core/3.0.0) | 10.x | 1.4.0 |
 
 
 
